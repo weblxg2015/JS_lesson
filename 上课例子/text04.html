@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+    练习1：“床前明月光moon，疑是地ground上霜”
+    （1）将其中的moon和ground变成大写
+    （2）床前明月光，疑是地上霜
+    （3）床a前明a月a光，疑a是地a上霜
+    再对上句话进行以 a 字符作为分割点，床，前明
+    （4）'月光'字号40px，绿色
+    “上霜”后面增加文字“测试测试，再整体增加下划线”
+
+    -->
+    <script>
+//                练习1：
+//        var v1="床前明月光moon，疑是地ground上霜";
+//        var d1=v1.substring(0,1);
+//        var d2=v1.substring(1,3);
+//        var d3=v1.substring(3,4);
+//        var d4=v1.substring(4,5);
+//        var d5=v1.substring(9,11);
+//        var d6=v1.substring(11,13);
+//        var d7=v1.substring(19);
+//        var d8="a";
+//        var d9=d1+d8+d2+d8+d3+d8+d4+d8+d5+d8+d6+d8+d7;
+//
+//        var v2=v1.substring(0,5);
+//        var v3=v1.substring(5,9);
+//        var v4=v1.substring(9,13);
+//        var v5=v1.substring(13,19);
+//        var v6=v1.substring(19);
+//
+//        var a1=v3.toUpperCase();
+//        var a2=v5.toUpperCase();
+//        var b2=d9.split("a");
+//        var c1=v1.substring(0,3);
+//        var c2=v1.substring(3,5);
+//        var c3=v1.substring(5);
+//        var c4="测试测试";
+//        document.write(v2+a1+v4+a2+v6+"<br>");
+//        document.write(v2+v4+v6+"<br>");
+//        document.write(d9+"<br>");
+//        document.write(b2+"<br>");
+//        document.write("<span style='text-decoration: underline'>"+c1+"<span style='font-size: 40px;color: #008000'>"+c2+"</span>"+c3+c4+"</span>");
+//        function fun1(){
+//            var v1=document.getElementById("id01").value;
+//            var v2=document.getElementById("id02").value;
+//            var v3=document.getElementById("id03").value;
+//            alert(parseFloat(v2)*parseInt(v3));
+
+//            document.write("<table>");
+//
+//            document.write("</table>");
+//        }
+
+/*
+* isNaN -js的内置函数，判断是否为数值
+*         返回：ture  非数值
+*               false 数值
+*  isFinite -js的内置函数，判断是否为无穷大
+*             返回：ture  非无穷大
+*                   false  无穷大
+*
+*     作业  1.将rgb的颜色转为十六进制如（23,34,225）转为#000000*
+*           2.用户输入字符串，只截取15个字符，剩余用...表示*
+*           3.用户输入字符串，去除字符串这种的空格*
+*           4.屏蔽关键字*
+*           5.encodeURIComponent()用法及encodeURI()的区别
+*           6.秘钥B，通过B对A内容加密，之后形成C，将C发给
+*              客户，用户再通过秘钥B将C解密，形成A
+*    */
+/*其他进制转十进制：
+ alert(parseInt('18',16));
+ */
+/*十进制转换成其它进制：
+var v1=24；
+alert（v1.toString（16））；
+v1.toString(8);
+ v1.toString(2);
+ v1.toString(10);
+ */
+//        document.write(escape(v2));/*转换为unicode码*/
+//          document.write(escape('\u5F90'));/*根据unicode码解码*/
+//        document.write(encodeURI(v2));
+
+//  var v1=prompt("输入");
+//        if(isNaN(v1)) {
+//            alert("不是数值");
+//        }
+//        else{
+//            alert("是数值");
+//        }
+
+var v2="徐";
+
+        document.write(decodeURI('%E5%BE%90'))
+          document.write(encodeURI())
+
+        </script>
+
+</head>
+<body>
+<input type="text" id="id01">
+<input type="text" id="id02">
+<input type="text" id="id03">
+<input type="button" value="确定" onclick="fun1()">
+</body>
+</html>

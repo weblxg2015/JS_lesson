@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*流程控制
+        * 条件语句： if(){
+         }
+         else{
+         }
+         else if(){
+         }
+         else if(){
+         }
+         else()
+        *
+        *
+        *
+        * 分支语句
+        * switch(){
+        }
+
+        for循环
+
+
+        * *
+        */
+
+
+
+//var v1=prompt("输入：")
+//        switch(v1){
+//            case "a":alert('A');break;
+//            case "b":alert('B');break;
+//            case "c":alert('C');break;
+//            default :alert('0');break;
+//        }
+//        输入1-12月份的天数
+//        var v1=prompt("输入月份：");
+//        switch(v1){
+//            case "1":
+//            case "3";"5","7","8","10","12":alert('31');break;
+//            case "4","6","9","11":alert('30');break;
+//            case "2":alert('28');break;
+//        }
+
+//        var v1 = document.getElementById("inp01").value;
+//        var v2 = document.getElementById("inp02").value;
+//        var v3 = document.getElementById("inp03").value;
+//
+//        a1=Number(v1);
+//        a2=Number(v2);
+//        a3=Number(v3);
+//
+//        var a4=a1.toString(16);
+//        var a5=a2.toString(16);
+//        var a6=a3.toString(16);
+//
+//        var b1=a4+a5+a6;
+//        //document.getElementById("body01").style.background=b1;
+//        alert(a1);
+//        alert(a2);
+//        alert(a3);
+
+//        for(var i=1;i<=100;i++) {
+//            document.writeln(i)
+//        }
+
+//        var sum=0;
+//        for(var i=1;i<=100;i++){
+//            sum=sum+i;
+//        }
+//        alert(sum);
+
+//        var v1="";
+//                for(var i=10;i<=10;i--){
+//                    v1=v1+"*";
+//                    document.writeln(v1+"<br>")
+//                }
+//        for(var i=5;i>=0;i--){
+//            for(var j=0;j<=i;j++){
+//                document.writeln("*");
+//           }
+//            document.writeln("<br>")
+////        }
+//        for(var i=5;i>=0;i--){
+//
+//        }
+
+
+    </script>
+</head>
+<body id="body01">
+红色：<input type="text" id="inp01"><br>
+绿色：<input type="text" id="inp02"><br>
+蓝色：<input type="text" id="inp03"><br>
+<input type="button" value="转换" id="bot01" onclick="fun01()">
+</body>
+</html>
+<script>
+    function fun01() {
+        var v1 = document.getElementById("inp01").value;
+        var v2 = document.getElementById("inp02").value;
+        var v3 = document.getElementById("inp03").value;
+
+        a1 = Number(v1);
+        a2 = Number(v2);
+        a3 = Number(v3);
+        var a4 = a1.toString(16);
+        var a5 = a2.toString(16);
+        var a6 = a3.toString(16);
+
+        var b1 ="#"+a4 + a5 + a6;
+
+document.getElementById("body01").style.background=b1;
+    }
+</script>

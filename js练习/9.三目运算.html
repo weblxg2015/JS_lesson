@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--练习：输入两个数，如果第一个数大于第二个数，求第一带第二个数的累加和，-->
+    <!--否则，求他们的异或值-->
+    <script>
+        a1=prompt();
+        a2=prompt();
+        v1=Number(a1);
+        v2=Number(a2);
+        var sum=0;
+        for(i=v2;i<=v1;i++){
+            sum=sum+i;
+        }
+        var v3=v1>v2?sum:(v1^v2);
+        alert(v3);
+        </script>
+</head>
+<body>
+
+</body>
+</html>

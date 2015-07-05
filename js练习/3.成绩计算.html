@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function fun01(){
+                    var v1 = document.getElementById("inp01").value;
+                    var v2 = document.getElementById("inp02").value;
+                    var v3 = document.getElementById("inp03").value;
+
+                    v4=Number(v1);
+                    v5=Number(v2);
+                    v6=Number(v3);
+
+                    if(v1>90){
+                        alert("语文优秀")
+                    }
+                    else if(90>=v2>80){
+                        alert("语文良好")
+                    }
+                    else if(80>=v2>70){
+                        alert("语文中等")
+                    }
+                    else if(70>=v2>60){
+                        alert("语文及格")
+                    }
+                    else if(v1<60){
+                        alert("语文差")
+                    }
+
+                    if(v2>90){
+                        alert("数学优秀")
+                    }
+                    else if(90>=v2>80){
+                        alert("数学良好")
+                    }
+                    else if(80>=v2>70){
+                        alert("数学中等")
+                    }
+                    else if(70>=v2>60){
+                        alert("数学及格")
+                    }
+                    else if(v2<60){
+                        alert("数学差")
+                    }
+
+
+                    if(v3>90){
+                        alert("英语优秀")
+                    }
+                    else if(90>=v3>80){
+                        alert("英语良好")
+                    }
+                    else if(80>=v3>70){
+                        alert("英语中等")
+                    }
+                    else if(70>=v3>60){
+                        alert("英语及格")
+                    }
+                    else if(v3<60){
+                        alert("英语差")
+                    }
+            var v7=v4+v5+v6;
+                    document.getElementById('show').innerHTML="<span>"+v7+"</span>";
+
+                }
+        </script>
+</head>
+<body>
+语文:<input type="text" id="inp01"><br>
+数学:<input type="text" id="inp02"><br>
+英语:<input type="text" id="inp03"><br>
+总成绩：
+<div style="width: 200px;height: 200px ;border:1px solid #000000;" id="show">
+
+</div>
+<input type="button" id="sub1" value="确定" onclick="fun01()">
+</body>
+</html>

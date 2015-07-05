@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function fun1() {
+            var v1 = document.getElementById("inp01").value;
+            if(v1==""||v1==null){
+                alert("请输入内容");
+                document.getElementById('inp01').focus();//
+                return;
+            }
+            var flag=true;//标志位
+            for (i = 0;i<v1.length;i++){
+                var v3=v1.charAt(i);
+                 var v4= v3.charCodeAt();
+                if((v4>= parseInt('4E00',16))&&(v4<=parseInt('9fcf',16))){
+                    flag=true;
+            }
+           else{
+                    flag=false;
+                    break;
+               }
+            }
+            if(flag==true){
+                alert('是中文')
+//                document.getElementById('show').innerText="<span style='font-size: 40px'>"+v1+"</span>";
+                document.getElementById('show').innerHTML="<span style='font-size: 40px'>"+v1+"</span>";
+
+            }
+            else{
+                alert('不是中文');
+            }
+        }
+        </script>
+</head>
+<body>
+<input type="text" id="inp01">
+<input type="button" value="确定" onclick="fun1()">
+<div style="width: 200px;height: 200px;border: 1px solid #000000" id="show">
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--3.字符型
+    （1）单双引号都可以
+    （2）转义字符
+    \'
+    \"
+    \n  回车换行
+    \r  回车
+    \t  相当于tab键
+    -->
+
+<script>
+//    var v1="a";
+//      alert(v1);
+
+//    document.write("输出;aaaa\tbbbbb")
+//    alert("输出：aaaa \tbbbbb")
+
+//    练习：使用转义字符输出(使用一条输出语句):
+//    1、'登陆'模块
+//    2、”注册“菜单
+//    3、应用    测试   退出
+//    document.write("\'登录\'<br>\"注册\"<br>应用&nbsp;测试&nbsp;退出")
+//    alert("\'登录\'\n\"注册\"\n应用\t测试\t退出");
+
+/*字符串操作
+1.charAt（）  获取指定位置的单个字符，下由0开始
+2.substring() 提取字符串中两个指定的索引号之间的字符。v1.substring(2,4)
+3.slice()  提取字符串的某个部分，并以新的字符串返回被提取的部分。
+4.split() 把一个字符串分割成字符串数组
+5.concat 连接字符串。
+7.toLowerCase 把字符串转换为小写。
+  toUpperCase把字符串转换为大写。
+8.indexOf()返回某个指定的字符串值在字符串中首次出现的位置。
+*/
+//    var v1="aBcdefg";
+
+//document.write(v1.substring(2,4));//cd [2,4]
+//document.write(v1.substring(2,0));//ab
+//document.write(v1.substring(0,2));//ab
+//document.write(v1.substring(1,-1));//a
+//document.write(v1.substring(-2,1));
+//document.write(v1.slice(1));
+//document.write(v1.slice(-2));//fg 只有一个参数，由后面取，下标由1开始
+//document.write(v1.slice(2,0)); //无效
+//document.write(v1.slice(2,-3)); //第二个参数为负值，表示从后面删除，由-1开始
+//document.write(v2.split("-",2));//参数二，表示提取的个数
+//document.write(v3.indexOf('d')); /*+*/
+/*
+* 9.charcodeAt() 获取指定字符的ascii码或unicode十进制码
+* 10.fromcharcode() ascii码或unicode十进制码解析字符
+* */
+//var v1="罗铭文";
+/*罗7F57
+* 铭94ed
+* 文 6587
+* */
+//    document.write(v1.charCodeAt())
+
+
+    function fun1(){
+//        alert("dddd");
+       var v1=document.getElementById('inp01').value;
+//        v1.length;//获取字符串长度
+//        alert(v1);
+        var v2=v1.charCodeAt();
+        if(v2>=48 && v2<=57){
+            alert("输入的是数字");
+        }
+        else{
+            alert("非数值，请重新输入")
+        }
+    }
+/*   作业：（1） 验证用户输入值，要求：必须由数字，下划线，$中任意内容组成，且以数字开头，长度在4-8之间
+              （2） 将小写金额转换成大写金额
+                例2345.45 ---贰仟叁佰肆拾伍元零肆角伍分
+                1.必须输入数字
+                2.最大范围：9999999999
+                3.保留两位小数（不进行四舍五入）
+           （3）由css3实现：五角星，六边形，心型，太极图
+           （4）将长数字分位显示
+              456766666666.89   - - 45,667,777,777.89
+*/
+
+
+    </script>
+</head>
+<body>
+ <input type="text" id="inp01">
+<input type="button" value="确定" onclick="fun1()">
+</body>
+</html>

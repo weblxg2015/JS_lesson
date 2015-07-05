@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--/练习：arr1=new Array(红,豆,生,南国，春来,发几,枝。愿,君,多采撷，此物,最,相思);
+    *       输出如下形式：红豆生南国，
+    *                     春来发几枝。
+                          愿君多采撷，
+                          此物最相思。
+
+    同时，红豆--红色，字号30px
+    几枝、采撷、相思--  下划线
+    春、愿、此--加粗、斜体
+    采用for in循环实现-->
+<script>
+    var arr1=new Array("红","豆","生","南国","春来","发几","枝。愿","君","多采撷","此物","最","相思");
+    for (var i in arr1) {
+        if (i == 0 || i == 1) {
+            document.write("<span style='color: #ff0000;font-size: 30px'>" + arr1[i] + "</span>")
+        }
+        else if (i == 3) {
+            document.write(arr1[i] + "," + "<br>")
+        }
+//        else if (i == 4) {
+//            document.write(arr1[i]);
+//        }
+        else if (i == 4) {
+            document.write("<span style=''>"+arr1[i].substring(0,1)+"</span>");
+        }
+
+//    for(var a1 in arr1) {
+//        if (a1 <= 1) {
+//            document.write("<span style='color: #ff0000;font-size: 30px'>" + arr1[a1] + "</span>");
+//        } else if (a1 == 2) {
+//            document.write("<span>" + arr1[a1] + "</span>")
+//        } else if (a1 == 3) {
+//            document.write(arr1[a1] + "<br>")
+//        } else if (a1 == 4) {
+//            document.write("<span style='font-weight: bolder;font-style: italic'>" + arr1[a1].substring(0, 1) + "</span>" + arr1[a1].substring(1, 2))
+//        } else if (a1 == 5) {
+//            document.write(arr1[a1].substring(0, 1) + "<span style='text-decoration: underline'>" + arr1[a1].substring(1, 2) + "</span>")
+//        } else if (a1 == 6) {
+//            document.write("<span style='text-decoration: underline'>" + arr1[6].substring(0, 2) + "</span>" + "<br>"
+//            + "<span style='font-weight: bolder;font-style: italic'>" + arr1[6].substring(2, 3) + "</span>")
+//        } else if (a1 >= 7 && a1 <= 8) {
+//            document.write(arr1[a1].substring(0, 1) + "<span style='text-decoration: underline'>" + arr1[a1].substring(1, 4) + "</span>")
+//        } else if (a1 == 9) {
+//            document.write("<br>" + "<span style='font-weight: bolder;font-style: italic'>" + arr1[a1].substring(0, 1) + "</span>" + arr1[a1].substring(1, 2)
+//            )
+//        } else if (a1 == 10) {
+//            document.write(arr1[a1])
+//
+//        } else if (a1 == 11) {
+//            document.write("<span style='text-decoration: underline'>" + arr1[a1] + "</span>")
+//        }
+
+
+    }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+    数据类型
+    1.属于弱类型语言
+    在强类型语言，存储的类型必须和数据相对应，java：string in float double
+
+    2.数值型
+
+    -->
+    <script>
+//        var v1=11;
+//        v2=10.5;
+//        v3=0.09;
+//        v4=3e10; //科学计数法 3*10^10
+//        v5=0.5e-5;//0.5*10^-5
+//        v6=0x35;//0x或0X 表示十六进制 53
+//        v7=0X23;//35
+//        v8=0xa5;//165
+//        v9=0xfe;//254
+//        v10=035;//0(零) 表示八进制 29
+//        v11=080;//如超出八进制范围，按十进制算 80
+//        v12=20e500;//infinity 正无穷
+//        v13=-20e500;//-infinity 负无穷
+//        var v1=prompt("");//输入对话框
+//        alert(v1);
+
+/*       *练习：输入三角形的三条边，要求分别用整形，科学技术法，十六进制，八进制几种方式输入
+          *判断是否为三角形
+          * 计算周长
+          *
+          */
+//      var v1=prompt("第一条边");
+//      var v2=prompt("第二条边");
+//      var v3=prompt("第三条边");
+//    if(v1+v2>v3) {
+//        if (v1+v3>v2) {
+//              if (v2+v3>v1) {
+//                  alert("这是三角形");
+//            }
+//              else alert("这不是三角形");
+//        }
+//        else alert("这不是三角形");
+//    }
+//    else alert("这不是三角形");
+
+       /*
+       类型转换
+       1.隐式类型转换：自动将数据从一种数据类型转换到另一种数据类型的过程
+        var a='12';
+        if(a>10){
+        alert(a*10);
+        }
+        else{
+        alert("小于10")
+        }
+
+        2.显示类型转换：需要手动转换到目标类型
+        */
+//        var a1=prompt("输入")
+//        a1=Number(a1);
+//        alert(a1+10);
+//
+//        Number('12');//12
+//        Number(true);//1
+//        Number(false);//0
+//        Number('hello');//NaN:not a number 非数值，表示一个本来要返回数值的的操作数没有返回数值的情况
+//        Number('23aa');//NaN
+//        Number("");//0
+//        Number('');//0
+//Number(0x24);//36
+//Number(0x14);//20
+//Number(096);//96
+//Number(23.5);//23.5
+//Number(-45);//-45
+//Number(45.9);//45.9
+//Number(3e9);//3亿
+
+parseInt('123');//125
+parseInt('123.67');//123
+parseInt(-12.5);//-12
+parseInt(-12.3);//-12
+//
+//parseInt('123');//123
+//parseInt('00123');//123
+//parseInt('12.6');//12
+//parseInt('12.3');//12
+//parseInt('0012.67');//12
+//parseInt('hello');//NaN
+//parseInt('23aa');//23
+parseInt('0023aa24');//23 对字符串进行解析，直到遇到非数字字符
+parseInt('aa23');//NaN
+parseInt(0.89);//0
+parseInt('0.89');//0
+parseInt(0.1);//0
+parseInt('0.1');//0
+parseInt('0x34');//52
+parseInt('34',16);//52
+parseInt('023');//23
+parseInt('23',8);//19
+parseInt('1010');//1010
+parseInt('1010',2);//10
+parseInt(34e5);
+a1=parseInt(34e-5);//0
+
+//alert(a1);
+
+parseFloat('123');//123
+parseFloat('00123');//123
+parseFloat('12.6');//12.6
+parseFloat('12.3');//12.3
+parseFloat('0012.67');//12.67
+parseFloat('hello');//NaN
+parseFloat('23aa');//23
+parseFloat('0023aa24');//23 对字符串进行解析，直到遇到非数字字符
+parseFloat('aa23');//NaN
+parseFloat(0.89);//0.89
+parseFloat('0.89');//0.89
+parseFloat(0.1);//0
+parseFloat('0.1');//0
+parseFloat('0x34');//0
+parseFloat('34',16);//34
+parseFloat('023');//23
+parseFloat('23',8);//23
+parseFloat('1010');//1010
+parseFloat('1010',2);//1010
+parseFloat(34e5);//
+parseFloat(34e-5);//0.00034
+
+
+    </script>
+</head>
+<body>
+
+<!--</body>-->
+<!--</html>-->
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head lang="en">-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title></title>-->
+    <!--&lt;!&ndash;-->
+    <!--数据类型-->
+    <!--1、js属于弱类型语言，类型由数据决定-->
+       <!--在强类型语言，存储的类型必须和数据相对应，java  string  int a='123'   float double-->
+
+    <!--2、数值型-->
+    <!--&ndash;&gt;-->
+    <!--<script>-->
+        <!--//       var v1=11;-->
+        <!--//        v2=10.5;-->
+        <!--//        v3=0.09;-->
+        <!--//        v4=3e10;  //科学计数法  3* 10^10-->
+        <!--//        v5=0.5e-5//0.5*10^-5-->
+        <!--//        v6=0x35;//0x或0X  表示十六进制  53-->
+        <!--//        v7=0X23;//35-->
+        <!--//        v8=0xa5;//165-->
+        <!--//        v9=0xfe;//254-->
+        <!--//        v10=035;// 0(零) 表示八进制  29-->
+        <!--//        v11=080;// 如超出八进制范围，按十进制算  80-->
+        <!--//        v12=20e500;//infinity  正无穷-->
+        <!--//        v13=-20e500;//-infinity 负无穷-->
+        <!--//        var v1=prompt("请输入你的年龄",1);//输入对话框 arg2 初始值-->
+        <!--//        alert(v1);-->
+        <!--/*-->
+         <!--* 练习：输入三角形的三条边，要求分别用整形、浮动型、科学计数法、十六进制、八进制几种方式输入-->
+         <!--* 判断是否为三角形-->
+         <!--* 计算周长-->
+         <!--* */-->
+        <!--/*-->
+         <!--* 类型转换-->
+         <!--* 1、隐式类型转换:自动将数据从一种数据类型转换到另一种数据类型的过程-->
+
+        <!--//     var a='12';-->
+        <!--//     if(a>10){-->
+        <!--//         alert(a*10);-->
+        <!--//     }else{-->
+        <!--//         alert('小于10');-->
+        <!--//     }-->
+        <!--/*2、显示类型转换：需要手动转换到目标类型*/-->
+        <!--var a1=prompt("输入");-->
+        <!--a1=Number(a1);-->
+        <!--//        alert(a1+10);-->
+        <!--Number('12');//12-->
+        <!--Number(true);//1-->
+        <!--Number(false);//0-->
+        <!--Number('hello');//NaN:not a number  非数值，表示一个本来要返回数值的操作数而没有返回数值的情况-->
+        <!--Number('23aa');//NaN-->
+        <!--Number("");//0-->
+        <!--Number('');//0-->
+        <!--Number(0x24);//36-->
+        <!--Number(0x14);//20-->
+        <!--Number(096);//96-->
+        <!--Number(23.5);//23.5-->
+        <!--Number(-45);//-45-->
+        <!--Number(-45.9);//-45.9-->
+        <!--Number(3e9);//3亿-->
+
+        <!--parseInt(123);          //123           parseFloat(123); 123-->
+        <!--parseInt(123.67);       // 123          parseFloat(123.67);123.67-->
+        <!--parseInt(-12.5);        // -12          parseFloat(-12.5);-12.5-->
+        <!--parseInt(-12.3);        // -12         parseFloat(-12.3);-12.3-->
+                                <!--//           parseFloat-->
+        <!--parseInt('123');        //  123         parseFloat('123');123-->
+        <!--parseInt('00123');      //  123         parseFloat('00123');123-->
+        <!--parseInt('12.6');       //  12         parseFloat('12.6');12.6-->
+        <!--parseInt('12.3');       //  12         parseFloat('12.3');12.3-->
+        <!--parseInt('0012.67');    // 12          parseFloat('0012.67');12.67-->
+        <!--parseInt('hello');      //  NaN         parseFloat('hello'); NaN-->
+        <!--parseInt('23aa');       //  23         parseFloat('23aa');23-->
+        <!--parseInt('0023aa24');     // 23          parseFloat('0023aa24');23    对字符串依次解析，直到遇到非数字字符止-->
+        <!--parseInt('aa23');       //  NaN         parseFloat('aa23');NaN-->
+        <!--parseInt(0.89);         // 0          parseFloat(0.89);0.89-->
+        <!--parseInt('0.89');       // 0          parseFloat('0.89');0.89-->
+        <!--parseInt(0.1);          //  0         parseFloat(0.1);0.1-->
+        <!--parseInt('0.1');        // 0          parseFloat('0.1');0.1-->
+        <!--parseInt('0x34');       // 52          parseFloat('0x34');0    parseFloat(0x34)  52-->
+        <!--parseInt('34',16);      //  52         parseFloat('34',16);34  parseFloat(34,16) 34   parseFloat('3a',16) 3-->
+        <!--parseInt('023');         // 23  parseInt(023);19           parseFloat('023');23   parseFloat(023)  19-->
+        <!--parseInt('23',8);       // 19          parseFloat('23',8);23-->
+        <!--parseInt('1010');       // 1010          parseFloat('1010');1010-->
+        <!--parseInt('1010',2);     // 10          parseFloat('1010',2);1010-->
+        <!--parseInt(34e5);         //           parseFloat(34e5);         parseFloat('34e5');3400000-->
+        <!--parseInt(34e-5);        // 0          parseFloat(34e-5);0.00034-->
+
+
+
+    <!--</script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->

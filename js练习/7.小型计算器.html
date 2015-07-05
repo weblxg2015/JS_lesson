@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function fun01(){
+            var v1=document.getElementById("inp01").value;
+            var v2=document.getElementById("inp02").value;
+            var v3=document.getElementById("sel01").value;
+            a1=Number(v1);
+            a2=Number(v2);
+            switch (v3){
+                case "a":b1=a1+a2;document.getElementById("show").innerHTML=b1;break;
+                case "b":b1=a1-a2; document.getElementById("show").innerHTML=b1;break;
+                case "c":b1=a1*a2; document.getElementById("show").innerHTML=b1;break;
+                case "d":b1=a1/a2; document.getElementById("show").innerHTML=b1;break;
+                case "e":b1=a1%a2; document.getElementById("show").innerHTML=b1;break;
+            }
+
+        }
+
+        </script>
+</head>
+<body>
+<input type="text" id="inp01">
+<select id="sel01">
+    <option value="a">+</option>
+    <option value="b">-</option>
+    <option value="c">*</option>
+    <option value="d">/</option>
+    <option value="e">%</option>
+    </select>
+<input type="text" id="inp02">
+<input type="button" onclick="fun01()" value="计算"><br>
+计算结果:
+<div style="width: 200px;height: 100px;border: 1px solid #000000" id="show"></div>
+</body>
+</html>

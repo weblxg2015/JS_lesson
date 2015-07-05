@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+//        https://passport.sohu.com/regist/to?appid=9998&ru=http://www.sohu.com
+//                                       地址？参数名1=参数值&参数名2=参数值&...
+//var v1="http://localhost:63342/javascriptproject_33/test14_2.html?uname=aasd&pwd=23424"
+//        v2=v1.substring(v1.indexOf("?")+1,v1.indexOf("="));
+//          v3=v1.substring(v1.indexOf("=")+1,v1.indexOf("&"));
+//v4=v1.substring(v1.indexOf("&")+1);
+//v5=v4.substring(0,v4.indexOf("="));
+//v6=v4.substring(v4.indexOf("=")+1);
+//      document.write(v2+"<br>"+v3+"<br>"+v5+"<br>"+v6)
+var v1="http://localhost:63342/javascriptproject_33/test14_2.html?uname=aasd&pwd=23424"
+        var a2=v1.substring(v1.indexOf("?"));
+//        var a2=a1.split("&");
+        var a3=a2.substring(0,a2.indexOf("&"));
+       var a4=a2.substring(a2.indexOf("&")+1);
+        var a5=a3.substring(0,a3.indexOf("="));
+        var a6=a3.substring(a3.indexOf("=")+1);
+document.write(a5+a6)
+    </script>
+</head>
+<body>
+<!--<form method="get">-->
+    <!--&lt;!&ndash;post不变化，get会出现，post更安全&ndash;&gt;-->
+<!--用户名：<input type="text" name="uname"><br>-->
+<!--密码：<input type="password" name="pwd"><br>-->
+<!--<input type="submit" value="确定">-->
+    <!--</form>-->
+</body>
+</html>
