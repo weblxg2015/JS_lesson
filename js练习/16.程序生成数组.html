@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+         * 练习：程序生成如下数组：
+         *       [[[1]],[[1,1],[2,2]],[[1,1,1],[2,2,2],[3,3,3]]...[[1,1,1,1,1,1,1,1]...[8,8,8,8,8,8,8,8]]]
+         *       循环输出数组内容，并计算数组中所有值的和。
+         *
+         * */
+        //        var arr = [];
+        //        var sum=0;
+        //        for(var i = 0;i < 8;i++){
+        //            var arr1 = [];
+        //            for(var j = 0;j < i + 1;j++){
+        //                arr1[j] = (j + 1);
+        //                var arr2 = [];
+        //                for(var k = 0;k < i+1;k++){
+        //                    arr2[k] = (j + 1);
+        //                    sum=sum+arr2[k];
+        //                }
+        //                arr1[j] = arr2;
+        //            }
+        //            arr[i] = arr1;
+        //            document.write(arr[i] + '<br>');
+        //        }
+        //        alert(sum);
+        //
+        var a = [];
+        for(var i = 0;i<8;i++){
+            a[i] = [];//[[],[],[]...]
+            for(var j = 0;j<=i;j++){
+                a[i][j] = [];//[[[]],[[],[]],[[],[],[]]...]
+                for(var z = 0;z<=i;z++){
+                    a[i][j][z] = j+1;
+                }
+            }
+        }
+        document.write(a + "<br>");
+        var num = 0;
+        for(var i = 0;i< a.length;i++){
+            for(var j = 0;j<a[i].length;j++){
+                for(var z = 0;z<a[i][j].length;z++){
+                    num = num +Number(a[i][j][z]);
+                }
+            }
+        }
+        document.write("总和为：" + num)
+        </script>
+</head>
+<body>
+
+</body>
+</html>

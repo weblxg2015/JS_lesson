@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul li{
+            list-style: none;
+        }
+        </style>
+    <script>
+     function fun01(){
+         var arrli = document.getElementsByTagName("li");
+         for(var i=0;i<arrli.length;i++) {
+             if((i+1)%2==1){
+             arrli[i].style.color = 'red';
+                 arrli[i].style.fontSize = '20px';
+         }
+         }
+     }
+    </script>
+</head>
+<body onload="fun01()">
+<ul id="id01">
+    <li>资深腐男陈凯歌：腐龄22年,专业撮合男神CP</li>
+    <li> [郭富城张震共“舞”拥抱草地打滚][郭富城张震上演制服战场情]娱乐知乎|花千骨的秘密全藏山海经里？</li>
+    <li> [赵丽颖：曾是十年路人甲 成功来得刚刚好][从傻白甜到收视女王]跑男收官：娱乐搞笑之外,上升空间在哪儿？</li>
+    <li> [跑男-郑恺成季度强者][极限挑战-黄渤孙红雷变装垃圾侠]不想娶？张靓颖男友回应传闻：此生,她是唯一</li>
+    <li> [张靓颖帮男友解围:他是傻子只好我来浪漫][男友未求婚引热议]周董晒合影庆结婚一周年 称去年7月5日领证</li>
+    <li> [昆凌挺孕肚抱爱犬和闺蜜聚会 品尝美食拍美照][网晒宝宝胎动照]</li>
+</ul>
+</body>
+</html>

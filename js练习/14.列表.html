@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul li{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-bottom:1px dotted #c0c0c0;
+            line-height: 30px;
+        }
+        </style>
+    <script>
+           function fun01(){
+               var arrli=document.getElementsByTagName("li")
+               for(i=0;i<arrli.length;i++){
+                   var v1=arrli[i].innerText;
+                   if(i==0){
+                       var v2=v1;
+                       arrli[i].innerHTML=v2;
+                   }
+                   if(i==1){
+                       var v2="<span style='background: red;display:inline-block;width: 20px;height: 20px'>"
+                               +"0"+i+"</span>"+ v1+"<br>"+"<img src=2015-07-06_135515.png>"+"<p style='display: inline-block;width: 110px'>"+"张靓颖在长沙站演唱会公布与少城时代CEO冯柯的恋情"+"</p>";
+                       arrli[i].innerHTML=v2;
+                   }
+                   else if(i<10&&i>1){
+                       var v2 = "<span style='background: #c0c0c0;display:inline-block;width: 20px;height: 20px'>"  +"0"+ i + "</span>" + v1;
+                       arrli[i].innerHTML = v2;
+                   }
+                   else if(i>10){
+                       var v2 = "<span style='background: #c0c0c0;display:inline-block;width: 20px;height: 20px'>" + i + "</span>" + v1;
+                       arrli[i].innerHTML = v2;
+                   }
+               }
+
+           }
+
+        </script>
+</head>
+<body onload="fun01()">
+<ul>
+    <li>视频点击排行榜</li>
+    <li>张靓颖演唱会公开恋情 男友上台求婚...<br>
+    </li>
+    <li>网友偶遇大S亲密合影 凸肚明显疑似...</li>
+    <li>刘烨晒与妻子旧照 求祝福庆结婚六周...</li>
+    <li>黄晓明对婚事三缄其口 澄清吻戏才拍...</li>
+    <li>汪小菲喂女儿气泡水：飞了14小时进...</li>
+    <li>“神经奶爸”贾乃亮潮范离京 美女助...</li>
+    </ul>
+</body>
+</html>

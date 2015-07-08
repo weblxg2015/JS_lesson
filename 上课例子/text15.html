@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+<script>
+    /*
+    数组
+    3.数组方法应用
+    （1）sort()对数组元素进行排序
+        [1]如对字母进行排序，是根据字母在字符编码表中的顺序进行排列
+        [2]如果元素不是字符串，sort方法会将元素都转换成字符串，再进行排序
+        [3]sort方法是在原数组的基础上进行排序，不会创建新的数组
+        [4]undefined元素会排列在数组的末尾,不输出内容
+            ''空字符串会排列在数组的前面
+            null会转换为字符串比较，但不输出内容
+            var arr1=['bb','','av','aa','bc','gg','z'];
+              输出 ：，aa，av，bb，bc,gg, ,z
+         [5]sort方法中可以放函数参数---比较函数
+               该函数具有两个参数，如a，b
+               如a<b,排序后的数组中a应出现在b之前，以此类推
+    */
+//    var arr1=[9,2,1,56,23,5,12,34,6,23,89];
+//    var arr1=['bb','','av','aa','bc','gg','z'];
+//    function fun1(a,b){//如果a>b应返回大于0，a<b小于0 a=b，返回等于0
+////        return a-b;//return b-a;降序
+//    }
+//    arr1.sort(fun1);
+//    alert(arr1);
+
+    /*对上面的数组进行奇偶排序*/
+//    var arr1=[9,2,1,56,23,5,12,34,6,23,89];
+//        function fun1(a,b){//如果a>b应返回大于0，a<b小于0 a=b，返回等于0
+//            return(a%2-b%2);
+////            var c1=a%2;
+////            var c2=b%2;
+////            if(c1==0) return -1;
+////            if(c2==0) return 1;
+//        }
+//    arr1.sort(fun1);
+//    alert(arr1);
+
+    /*对上面的数组进行排序指数在前*/
+//    var arr1=[9,2,1,56,23,5,12,34,6,23,89];
+//    function fun1(a,b){//如果a>b应返回大于0，a<b小于0 a=b，返回等于0
+//         var c1=-1;
+//          for(i=2;i<a/2;i++){
+//                  if(a%i==0) {
+//                      c1 = 1;
+//                  }
+//              }
+//              return c1;
+//    }
+//    arr1.sort(fun1);
+//    alert(arr1);
+
+    /*对下面的数组按字母先后排列（不分大小）*/
+//    var arr2=['bb','Ba','Zx','sa','aa','Ac'];
+////    var arr3=new Array();
+//    function fun2(a,b){
+//                if(a.toLowerCase()> b.toLowerCase()){
+//                    return 1;
+//                }
+//        else if(a.toLowerCase()< b.toLowerCase()){
+//            return -1;
+//        }
+//        else{
+//                    return 0;
+//                }
+
+//        var c  = (a.toLowerCase()> b.toLowerCase())?1:-1;
+//        return c;
+//
+//    }
+//    arr2.sort(fun2);
+//    alert(arr2);
+
+    /*对下面的数组根据是否浮点进行排序*/
+//        var arr3=[2.67,45.66,89.90,23,67.78,27,75.1];
+//        function fun3(a,b){
+//            c= a.toString().indexOf(".")
+//            if(c>0){
+//                return 1;
+//            }
+//            else if (c<=0){
+//                return -1;
+//            }
+
+//           var c=parseInt(a);
+//            if(c==a){
+//                return 1;
+//            }
+//            else{
+//                return -1;
+//            }
+//        }
+//        arr3.sort(fun3);
+//        alert(arr3);
+/*
+    (2) reverse();反转，对原数组进行反转，与sort一样，不会创建新的数组
+      */
+//    var arr3=[2.67,45.66,89.90,23,67.78,27,75.1];
+//             arr3.reverse();
+//            alert(arr3);
+
+    /*
+     (3)join:指定分隔符，连接数组元素;（可将数组转换成字符串）
+     注意：不修改原数组，生成新的字符串
+
+     把数组中的所有元素放入一个字符串。
+     元素是通过指定的分隔符进行分隔的。
+     */
+//    var arr1 = ["aa","bb","cc","dd","ee"];
+//    document.write(arr1.join("!")+"<br>");
+//    document.write(arr1);
+    /*
+     (4)concat 链接数组，将数据添加到数组末尾
+         [1]不修改原数组，而是生成新的数组
+         [2]如添加的数据中包含一维数组，会打散，按独立的元素添加到数组尾部
+         但concat只能大三一维数组，不会大三数组中包含的数组
+
+
+     连接数组，将数据添加到数组中，不修改原数组，生成新的字符串
+
+     方法用于连接两个或多个数组。
+     该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。
+     */
+//    var arr1 = ["aa","bb","cc","dd","ee"];
+//    document.write(arr1.concat(4,5)+"<br>");
+//    document.write(arr1);
+     /*
+     (5)slice
+     从已有的数组中返回选定的元素。
+//     */
+//        var arr1 = ["aa","bb","cc","dd","ee"];
+//        document.write(arr1.slice(1,3)+"<br>");
+//        document.write(arr1);
+     /*
+     (6)splice() ：
+     方法向/从数组中添加/删除项目，然后返回被删除的项目
+
+     */
+//    var arr = ["aa","bb","cc","dd","ee"];
+//    document.write(arr+"<br>");
+//    arr.splice(1,2,"zz");
+//    document.write(arr);
+
+//    document.write(arr.splice(1,2)+"<br>");
+//    document.write(arr)
+    /*
+    (7)toString():将数组转换为字符串
+    转成字符串后可应用字符串的相应方法
+     */
+//    1.数组中concat与字符串的concat的区别
+//    2.concat与join的区别
+
+//    var arr1=[2,1,9,56,23,5,12,34,6,23,89];
+//    var arr2=arr1.concat([2,3],[4,5,54]);
+//    alert(arr2);//2,1,9,56,23,5,12,34,6,23,89,2,3,4,5,54
+//    alert(arr2.length)//16
+
+//    var arr2=arr1.concat([[2,3],[4,5,54]],[12,90]);
+//    alert(arr2);
+//    alert(arr2.length);//15
+
+//    var arr1=[1,2,3,4,5];
+//    var arr2=arr1.slice(2,4); //[3,4] 第一个参数起始位置，第二个参数为终止位置（不包含）
+//    var arr2=arr1.slice(2,10);//[3,4,5]第二个参数超出数组长度，按数组长度截取
+//    var arr2=arr1.slice(2);//[3,4,5]如只有一个参数，取从该参数开始（包含到数组）
+//    var arr2=arr1.slice(-4,-2);//[2,3]如参数为负数，表示从右到左进行截取[-4，-2]
+//    var arr2=arr1.slice(-2,-4);//无
+//    alert(arr2);
+
+    var arr1=[1,2,3,4,5];
+//    arr1.splice(1,2,3,4,5);//[1,3,4,5,4,5]
+                           /*参数1：起始位置
+                              参数2：指定要删除的元素的个数
+                              参数3及后面所有参数：要插入的元素
+                            */
+//    var arr2=arr1.splice(1,2,3,4,5);//[2,3]即删除截取的数据
+//                                       arr1                 arr2
+//    var arr2=arr1.splice(2); //         1,2                3,4,5    如为一个参数，从该参数位置删除后面所有元素
+//    var arr2=arr1.splice(2,2);//       1,2,5                3,4
+//    var arr2=arr1.splice(2,0);//       1,2,3,4,5            空
+//    var arr2=arr1.splice(2,0,0,0,0) ;//  1,2,0,0,0,3,4,5   空
+//    var arr2=arr1.splice(6,2,3,4)     //1,2,3,4,5,3,4       空       当第一个参数值大于数组长度时，被视为在数组尾部执行操作，且删除无效
+//      var arr2=arr1.splice(-2,-3,6,7,8);// 1,2,3,6,7,8,4,5  空
+// 如第一个参数为负数，则按绝对值从数组右侧开始向左定位
+// 如第二个参数为负数，则被视为0
+
+//    document.rite(arr1+"<br>");
+//    document.write(arr2);
+    /*
+    a1=[2,3,6,87,23,12,56]
+    将a1变为['a',2,,'vv',3,3,'cc',56,22,90,'cc']
+    */
+//   var a1=[2,3,6,87,23,12,56];
+//   a1.splice()
+//    document.rite(arr1);
+/*中文拼音排序*/
+//    function fun02(a,b){
+//        return a.localeCompare(b);
+//    }
+//    arr1.sort(fun02);
+//            document.write(arr1)
+
+   /* (8)pop() 出栈，删除数组尾部一个元素，对元素组进行修改，并返回被删除的元素
+                  如删除到数组为空，则返回undefined
+        push() 入栈，在数组尾部增加数据，对原数组进行修改,并返回数组长度;
+
+
+    (9)shift():删除数组头部一个元素，对原数组进行修改，并返回被删除的元素
+          如删除到数组为空，则返回undefined
+      unshift()
+    */
+    var arr1=['bb','c'];
+//    var arr2=arr1.push('aa');
+//    var arr2=arr1.push('aa');
+//    alert(arr1);
+//    alert(arr2);//bb c aa
+//    var arr2=arr1.pop();
+//    alert(arr1);//bb
+//    alert(arr2);//c
+    var arr2=arr1.shift();
+    var arr3=arr2.shift();
+    alert(arr1);//c
+    alert(arr2);//bb
+    alert(arr3);//bb
+//    var arr2=arr1.unshift();
+//    alert(arr1);//bb,c
+//    alert(arr2);//2
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

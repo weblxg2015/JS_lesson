@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //起泡排序：
+//        var arr1=[100,23,6,67,89,12,87];
+//        for(i=0;i<arr1.length;i++){
+//            for(j=0;j<arr1.length-i;j++){
+//                if(arr1[j]>arr1[j+1]){
+//                    var temp;
+//                    temp=arr1[j+1];
+//                    arr1[j+1]=arr1[j];
+//                    arr1[j]=temp;
+//                }
+//            }
+//        }
+//        alert(arr1)
+
+        //起泡排序：
+//        var arr1=[100,23,6,67,89,12,87];
+//        var temp1 = 0;
+//        var point=0;
+//        for(i=0;i<arr1.length;i++) {
+//            for (j = 0; j < arr1.length - i; j++) {
+//                if (arr1[j] > arr1[j + 1]) {
+//                    point=j;
+//                }
+//                temp1=arr1[point];
+//                arr1[point]=arr1[ arr1.length - i];
+//                arr1[ arr1.length - i]=temp1;
+//            }
+//        }
+//        alert(arr1)
+
+        function selectSort(array) {
+            var min, temp; ;
+            for (var i = 0; i < array.length; i++) {
+                min = i;
+                for (var j = i + 1; j < array.length; j++) {
+                    if (array[min] > array[j])
+                        min = j;
+                }
+                if (min != i) {
+                    temp = array[i];
+                    array[i] = array[min];
+                    array[min] = temp;
+                }
+                /* 输出结果 */
+                document.write("第" + i + "遍排序的结果是:")
+                for (var n = 0; n < array.length; n++) {
+                    document.write(array[n] + ",");
+                }
+
+                document.write("<br />")
+                /* 输出结果结束 */
+            }
+        }
+
+        </script>
+</head>
+<body>
+
+</body>
+</html>
