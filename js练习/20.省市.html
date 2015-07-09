@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var province=["黑龙江","吉林","河南","湖北"];
+        var city=[["哈尔滨","大庆"],["吉林","长春"],["郑州","信阳"],["武汉","荆州"]];
+        function fun1(){
+            var selpro=document.getElementById("sel_pro");
+            var options="";
+            for(var i=0;i<province.length;i++){
+                options+=  "<option>"+province[i]+"</option>"
+            }
+            selpro.innerHTML=options;
+        }
+        function fun2(){
+            var selcity=document.getElementById("sel_city");
+            var options1="";
+            var v1=document.getElementById("sel_pro").value;
+            var v2=Number(province.indexOf(v1));
+            for(var i=0;i<city[v2].length;i++){
+                options1+=  "<option>"+city[v2][i]+"</option>"
+            }
+
+            selcity.innerHTML=options1;
+        }
+    </script>
+
+</head>
+<body onload="fun1()">
+省份：<select id="sel_pro" onchange="fun2()"></select>
+城市：
+<select id="sel_city">
+
+</select>
+</body>
+</html>
+
+
+<!--<script>-->
+    <!--var provinces=["黑龙江","吉林","河南","湖北"];-->
+    <!--var cities=[["哈尔滨","大庆"],["吉林","长春"],["郑州","信阳"],["武汉","荆州"]];-->
+    <!--function fun1(){-->
+        <!--var selpro=document.getElementById("sel_pro");-->
+        <!--var options="";-->
+
+        <!--for(var i=0;i<provinces.length;i++){-->
+            <!--options+=  "<option>"+provinces[i]+"</option>"-->
+        <!--}-->
+        <!--selpro.innerHTML=options;}-->
+        <!--function fun2(){-->
+            <!--var selprovalue=document.getElementById("sel_pro").value;-->
+            <!--var xiabiao=Number(provinces.indexOf(selprovalue));-->
+            <!--var selcity=document.getElementById("sel_city");-->
+            <!--var options01="";-->
+            <!--for(var j=0;j<cities[xiabiao].length;j++){-->
+                <!--options01+=  "<option>"+cities[xiabiao][j]+"</option>"-->
+            <!--}-->
+            <!--selcity.innerHTML=options01;-->
+        <!--}-->
+    <!--}-->
+
+<!--</script>-->
+<!--</head>-->
+<!--<body onload="fun1()">-->
+<!--省份：-->
+<!--<select id="sel_pro" onchange="fun2()">-->
+    <!--<option></option>-->
+<!--</select>-->
+<!--<br>-->
+<!--城市：-->
+<!--<select id="sel_city">-->
+
+<!--</select>-->
+
+
+<!--</body>-->
+<!--</html>-->
+
+
