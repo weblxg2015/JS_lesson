@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var timer1=setInterval(fun01,1000);
+        function fun01(){
+            var d=new Date();
+//            document.getElementById("id01").innerHTML="当前时间"+ d.toLocaleString();
+           var v1=d.getHours()+":"+d.getMinutes()+":"+ d.getSeconds();
+            document.getElementById("id01").innerHTML="当前时间:"+v1;
+        }
+        </script>
+</head>
+<body>
+<div id="id01"></div>
+</body>
+</html>

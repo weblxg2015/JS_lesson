@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--显示用户在网页中停留的时间  小时 分 秒-->
+    <script>
+        var v1=0;
+        var v2=0;
+        var v3=0;
+        function fun1(){
+            v3++;
+            if(v3==60){
+                v2++;
+                v3=0;
+            }
+            if(v2==60){
+                v1++;
+                v2=0;
+            }
+            var timer= setTimeout(fun1, 1000);
+            document.getElementById('id01').innerText="你停留了："+v1+'小时'+v2+'分'+v3+'秒';
+        }
+//        setInterval(fun1,1000);
+       var timer= setTimeout(fun1, 1000);
+    </script>
+</head>
+<body>
+<div id="id01"></div>
+</body>
+</html>

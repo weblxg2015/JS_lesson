@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        /*练习：为网站加提示语
+              8:00-9：00早上好
+              11:30-13:00 午休
+              18:00-19.00
+              节假日提示：
+              5月1日，劳动节，放假休息
+              7月10日 页面显示图片生日快乐
+        * */
+        function fun01(){
+
+        }
+         var v1=new Date();
+        v2=Number(v1.getHours());
+        v3=Number(v1.getMinutes());
+        a4=Number(v1.getMonth());
+        a5=Number(v1.getDate());
+        if(a4==4&&a5==1) {
+            document.write("劳动节");
+            if (v2 == 8 && v3 >= 0 && v3 <= 59) {
+                alert("早上好");
+            }
+            else if ((v2 == 11 && v3 >= 30) || v2 == 12) {
+                alert("午休")
+            }
+            else if (v2 == 18 && v3 >= 0 && v3 <= 59) {
+                alert("晚上好");
+            }
+        }
+       else if(a4==6&&a5==10) {
+            document.write("<img src='2015-07-06_135515.png'>"+"生日快乐");
+            if (v2 == 8 && v3 >= 0 && v3 <= 59) {
+                alert("早上好");
+            }
+            else if ((v2 == 11 && v3 >= 30) || v2 == 12) {
+                alert("午休")
+            }
+            else if (v2 == 18 && v3 >= 0 && v3 <= 59) {
+                alert("晚上好");
+            }
+        }
+       else {
+            if (v2 == 8 && v3 >= 0 && v3 <= 59) {
+                alert("早上好");
+            }
+            else if ((v2 == 11 && v3 >= 30) || v2 == 12) {
+                alert("午休")
+            }
+            else if (v2 == 18 && v3 >= 0 && v3 <= 59) {
+                alert("晚上好");
+            }
+        }
+         </script>
+
+
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//    var a1=new Date();
+//    a4=Number(a1.getMonth());
+//    a5=Number(a1.getDate());
+//    if(a4==4&&a5==1) {
+//        document.write("劳动节");
+//    }
+//    else if(a4==6&&v5==10) {
+//        document.write("今天生日");
+//    }
+
+</script>

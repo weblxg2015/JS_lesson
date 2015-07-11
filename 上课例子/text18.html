@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+        setInterval():间歇调用，按照指定的时间间隔重复执行代码；
+                      知道间歇调用被取消或页面被重载
+                      问题：有时后一个间歇调用会在前一个间歇调用结束之前启动
+                      解决：用setTimeout方法代替
+
+         setTimeOut() 超时调用，指定时间过后执行代码
+                clearTimeOut取消超时调用
+        */
+//        var i=1;
+//        function fun1(){
+//            i++;
+//            document.write(i);
+//            if(i==10){
+//                clearInterval(timer1)//清楚定时器
+//            }
+//        }
+//       var timer1=setInterval(fun1,1000);
+
+//        function fun01(){
+//            var d=new Date();
+////            document.getElementById("id01").innerHTML="当前时间"+ d.toLocaleString();
+//            var v1=d.getHours()+":"+d.getMinutes()+":"+ d.getSeconds();
+//            document.getElementById("id01").innerHTML="当前时间:"+v1;
+//        }
+
+//        var v2=1;
+//        function fun2(){
+//            v2++;
+//            document.write(v2);
+//        }
+//        setTimeout(fun2,1000);
+
+        //累加
+             var i=0;
+             var sum=0;
+            var timer1 = setTimeout(fun1, 1000);
+            function fun1() {
+                i++;
+                sum=sum+i;
+                document.write(sum+"<br>");
+
+                if(i==6){
+                    clearTimeOut(timer1);
+                }
+                else{
+                    setTimeout(fun1, 1000);
+                }
+        }
+
+        /*弹出新窗口
+        window.open（链接地址，窗口名称，窗口元素）
+        * */
+//        window.open("text17.html","new window","height=300px,weight=100px,screenX=300px,screenY=100px"+
+//        "scrollbars=no,resizable=no,titlebar=yes,toobar=yes,stauts=yas");
+        var timer1 = setTimeout(fun1, 1000);
+        i=1;
+        function fun1(){
+            i++;
+            if(i==5){
+                window.open()
+            }
+        }
+
+        </script>
+</head>
+<body>
+<div id="id01"></div>
+</body>
+</html>

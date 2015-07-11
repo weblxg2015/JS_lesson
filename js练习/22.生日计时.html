@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*练习：用户输入出生日期，计算从出生到现在获得天数，月数，星期数*/
+        d1=new Date();
+        a1=new Date();
+        a2=Number(prompt("请输入你的出生年分"));
+        a3=Number(prompt("请输入你的出生月份"));
+        a4=Number(prompt("请输入你的出生日期"));
+        a1.setFullYear(a2);
+        a1.setMonth(a3);
+        a1.setDate(a4);
+        var b1=d1-a1;
+        var t1=parseInt(b1/(1000*60*60*24));
+        var m1=parseInt(t1/30);
+        var w1=parseInt(t1/7);
+        alert(t1);
+        alert(m1);
+        alert(w1);
+//        alert(b1);
+//        alert("你活了"+"天")
+        </script>
+
+</head>
+<body>
+</body>
+</html>
