@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+        4.数学对象math;
+          abs:绝对值
+          floor:向下取整，舍去小数点后面的数
+          round:四舍五入
+          toFixed（n）:截取位数，四舍五入 ？？？
+          sqrt:返回一个数的平方根，小于0返回NaN
+          pow;返回x的y次幂的值，x为底数，y为幂数
+          max:返回参数中的最大值，参数可以多个
+               如没有参数，返回-infinity
+               如某个参数为NaN/undefined将不能转换为数字的非数值，则返回NaN
+               如某个参数为null，会Number(null)转换为0，进行比较
+          min:同上
+          sin:正弦值
+
+          random:返回介于0--1之间的随机数
+        */
+//        var a=9;
+//        var b=undefined;
+//        alert(Math.max(a,b));
+//        alert(Math.floor(Math.random()*27));
+
+//        0-9 随机选出三个数，可重复
+
+//        练习：验证嘛：0-9，a-z，A-z中任意内容，由5位组成
+        var str1="";
+        var arr1=[0,1,2,3,4,5,6,7,8,9];
+        for(var i=0;i<3;i++){
+            var m=Math.floor(Math.random()*10);
+            str1+=arr1[m];
+        }
+    document.write(str1);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

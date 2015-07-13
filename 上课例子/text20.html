@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        .d1{
+            position: relative;
+            top: 200px;
+            left: 200px;
+        }
+
+        </style>
+    <script>
+        var i=0;
+        function fun01(){
+            var v1=document.getElementById('id01');
+
+            var v2="好好学习,天天向上天天向上";
+           var c1=v2.substring(0,i-2);
+            var c2=v2.substring(i-2,i-1);
+            var c3=v2.substring(i-1,i);
+//            var c4=v2.substring(i);
+            var c5=v2.substring(i+1,i+2);
+            var c6=v2.substring(i+2,i+3);
+            var c7=v2.substring(i+3);
+
+            v1.innerHTML="<span style='position:relative;top:100px'>"+c1+"</span>"
+            +"<span style='position:relative;top:90px'>"+c2+"</span>"+
+            "<span style='position:relative;top:80px'>"+c3+"</span>"+
+            "<span style='position:relative;top:70px'>"+v2.charAt(i)+"</span>"+
+            "<span style='position:relative;top:80px'>"+c5+"</span>"+
+            "<span style='position:relative;top:90px'>"+c6+"</span>"+
+            "<span style='position:relative;top:100px'>"+c7+"</span>";
+            i++;
+            setTimeout(fun01,100);
+        }
+
+//输入两点之间的坐标，求两点之间的距离
+//function fun01(){
+//        var arr1="好好学习，天天向上！";
+////var arr1=["好","好","学","习","，","天","天","向","上"];
+//        var v1=[0,-3,-6,-8,-12,-18,-10,-9,-5,-1];
+//           for(var i= 0;i<arr1.length;i++) {
+//               document.write("<span style='position:relative;top:" + v1[i] + "px'>" + arr1.charAt(i)+ "</span>");
+//           }
+//}
+
+
+    </script>
+
+</head>
+<body onload="fun01()">
+<div id="id01" class="d1"></div>
+</body>
+</html>
+<!--var arr1 = "好好学习,天天向上!";-->
+<!--var j = 0;-->
+<!--function fun1(){-->
+<!--arr2 = arr1;-->
+<!--if(j==arr1.length)-->
+<!--j=0;-->
+<!--if(j==0){-->
+<!--arr2 = "<span style='position: relative;left: -5px'>" + arr2.substring(j,j+1)+"</span>"+arr2.substring(j+1);-->
+<!--}-->
+<!--else{-->
+<!--arr2 = arr2.substring(0,j) + "<span style='position: relative;top: -5px'>" + arr2.substring(j,j+1)+"</span>"+arr2.substring(j+1);-->
+<!--}-->
+
+<!--document.getElementById('d01').innerHTML = arr2;-->
+<!--j++;-->
+<!--}-->
+<!--setInterval(fun1,100);-->

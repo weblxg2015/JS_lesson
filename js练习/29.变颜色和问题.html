@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+    <title></title>
+</head>
+<body onload="fun01()">
+<div id="id01"></div>
+</body>
+</html>
+<script>
+    var arr1 = ["red", "blue", "green", "yellow", "pink"]
+    var arr2 = ['广州', "北京", "深圳", "哈尔滨", "杭州"]
+    function fun01() {
+        var m=Math.floor(Math.random()*arr2.length);
+        var n=Math.floor(Math.random()*arr1.length);
+        document.getElementById('id01').innerHTML=arr2[m];
+        document.getElementById('id01').style.color=arr1[n];
+        setTimeout(fun01,1000)
+    }
+</script>

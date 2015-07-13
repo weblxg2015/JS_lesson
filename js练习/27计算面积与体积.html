@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+//        练习:用户输入底面半径与柱体高度，计算圆柱体，圆锥的表面积，体积
+        r=Number(prompt("请输入底面半径"));
+        h=Number(prompt("请输入柱体高度"));
+        l=Math.sqrt(Math.pow(r,2)+Math.pow(h,2));
+        var v1=Math.PI*Math.pow(r,2)*h;
+        var s1=Math.PI*Math.pow(r,2)*2+2*r*Math.PI*h
+
+        var v2=v1/3;
+        var s2=Math.PI*Math.pow(r,2)+l*r*Math.PI
+
+        document.write("圆柱面积为"+Math.round(s1)+"<br>");
+        document.write("圆柱体积为"+Math.round(v1)+"<br>");
+        document.write("圆锥面积为"+Math.round(s2)+"<br>");
+        document.write("圆锥体积为"+Math.round(v2)+"<br>");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

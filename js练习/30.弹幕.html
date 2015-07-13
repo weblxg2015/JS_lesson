@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body onload="fun01()">
+<div id="id01"></div>
+</body>
+</html>
+<script>
+    var v1=["我从未见过如此厚颜无耻之人"];
+    var v2=["&nbsp;"];
+    var v4=[];
+    for(i=0;i<30;i++){
+          v1=v2.concat(v1)
+    }
+    v4=v1.concat(v4);
+//    v4=v1;
+//    alert(v4)
+    function fun01(){
+        if(v1.length>0) {
+            v1.splice(0, 1);
+            v3 = v1.join(" ");
+            document.getElementById('id01').innerHTML = v3;
+        }
+        else{
+            v1=v1.concat(v4);
+//            v1=v4;
+        }
+        setTimeout(fun01, 50)
+    }
+</script>
+
+<!--var arr2=[];-->
+<!--for(var i=0;i<150;i++){-->
+<!--arr2.push('&nbsp');-->
+<!--}-->
+<!--var a =arr2.join("");-->
+<!--function fun1(){-->
+<!--arr2.shift();-->
+<!--var b=arr2.join("");-->
+<!--if(arr2.length==0){-->
+<!--for(var i=0;i<150;i++){-->
+<!--arr2.push('&nbsp');-->
+<!--}-->
+<!--}-->
+<!--else{-->
+<!--document.getElementById('id01').innerHTML=b+'滚动的文字';-->
+<!--}-->
+<!--}-->
+<!--setInterval(fun1,100);-->
+<!--</script>-->

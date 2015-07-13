@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--练习：验证嘛：0-9，a-z，A-Z中任意内容，由5位组成-->
+    <style>
+
+        </style>
+</head>
+<body>
+<div id="id01"></div>
+</body>
+</html>
+<script>
+    var arr1=[0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F","G","H","I", "J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+        "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    var sum="";
+    for(i=0;i<5;i++){
+        var v1=Math.floor(Math.random()*62);
+        sum+=arr1[v1];
+    }
+//            var v2=Math.floor(Math.random()*3+1);
+//            document.write("<div style='width:500px;height:300px;font-size=30px;background: url("+v2+".jpg)'>"+sum+"</div>");
+
+            var imgs=["1.jpg","2.jpg","3.jpg"];
+            var v2=Math.floor(Math.random()*imgs.length);
+            v3=imgs[v2];
+    document.getElementById('id01').innerHTML=sum;
+    document.getElementById('id01').style.background="url("+v3+")"
+</script>
