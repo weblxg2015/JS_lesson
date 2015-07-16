@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+          location 定位：包含当前URL的有关信息
+
+             1.跳转页面
+         location.href="text22.html"
+         location.assign("text22.html");
+        window.location="text22.html";
+
+         window.location.href="text22.html";
+        document.location.href="text22.html";
+
+        2.获取url属性
+         location.host        服务器名称及端口
+         location.hostname    服务器名称
+         location.port        端口号
+         location.protocol    使用协议
+         location.pathname    路径
+         location.search            参数字符串
+
+         3.页面重新加载
+            location.reload（）； 有可能从缓存加载
+         location.reload（true）； 直接从服务器加载
+
+         4.页面替换
+         location.reload（） 不会在历史记录中生成新的记录
+        */
+
+//        function fun1(){
+//            location.href="text22.html"
+//            location.assign("");
+//            window.location="";
+
+//            window.location.href="text22.html";
+//            document.location.href="text22.html";
+//        }
+//        function fun02(){
+//           alert(location.protocol +"://"+location.host+location.pathname+location.search)
+//        }
+//function fun01() {
+//    location.reload();
+//}
+
+/*        练习：用户输入用户名、密码、验证用户名如为admin，密码123,
+          则登录成功，提示用户3秒后自动跳到主页，如不能跳转，请用户手工链接
+          否则重新输入
+
+
+          练习：打开一个子窗口，该子窗口在5秒以后自动关闭关闭同时刷新父窗口
+          */
+        </script>
+</head>
+<body>
+<!--<form method="get" onsubmit="fun02()">-->
+    <!--<input type="text" name="ninp01">-->
+    <!--<input type="submit" value="确定" onclick="fun01()">-->
+    <!--</form>-->
+<input type="button" value="确定" onclick="fun01()">
+</body>
+</html>

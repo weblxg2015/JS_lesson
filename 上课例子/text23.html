@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        /*
+        navigator 浏览器属性检测
+         navigator.appCodeName; 浏览器名称
+         navigator.appName;浏览器名称
+         navigator.appVersion;浏览器版本号
+         navigator.userAgent;用户代理
+
+
+         navigator.platform;操作系统平台
+             win --windows系统
+             mac --苹果系统，Macintosh
+             linux --linux系统
+             x11 --unix系统
+
+
+        */
+
+//       var v1=navigator.appCodeName;
+//        var v2=navigator.appName;
+//        var v3=navigator.appVersion;
+//        var v4=navigator.userAgent;
+//        var v5=navigator.platform;
+//        var v6=navigator.mimeTypes;
+
+
+
+        /*谷歌
+         Mozilla
+         Netscape
+         5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36
+         Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36
+         Win32
+         [object MimeTypeArray]
+
+         欧朋
+         Mozilla
+         Netscape
+         5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36 OPR/28.0.1750.51
+         Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36 OPR/28.0.1750.51
+         Win32
+         [object MimeTypeArray]
+
+         火狐
+         Mozilla
+         Netscape
+         5.0 (Windows)
+         Mozilla/5.0 (Windows NT 6.3; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0
+         Win32
+         [object MimeTypeArray]
+
+         IE
+         Mozilla
+         Netscape
+         5.0 (Windows NT 6.3; WOW64; Trident/7.0; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; .NET CLR 3.0.30729; rv:11.0) like Gecko
+         Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; .NET CLR 3.0.30729; rv:11.0) like Gecko
+         Win32
+         [object MimeTypeArray]
+
+        */
+
+
+        /*
+        2.浏览器内核
+         浏览器内核也叫排版引擎、渲染引擎，主要功能是取得网页的内容（html、xml、图像等）
+         整理信息（加入css）,计算网页的显示方式，输出显示器或打印机上
+
+         1.Trident --内核
+            js引擎：低版本ie  JScript
+                    高版本    chakra 查克拉
+            html引擎：Trident
+
+          2.Gecko  --ff（火狐）内核
+              js引擎：低版本  SpiderMonkey
+                      高版本  JagerMonkey
+              html 引擎：Gecko
+          3.webkit --苹果开源内核， chrome safari
+             基于该内核的浏览器主要用于移动端
+             js引擎：safari 低版本 javascript core
+                            高版本 Nitro
+                     chrome:V8引擎
+             html引擎：KHtml
+
+          4.presto --opera早期内核
+              js引擎：  低版本 linear
+              html引擎： 高版本 carakan
+              html引擎： 低版本 Elakre
+                         高版本 presto
+          5.Blink  --webkit内核的一个分支，早期chrome和opera的内核
+         */
+
+         /*
+         用户代理串
+          IE
+          Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; .NET CLR 3.0.30729; rv:11.0) like Gecko
+          compatible：兼容模式（早期的ie版本有，目的兼容网景）
+          浏览器版本号
+             MSIE 6.0      低版本
+             rv：11.0      高版本
+             Trident/7.0   内核/内核版本
+
+          双核、多核浏览器：UC浏览器，采用Trident和Blink内核
+
+         谷歌
+         Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36
+
+         欧朋
+         Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36 OPR/28.0.1750.51
+
+         Safari:
+         Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/534.57.2 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2
+          AppleWebKit/534.57.2 内核/内核版本
+          Version/5.1.7   浏览器版本号
+          Safari/534.57.2
+
+         火狐
+         Mozilla/5.0 (Windows NT 6.3; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0
+          Gecko/20100101   内核/内核版本号
+          Firefox/38.0    火狐浏览器标识、版本号
+
+         */
+
+//         document.write(navigator.mimeTypes+"<br>");
+         //        document.write(navigator.mimeTypes[i].type+"<br>");
+         //        document.write(navigator.mimeTypes[i].description+"<br>");
+         //        document.write(navigator.mimeTypes[i].suffixes+"<br>");
+         //        document.write(navigator.mimeTypes[i].enabledPlugin.name+"<br>");
+//         var minearr= navigator.mimeTypes;
+//         for (var i=0;i<minearr.length;i++){
+//         document.write(minearr[i].type+"<br>");
+//             document.write(navigator.mimeTypes[i].description+"<br>");
+//             document.write(navigator.mimeTypes[i].suffixes+"<br>");
+//             document.write(navigator.mimeTypes[i].enabledPlugin.name)
+//         }
+     /*
+      navigator.mimeTypes 获取浏览器资源媒体类型（一般指插件，返回数组）
+     navigator.mimeTypes[i].type                媒体类型
+      navigator.mimeTypes[i].description        描述
+     navigator.mimeTypes[i].suffixes            扩展名
+     navigator.mimeTypes[i].enabledPlugin.name 对该类型配置好的Plugin对象的引用
+        */
+
+        /*
+        判断用户是否有flash插件，没有自动连接地址
+        */
+        var minearr= navigator.mimeTypes;
+       var v1="";
+                 for (var i=0;i<minearr.length;i++){
+                     v1=minearr[i].suffixes+v1;
+        }
+        v2=v1.toLocaleLowerCase();
+        if(v2.indexOf("swf")>=0){
+            alert("你已安装flash插件")
+        }
+        else(
+                window.open("https://get.adobe.com/flashplayer/?loc=cn","dow","")
+        )
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

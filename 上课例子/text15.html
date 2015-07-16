@@ -195,7 +195,7 @@
     */
 //   var a1=[2,3,6,87,23,12,56];
 //   a1.splice()
-//    document.rite(arr1);
+//    document.write(arr1);
 /*中文拼音排序*/
 //    function fun02(a,b){
 //        return a.localeCompare(b);
@@ -210,17 +210,17 @@
 
     (9)shift():删除数组头部一个元素，对原数组进行修改，并返回被删除的元素
           如删除到数组为空，则返回undefined
-      unshift()在数组头添加数据，对元素组进行修改
+      unshift()在数组头添加数据，对原数组进行修改
 
       （10）indexOf 获得指定元素的下标值
       （11）delete  delete a1[2];删除指定的数组元素
 
     */
-//    var arr1=['bb','c'];
+    var arr1=['bb','c'];
 //    var arr2=arr1.push('aa');
 //    var arr2=arr1.push('aa');
-//    alert(arr1);
-//    alert(arr2);//bb c aa
+//    alert(arr1);bb c aa
+//    alert(arr2);//3
 //    var arr2=arr1.pop();
 //    alert(arr1);//bb
 //    alert(arr2);//c
@@ -229,9 +229,9 @@
 //    alert(arr1);//c
 //    alert(arr2);//bb
 //    alert(arr3);//bb
-//    var arr2=arr1.unshift();
-//    alert(arr1);//bb,c
-//    alert(arr2);//2
+    var arr2=arr1.unshift("aa");
+    alert(arr1);//aa,bb,c
+    alert(arr2);//3
 
 //    var a1=[2,3,6,87,23,12,56];
 //    a2=a1.indexOf(1);
@@ -275,15 +275,15 @@
 //    arr1.mydel(i);
 //    document.write(arr1);
 
-    Array.prototype.del1=function(n){
-         var v2 =this.slice(0,n);
-         var v3 = this.slice(n+1);
-         var v4 = v2.concat(v3);
-         document.write(v4);
-    }
-    var n= Number(prompt());
-    var a1=[2,3,6,87,23,12,56];
-    a1.del1(n);
+//    Array.prototype.del1=function(n){
+//         var v2 =this.slice(0,n);
+//         var v3 = this.slice(n+1);
+//         var v4 = v2.concat(v3);
+//         document.write(v4);
+//    }
+//    var n= Number(prompt());
+//    var a1=[2,3,6,87,23,12,56];
+//    a1.del1(n);
 
 </script>
 </head>

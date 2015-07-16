@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+    js的内置函数
+     1.parseInt()
+     2.parseFloat()
+     3.isNaN()
+     4.inFinite
+     5.escape()
+     6.unescape()
+
+     //作业
+     重点 7.eval()
+
+    -->
+
+
+    <script>
+    /*
+    BOM:浏览器对象模型 Browser Object Model
+
+    window--/-history
+            /-frames
+            /-navigator
+            /-location
+            /-screen
+            /-document
+
+    一.window
+        1.要点
+           （1）window对象代表当前打开的浏览器窗口
+           （2）window对象下的方法和属性不需要创建即可使用，且可以省略window
+               如 window.alert("ddd")；等价于alert("ddd")
+           （3）window对象是客户端最高层对象
+        2.常用的方法
+           alert
+           prompt
+           confirm
+
+           setInterval
+           setTimeout
+
+         3.window.status 状态栏
+
+    //        window.alert("ddd")
+    //        window.status="hello";
+    //    document.title="hello222222"//标题栏
+    //        document.status="hellolll"
+
+         4.打开新窗口
+        window.open（链接地址，窗口名称，窗口元素）
+        screenX：新窗口X方向位置
+       screenY：新窗口Y方向位置
+
+
+     window.open("text17.html","new window","height=300px,weight=100px,screenX=300px,
+     screenY=100px""scrollbars=no,resizable=no,titlebar=yes,toobar=yes,stauts=yas");
+
+     */
+//        function fun01(){
+//          var win1= window.open("text17.html","new window","height=300px,weight=100px")
+//        }
+//        setTimeout(fun01,2000)
+//
+//   var win01= window.open("text17.html","new window","height=300px,weight=100px")
+
+//           if(win1==null){
+//               alert("已拦截一个窗口")
+//           window.close("");//this.close();//close
+//           alert("已拦截一个网站");
+//       }
+//        setTimeout(fun2,1000);
+
+//        如何判断弹出窗口是否被拦截
+//    var win01= window.open("text17.html","new window","height=300px,weight=100px");
+//    if(win01==null) {
+//        alert("已拦截一个窗口")
+//    }
+
+        /*子窗口与父窗口的通信*/
+//      var win01= window.open("text23.html","sub_id01","height=300px,weight=100px")
+//        function fun3(arg){
+//            win01.document.getElementById("sub_id01").innerHTML=arg;
+//        }
+//        alert(arg);
+        //作业2：showModalDialog  应用
+//        练习：父窗口中输入三点坐标（x,y）,计算三点连线最长的两点，并计算三条边周长，返回到子窗口
+
+    /*
+     5.调整窗口大小
+     resizeTo:将窗口设定为指定宽高
+     resizeBy;相对于当前窗口尺寸调整大小
+
+    function fun01() {
+        window.resizeTo(300,300)
+        setTimeout(fun02,500)
+}
+    function fun02() {
+        window.resizeBy(500, 500);
+        setTimeout(fun02,500)
+    }
+     */
+
+    /*
+     6.窗口滚动
+      scrollTo:窗口滚动到指定位置
+     scrollBy:在原位置上滚动调整
+     *
+     */
+     function fun01(){
+         scrollBy(0,1000)
+//         window.scrollTo(100,100)
+     }
+
+
+        </script>
+</head>
+<body>
+<input type="button" value="确定" onclick="fun01()">
+<!--<input type="text" id="inp01" onchange="fun3(this.value)" >-->
+<!--<div id="show" style="width:100px;height:100px;border:1px solid #000000"></div>-->
+<div style="width: 2000px;height: 3000px;border: 1px solid red"></div>
+</body>
+</html>

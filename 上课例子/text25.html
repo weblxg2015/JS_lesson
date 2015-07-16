@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+        history 包含用户上网的历史记录，从浏览器窗口被打开的一刻算起
+                 history.back      上一页
+                 history.forward    下一页
+                 history.go（0）     当前页
+                 history.go（1）    下一页
+                 history.go（2）    下两页
+                 history.go（-1）   上一页
+                 history.go（-2）   上两页
+
+
+         screen 客户端显示器信息
+              1.screen.width  屏幕像素的宽度
+                screen.height 屏幕像素的高度
+                    ------即显示器的分辨率
+
+              2.浏览器窗口所能占到的最大宽高
+                 screen.availWidth
+                 screen.availHeight
+
+               3.浏览器与显示器边界的距离
+                  window.screenLeft （左）
+                  window.screenTop  （上）
+        */
+//        alert(screen.width+" "+screen.height)
+
+/*    练习：检测用户显示器分辨率，如低于1000*600，给出提示
+        var w1=Number(screen.width);
+        var h1=Number(screen.height);
+        alert("你的分辨率是"+screen.width+" "+screen.height)
+        if(w1<=1000||h1<=600){
+            alert("你的屏幕分辨率过低");
+         }*/
+
+//         alert(window.screenLeft+" "+window.screenTop)
+
+
+
+
+
+    </script>
+</head>
+<body>
+   <!--<div onclick="location.href='text22.html'">指向下一页</div>-->
+<!--<div id="id01" style="width: 2000px;height: 2000px;border: 1px solid #000000"></div>-->
+ <div id="id01" style="width: 300px;height: 100px;border: 1px solid red;overflow: scroll">
+       <div id="id02" style="width: 600px;height:180px;background: #75ffd6">
+           fdgzsdgseGESGESGSEGFeGFSFFEFfAEFesFssssssssssssssssssssssssssssssssssssssssfdgzsdgseGESGESGSEGFeGFSFFEFfAEFesFss
+           </div>
+     </div>
+
+<button onclick="fun1()">按钮</button>
+</body>
+</html>
+
+        <script>
+//                    scrollTop
+//                    scrollLeft
+//                    scrollWidth
+//                    scrollHeight
+//            var a1=document.getElementById("id01");
+//            var d1=a1.scrollTop;
+//            var d1=document.body.scrollWidth;
+//            alert(d1)
+//            var v1=document.body.scrollLeft;
+//            var v2=document.body.scrollLeft;
+//            alert(v1+" "+v2)
+            function fun1() {
+                var v1 = document.getElementById("id01");
+                var v2 = document.getElementById("id02");
+//                var w1=Number(v1.style.width.value);
+//                var w2=Number(v2.style.width.value);
+
+//                var w3=w2-w1;
+                v1.scrollLeft+=30;
+
+
+                if(v1.scrollLeft>=300){
+                    setTimeout(fun2,50);
+                }
+
+                else{
+                    setTimeout(fun1,50);
+                }
+            }
+            function fun2() {
+                var v1 = document.getElementById("id01");
+                var v2 = document.getElementById("id02");
+                v1.scrollLeft-=30;
+                if(v1.scrollLeft==0){
+                    setTimeout(fun1,50);
+                }
+                else{
+                    setTimeout(fun2,50);
+                }
+            }
+
+ //方法二
+//            function fun1() {
+//                var v1 = document.getElementById("id01");
+//                var v2 = document.getElementById("id02");
+//            }
+//
+//            function fun2(){
+//            }
+
+/*    var timer=setInterval(fun2,10)
+           d1.onmouseover=function(){//鼠标悬停事件
+                clearInterval(tim)
+            }
+            d1.onmouseout=function(){//鼠标离开事件
+               tim=setInterval(fun01,10)
+
+               */
+        </script>
+

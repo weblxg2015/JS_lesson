@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .d1{
+            width: 480px;
+            height:150px;
+            border: 1px solid #000000;
+            overflow:scroll;
+        }
+        .d2{
+            width: 2200px;
+            height:150px;
+            border: 1px solid #8fdfff;
+            background:#8fdfff;
+            display: flex;
+        }
+        .d3{
+            width: 30px;
+            height: 30px;
+            border: 1px solid #000000;
+        }
+        .d4{
+            width: 30px;
+            height: 30px;
+            border: 1px solid #000000;
+        }
+       .d5{
+           text-align: center;
+       }
+    </style>
+</head>
+<body>
+<div id="show" class="d1">
+    <div class="d2" id="wrap">
+        <div class="d5">
+    <img src="images/csplayer1.png"><br>play1
+            </div>
+        <div class="d5">
+            <img src="images/csplayer1.png"><br>play1
+        </div>
+        <div class="d5">
+            <img src="images/csplayer2.png"><br>play2
+        </div>
+        <div class="d5">
+            <img src="images/csplayer3.png"><br>play3
+        </div>
+        <div class="d5">
+            <img src="images/csplayer4.png"><br>play4
+        </div>
+        <div class="d5">
+            <img src="images/csplayer5.png"><br>play5
+        </div>
+        <div class="d5">
+            <img src="images/csplayer6.png"><br>play6
+        </div>
+        <div class="d5">
+            <img src="images/csplayer7.png"><br>play7
+        </div>
+        <div class="d5">
+            <img src="images/csplayer8.png"><br>play8
+        </div>
+        <div class="d5">
+            <img src="images/csplayer9.png"><br>play9
+        </div>
+        <div class="d5">
+            <img src="images/csplayer10.png"><br>play10
+        </div>
+        <div class="d5">
+            <img src="images/csplayer11.png"><br>play11
+        </div>
+        <div class="d5">
+            <img src="images/csplayer12.png"><br>play12
+        </div>
+        <div class="d5">
+            <img src="images/csplayer13.png"><br>play13
+        </div>
+        <div class="d5">
+            <img src="images/csplayer1.png"><br>play14
+        </div>
+        <div class="d5">
+            <img src="images/csplayer1.png"><br>play15
+        </div>
+        <div class="d5">
+            <img src="images/csplayer2.png"><br>play16
+        </div>
+        <div class="d5">
+            <img src="images/csplayer1.png"><br>play17
+        </div>
+
+   </div>
+</div>
+
+<div class="d3" onclick="fun01()">左</div><br>
+<div class="d4" onclick="fun02()">右</div>
+</body>
+</html>
+<script>
+    var v1 = document.getElementById("show");
+    var v2 = document.getElementById("wrap");
+    var a1=0;
+    var b1=0;
+    function fun01() {
+        v1.scrollLeft += 1;
+        a1 = a1 + 1;
+        var timer1 = setTimeout(fun01, 5);
+        if (a1 >= 10) {
+            a1 = 0;
+            clearTimeout(timer1);
+        }
+    }
+    function fun02() {
+        alert(b1)
+        alert(v1.scrollLeft)
+        v1.scrollLeft --;
+        b1 = b1 + 1;
+        var timer2 = setTimeout(fun02, 5);
+        if (b1 >= 10) {
+            b1 = 0;
+            clearTimeout(timer2);
+        }
+
+    }
+
+</script>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head lang="en">-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title></title>-->
+    <!--<style>-->
+        <!--#b1,#b2{-->
+            <!--width: 30px;-->
+            <!--height: 20px;-->
+            <!--border: 1px solid skyblue;-->
+            <!--border-radius: 4px;-->
+            <!--line-height: 20px;-->
+            <!--text-align: center;-->
+            <!--cursor: pointer;-->
+            <!--float: left;-->
+            <!--position: relative;-->
+            <!--left:660px;-->
+        <!--}-->
+        <!--#d1{-->
+            <!--width: 720px;-->
+            <!--height: 180px;-->
+            <!--border: 1px solid black;-->
+            <!--overflow: hidden;-->
+            <!--padding-top: 15px;-->
+            <!--clear: both;-->
+        <!--}-->
+        <!--#d2{-->
+            <!--width: 1425px;-->
+            <!--height: 180px;-->
+            <!--/*background: slateblue;*/-->
+            <!--text-align: center;-->
+            <!--padding: 0 0 0 15px;-->
+        <!--}-->
+        <!--#d2 img{-->
+            <!--width: 150px;-->
+        <!--}-->
+        <!--#d2 div{-->
+            <!--float: left;-->
+            <!--margin-right: 30px;-->
+        <!--}-->
+        <!--#d2 div:last-child{-->
+            <!--margin-right: 0;-->
+        <!--}-->
+        <!--#d2 p{-->
+            <!--margin: 10px 0 0 0 ;-->
+            <!--padding: 0;-->
+            <!--font: 14px 微软雅黑;-->
+        <!--}-->
+    <!--</style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="b1" onclick="fun1()">←</div>-->
+<!--<div id="b2" onclick="fun3()">→</div>-->
+<!--<div id="d1">-->
+    <!--<div id="d2">-->
+        <!--<div>-->
+            <!--<img src="img1/portfolio-1.png" alt=""/>-->
+            <!--<p>免烫高支棉衬衣</p>-->
+            <!--<p>$120.00</p>-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<img src="img1/portfolio-2.png" alt=""/>-->
+            <!--<p>免烫高支棉衬衣</p>-->
+            <!--<p>$120.00</p>-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<img src="img1/portfolio-3.png" alt=""/>-->
+            <!--<p>免烫高支棉衬衣</p>-->
+            <!--<p>$120.00</p>-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<img src="img1/portfolio-4.png" alt=""/>-->
+            <!--<p>免烫高支棉衬衣</p>-->
+            <!--<p>$120.00</p>-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<img src="img1/portfolio-5.png" alt=""/>-->
+            <!--<p>免烫高支棉衬衣</p>-->
+            <!--<p>$120.00</p>-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<img src="img1/portfolio-6.png" alt=""/>-->
+            <!--<p>免烫高支棉衬衣</p>-->
+            <!--<p>$120.00</p>-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<img src="img1/portfolio-7.png" alt=""/>-->
+            <!--<p>免烫高支棉衬衣</p>-->
+            <!--<p>$120.00</p>-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<img src="img1/portfolio-8.png" alt=""/>-->
+            <!--<p>免烫高支棉衬衣</p>-->
+            <!--<p>$120.00</p>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+<!--<script>-->
+    <!--function fun1(){-->
+        <!--var v1 = document.getElementById('d1');-->
+        <!--var c1 = 0;-->
+        <!--function fun2(){-->
+            <!--v1.scrollLeft -= 10;-->
+            <!--c1 += 10;-->
+            <!--if(c1 == 180){-->
+                <!--clearInterval(ss);-->
+                <!--c1 = 0;-->
+            <!--}-->
+        <!--}-->
+        <!--var ss = setInterval(fun2,10);-->
+        <!--v1.onmouseover = function(){//鼠标悬停-->
+            <!--clearInterval(ss);-->
+        <!--}-->
+        <!--v1.onmouseout = function(){//鼠标悬停-->
+            <!--ss = setInterval(fun2,10);-->
+        <!--}-->
+    <!--}-->
+    <!--function fun3(){-->
+        <!--var v1 = document.getElementById('d1');-->
+        <!--var c2 = 0;-->
+        <!--function fun4(){-->
+            <!--v1.scrollLeft += 10;-->
+            <!--c2 += 10;-->
+            <!--if(c2 == 180){-->
+                <!--clearInterval(sss);-->
+                <!--c2 = 0;-->
+            <!--}-->
+        <!--}-->
+        <!--var sss = setInterval(fun4,10);-->
+        <!--v1.onmouseover = function(){//鼠标悬停-->
+            <!--clearInterval(ss);-->
+        <!--}-->
+        <!--v1.onmouseout = function(){//鼠标悬停-->
+            <!--sss = setInterval(fun4,10);-->
+        <!--}-->
+    <!--}-->
+<!--</script>-->

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--练习：父窗口中输入三点坐标（x,y）,计算三点连线最长的两点，并计算三条边周长，返回到子窗口-->
+    <style>
+        .d1{
+            width: 50px;
+        }
+    </style>
+
+
+</head>
+<body>
+请输入第一个坐标：X:<input type="text" id="x1" class="d1">&nbsp;Y:<input type="text" id="y1" class="d1"><br><br>
+请输入第二个坐标：X:<input type="text" id="x2" class="d1">&nbsp;Y:<input type="text" id="y2" class="d1"><br><br>
+请输入第三个坐标：X:<input type="text" id="x3" class="d1">&nbsp;Y:<input type="text" id="y3" class="d1"><br><br>
+<input type="button" value="计算" onclick="fun01()"><br>
+<!--<div id="id01"></div>-->
+
+<script>
+
+    var win01= window.open("32-1.子窗口.html","sub_id01","height=300px,weight=300px");
+    function fun01(){
+        //            document.getElementById("id01").innerHTML=Math.sqrt(Math.pow(s1,2)+Math.pow(s2,2));
+        var x1=Number(document.getElementById("x1").value);
+        var y1=Number(document.getElementById("y1").value);
+        var x2=Number(document.getElementById("x2").value);
+        var y2=Number(document.getElementById("y2").value);
+        var x3=Number(document.getElementById("x3").value);
+        var y3=Number(document.getElementById("y3").value);
+        var sx1=x1-x2;
+        var sy1=y1-y2;
+        var h1= Math.sqrt(Math.pow(sx1,2)+Math.pow(sy1,2));
+
+        var sx2=x3-x2;
+        var sy2=y3-y2;
+        var h2= Math.sqrt(Math.pow(sx2,2)+Math.pow(sy2,2));
+
+        var sx3=x3-x1;
+        var sy3=y3-y1;
+        var h3= Math.sqrt(Math.pow(sx3,2)+Math.pow(sy3,2));
+
+        var m1= Math.max(h1,h2,h3);
+         var t1=h1+h2+h3;
+        win01.document.getElementById("sub_id01").innerHTML="最长的长度为："+m1+"<br>"+"三点的总周长为:"+t1;
+      setTimeout(fun3,500)
+    }
+//
+//    function fun3(){
+//
+//
+//    }
+//    alert(arg);
+</script>
+</body>
+</html>

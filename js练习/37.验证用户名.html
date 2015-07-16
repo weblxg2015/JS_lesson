@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*        练习：用户输入用户名、密码、验证用户名如为admin，密码123,
+         则登录成功，提示用户3秒后自动跳到主页，如不能跳转，请用户手工链接
+         否则重新输入
+         */
+//        function fun01(){
+            var v1= location.search;//?name=123&psw=456
+            var v2=v1.substring(1);//name=123&psw=456
+            var arr1=v2.split("&");
+            var i1=arr1[0].indexOf("=");
+            var a1=arr1[0].substring(i1+1);
+
+            var i2=arr1[1].indexOf("=");
+            var a2=arr1[1].substring(i2+1);
+
+            if(a1=="admin"&&a2=="123"){
+                alert("3秒后自动跳到主页");
+                location.href="随机彩票.html"
+                document.getElementById("a1").innerHTML="如不能跳转，请手动点击"+"<a href='随机彩票.html'></a>";
+//                setTimeout(fun02(),3000);
+            }
+            else{alert("输入错误，请重新输入！")}
+//        }
+
+//        function fun02(){
+//            window.open("随机彩票.html","shop","height=500px,weight=500px")
+//            location.href="随机彩票.html"
+
+    </script>
+</head>
+<body>
+<form onsubmit="fun03()">
+    用户名：<input type="text" name='name'>
+    密  码：<input type="text" name='psw'>
+    <input type="submit" value="提交">
+    <div id="a1"></div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var v2=navigator.userAgent;
+        var v1=v2.toLocaleLowerCase();
+        if(v1.indexOf("trident")!=-1){
+            alert("你用的是IE浏览器")
+        }
+        else if(v1.indexOf("version")!=-1){
+            alert("你用的是safari浏览器")
+        }
+        else if(v1.indexOf("opr")!=-1){
+            alert("你用的是opera浏览器")
+        }
+        else if(v1.indexOf("firefox")!=-1){
+            alert("你用的是火狐浏览器")
+        }
+        else if(v1.indexOf("chrome")!=-1&&v1.indexOf("opr")==-1){
+            alert("你用的是谷歌浏览器")
+        }
+
+        </script>
+</head>
+<body>
+
+</body>
+</html>
