@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 600px;
+            height: 500px;
+            border: 1px solid #000000;
+            visibility: visible;
+        }
+        </style>
+</head>
+<body onload="fun01()">
+<div id="img"></div>
+</body>
+</html>
+<script>
+    var imgs=["1.jpg","2.jpg","3.jpg","1.jpg","2.jpg","3.jpg"];
+    var a=0;
+    function fun01(){
+        v1=document.getElementById("img");
+        var b=imgs[a];
+        v1.style.background="url("+b+")";
+        if(a==imgs.length-1){
+            a=0;
+        }
+        if(a%2==0){
+            v1.style.visibility="hidden";
+        }
+        if(a%2==1){
+            v1.style.visibility="visible";
+        }
+        setTimeout(fun01, 500);
+        a++;
+    }
+    </script>

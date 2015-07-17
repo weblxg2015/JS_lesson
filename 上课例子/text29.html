@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #img01{
+            width: 100px;
+            height: 100px;
+        }
+        </style>
+    <script>
+//        function fun1(){
+//            var v1=document.getElementById("id01");
+//            v1.style.position="relative";
+//
+//            v1.style.left="1px";
+//            v1.style.top="1px";
+//            setInterval(function(){
+//                v1.style.left=parseInt(v1.style.left)+2+"px"
+//            },100);
+//        }
+
+        function fun01(v){
+//           var smalling= document.getElementById("img01");
+           // 获取元素属性
+           var str_src= v.getAttribute("src");
+            var bigimg=document.getElementById("img_big");
+            //设置元素属性
+            bigimg.setAttribute("src",str_src);
+            bigimg.setAttribute("width","400px");
+            bigimg.setAttribute("height","400px");
+        }
+
+        </script>
+</head>
+<body>
+<!--<div id="id01" style="width: 100px;height: 100px;background: red"></div>-->
+<!--<button onclick="fun1()">确定</button>-->
+<div style="width: 400px;height: 400px;border: 1px solid #ff0000" id="img2">
+    <img src="" id="img_big">
+    </div>
+<img src="2.jpg"id="img01" onclick="fun01(this)">
+</body>
+</html>

@@ -106,18 +106,17 @@
         v1.scrollLeft += 1;
         a1 = a1 + 1;
         var timer1 = setTimeout(fun01, 5);
-        if (a1 >= 10) {
+        if (a1 >= 200) {
             a1 = 0;
             clearTimeout(timer1);
         }
     }
     function fun02() {
-        alert(b1)
-        alert(v1.scrollLeft)
+
         v1.scrollLeft --;
         b1 = b1 + 1;
         var timer2 = setTimeout(fun02, 5);
-        if (b1 >= 10) {
+        if (b1 >= 100) {
             b1 = 0;
             clearTimeout(timer2);
         }

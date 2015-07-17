@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body onload="fun1(),fun3()">
+<div id="id01" style="width: 100px;height: 100px;background: red"></div>
+<!--<button onclick="fun1(), fun3()">确定</button>-->
+</body>
+</html>
+<script>
+    var a1=document.getElementById("id01");
+    a1.style.position="relative";
+    a1.style.left="0px";
+    a1.style.top="0px";
+    function fun1(){
+        var b2=parseInt(a1.style.left);
+        if(b2<1100){
+            a1.style.left=b2+2+"px";
+            setTimeout(fun1,10)
+        }
+        else if(b2>=1100){
+            setTimeout(fun2,10)
+        }
+    }
+    function fun2(){
+        var b2=parseInt(a1.style.left);
+        if(b2>0){
+            a1.style.left=b2-2+"px";
+            setTimeout(fun2,10)
+        }
+        else if(b2>=0){
+            setTimeout(fun1,10)
+        }
+    }
+
+    function fun3(){
+       var b1=parseInt(a1.style.top);
+         if(b1<300){
+             a1.style.top=b1+2+"px";
+             setTimeout(fun3,10)
+         }
+      else if(b1>=300){
+             setTimeout(fun4,10)
+         }
+    }
+    function fun4(){
+        var b1=parseInt(a1.style.top);
+        if(b1>0){
+            a1.style.top=b1-2+"px";
+            setTimeout(fun4,10)
+        }
+        else if(b1<=0){
+            setTimeout(fun3,10)
+        }
+    }
+</script>

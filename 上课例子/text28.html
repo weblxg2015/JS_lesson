@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function fun2(){
+//            var v_div= document.createElement("div");//<div></div>节点
+//            var t_div= document.createTextNode("hello111");节点文本
+//            var v2_div=v_div.appendChild(t_div);//<div>hello</div>
+//            document.body.appendChild(v2_div)
+
+            var v1=document.getElementById("ulid1");
+            var vli= document.createElement("li");
+            var tli= document.createTextNode("eeeeeeee\t");
+            var v2li=vli.appendChild(tli);
+             v1.appendChild(v2li)
+
+
+
+        }
+    </script>
+</head>
+<body onload="fun01()">
+<!--<div id="d0" style="width: 200px;height:30px; border: 1px solid #ff0000;overflow: hidden" >-->
+    <!--<div id="d1">-->
+    <!--<ul>-->
+        <!--<li>dddddddd</li>-->
+        <!--<li>aaaaaaaa</li>-->
+        <!--<li>aaaaaaaa</li>-->
+        <!--<li>aaaaaaaa</li>-->
+    <!--</ul>-->
+        <!--</div>-->
+    <!--<div id="d2"></div>-->
+<!--</div>-->
+
+<!--<script>-->
+    <!--document.getElementById("d2").innerHTML=document.getElementById("d1").innerHTML;-->
+    <!--var v1=document.getElementById("d0");-->
+    <!--function fun01(){-->
+        <!--v1.scrollTop++;-->
+        <!--setTimeout(fun01,20)-->
+    <!--}-->
+<!--</script>-->
+
+
+<ul id="ulid1">
+    <li>dddddddd</li>
+    <li>aaaaaaaa</li>
+    <li>bbbbbbbb</li>
+    <li>cccccccc</li>
+    </ul>
+<button onclick="fun2()">确定</button>
+
+</body>
+</html>
