@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .inp{
+            width: 200px;
+            height: 30px;
+            color: #d6d6d6;
+        }
+        .but{
+            width: 200px;
+            height: 30px;
+            background: #6e9cff
+        }
+        .text{
+            border: 1px solid #d6d6d6;
+            width: 180px;
+            line-height: 20px;
+            position: absolute;
+            left: 220px;
+            top: 70px;
+        }
+        </style>
+
+</head>
+<body style="line-height: 30px">
+<form id="form01">
+<input type="text" value="手机号码" class="inp" onfocus="fun01()" onblur="fun02(this)">
+<div style="color: red;opacity: 0">请输入手机号</div>
+
+<input type="text" value="密码" class="inp"  onblur="fun03(this)")><br>
+<!--<div class="text" style="opacity: 0">长度为8-16个字符，区分大小写，至少包含两种类型</div>-->
+
+<input type="checkbox" onclick="fun04()">我已阅读接受《Flyme服务协议条款》<br><br>
+</form>
+<button class="but" id="a1">注册</button>
+<script>
+   var form01= document.getElementById("form01");
+
+    var v1 = document.body.getElementsByTagName("input");
+    var d1 = document.body.getElementsByTagName("div");
+
+    var b1= document.createTextNode("数字长度必须为11位");
+    var b2= document.createTextNode("必须全为数字");
+
+   var b3= document.createTextNode("长度为8-16个字符，区分大小写，至少包含两种类型");
+//    var t2= t1.appendChild(b1);
+//    var t3= t1.appendChild(b2);
+   var x;
+   var y;
+   var z;
+
+  function fun01(){
+      d1[0].style.opacity="1"
+  }
+    function fun02(n){
+        var a1=v1[0].value;
+        x=0;
+        if(a1.length==11) {
+            for (var i = 0; i < a1.length; i++) {
+                   if(a1.charCodeAt(i)>=48&&a1.charCodeAt(i)<=58){
+                       d1[0].style.opacity="0";
+                       x=1;
+                   }
+                else {
+                       n.focus();
+                       form01.insertBefore(b2,form01.childNodes[2]);
+                   }
+            }
+        }
+        else{
+            n.focus();
+            form01.insertBefore(b1,form01.childNodes[2])
+        }
+    }
+
+    function fun03(j){
+        y=0;
+        var a1=v1[1].value;
+        if(a1.length>=8&&a1.length<=16){
+            y=1;
+        }
+        else{
+            j.focus();
+            form01.insertBefore(b3,form01.childNodes[7]);
+        }
+    }
+
+    function fun04(){
+        z=0;
+        if(v1[2].checked){
+            z=1;
+        }
+        var total=x+y+z;
+       if(total==3){
+           var d1=document.getElementById("a1")
+           a1.disabled=true;
+       }
+    }
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

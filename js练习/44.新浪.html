@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+           window.onload=function() {
+               var a1 = document.getElementById('id01').childNodes;
+               var b1 = a1[1].childNodes[1].childNodes;
+               for (i = 0; i < b1.length; i++) {
+                   if (b1[i].nodeName.toLocaleLowerCase() == "h6") {
+                       b1[i].style.color = "red";
+                       b1[i].style.fontSize = "20px"
+                   }
+                   else if (b1[i].nodeName.toLocaleLowerCase() == "ul") {
+                       b1[i].style.listStyle = "none";
+                   }
+               }
+
+               var b2 = a1[3].childNodes[1].childNodes;
+               b2[1].style.height="25px";
+               b2[1].style.color="grey";
+
+               b2[3].value="热文搜索";
+               b2[3].style.height="30px";
+               b2[3].style.color="grey";
+           }
+
+    </script>
+
+</head>
+<body>
+
+
+<div id="id01">
+    <div >
+        <div>
+            <h6><a  target="_blank">煎饼侠互动直播!14时起柳岩袁姗姗接力做客</a></h6>
+            <ul class="txt">
+                <li>[<a target="_blank">《煎饼侠》首周末3天4.27亿</a>][<a  target="_blank">范冰冰李晨吴亦凡晒照片同撑大鹏</a>]</li>
+            </ul>
+
+
+            <h6><a >李晨黄征众星助力跑步风尚!两月挑战100公里</a></h6>
+            <ul class="txt">
+                <li>[<a >回顾:第一季黄奕周韦彤马布里等众星领跑</a>][<a>第二季李晨杜江加盟</a>]</li></ul>
+            <h6><a >冯小刚发声挺汤唯：为什么不封杀李安梁朝伟</a></h6>
+            <ul class="txt">
+                <li>[<a >汤唯:父母给我算过命,我和我先生命中注定</a>][<a >冯小刚请客大咖齐聚</a>]</li></ul>
+            <h6><a >玩嗨了!孙红雷罗志祥变花姑娘 黄渤被逼跳河</a></h6>
+
+
+            <h6></h6>
+            <ul class="txt"></ul>
+        </div>
+    </div>
+    <div class="search">
+        <form target="_blank">
+            <input type="text" value="奔跑吧兄弟" >
+            <input type="submit" value="" >
+            <input type="hidden" >
+        </form>
+    </div>
+</div>
+</body>
+</html>

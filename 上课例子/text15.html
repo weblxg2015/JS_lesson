@@ -229,14 +229,15 @@
 //    alert(arr1);//c
 //    alert(arr2);//bb
 //    alert(arr3);//bb
-    var arr2=arr1.unshift("aa");
-    alert(arr1);//aa,bb,c
-    alert(arr2);//3
+//    var arr2=arr1.unshift("aa");
+//    alert(arr1);//aa,bb,c
+//    alert(arr2);//3
 
-//    var a1=[2,3,6,87,23,12,56];
-//    a2=a1.indexOf(1);
+    var a1=[2,3,6,87,23,12,56];
+//    a2=a1.indexOf(3);
 //    alert(a2);
-//    var a2=delete a1[2];
+    delete a1[2];
+    alert(a1)
 
 /*  手写删除--删除数组中指定的元素
 用户输入下标，进行删除
@@ -260,15 +261,15 @@
 
 /*封装上面手工删除方法--原型*/
 
-//    Array.prototype.mydel=function(n){ //i--要删除的数组下标
-//        if(n<arr1.length){
-//            arr1.splice(n,1);
-//            document.write(this);
-//        }
-//        else{
-//            alert('不存在这个元素');
-//        }
-//    }
+    Array.prototype.mydel=function(n){ //i--要删除的数组下标
+        if(n<arr1.length){
+            arr1.splice(n,1);
+            document.write(this);
+        }
+        else{
+            alert('不存在这个元素');
+        }
+    }
 //    var arr1=[2,3,6,87,23,12,56];
 //    var n=prompt('要删除的元素下标:')
 

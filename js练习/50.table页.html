@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+       window.onload= function () {
+           var v2arr=  document.getElementById("tab_title").getElementsByTagName("li");
+           var v3arr=  document.getElementById("tab_content").getElementsByTagName("div");
+
+           for(var i=0;i<v2arr.length;i++){
+               v2arr[i].aa=i;  //定义对象属性，传入i值
+               v2arr[i].onmouseover=function(){
+                   this.setAttribute("class","li_bg");
+                   v3arr[this.aa].setAttribute("class","show");//引用当前对象aa属性值
+                   //隐藏其他div
+                   for(var j=0;j<v3arr.length;j++){
+                       if(j!=this.aa){
+                           v3arr[j].removeAttribute("class");
+                       }
+                   }
+               }
+               v2arr[i].onmouseout=function(){
+                   this.removeAttribute("class");
+               }
+           }
+       }
+
+    </script>
+    <style>
+        ul li{
+            float: left;
+            list-style: none;
+            padding: 20px;
+            background: red;
+            margin: 10px;
+        }
+        #tab_content div{
+            width: 300px;
+            height: 200px;
+            border: 1px solid red;
+            position: absolute;
+            top: 80px;
+            left: 57px;
+        }
+        .li_bg{
+            background: greenyellow;
+        }
+        #tab_content .show{
+           display: block;
+        }
+       #tab_content div{
+          display: none;
+       }
+
+
+        </style>
+</head>
+<body>
+<ul id="tab_title">
+    <li>title01</li>
+    <li>title02</li>
+    <li>title03</li>
+</ul>
+<div id="tab_content">
+<div>aaaaa</div>
+<div>bbbbb</div>
+<div>ccccc</div>
+    </div>
+
+</body>
+</html>

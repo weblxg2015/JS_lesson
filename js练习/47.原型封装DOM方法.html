@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .d1{
+            border: 1px dotted #c0c0c0;
+            position: absolute;
+        }
+        </style>
+    <script>
+        /*原型封装扩展DOM方法
+         1.上一个兄弟结点
+         2.下一个兄弟结点
+         3.第一个结点
+         4.最后一个结点
+         以外部文件形式引入
+         */
+//        上一个兄弟结点
+        HTMLElement.prototype.up =function(){
+            var a1= this.previousSibling;
+            while(a1.nodeType==3){
+                a1=a1.previousSibling;
+            }
+            return a1;
+        }
+//        下一个兄弟结点
+        HTMLElement.prototype.down =function(){
+            var a1= this.previousSibling;
+            while(a1.nodeType==3){
+                a1=a1.nextSibling;
+            }
+            return a1;
+        }
+//        第一个结点
+        HTMLElement.prototype.first=function(){
+            var a1= this.childNodes[0];
+            return a1;
+        }
+//        最后一个结点
+        HTMLElement.prototype.last=function(){
+            var a1= this.childNodes[this.childNodes.length-1];
+            return a1;
+        }
+        function fun01(){
+          var p= document.getElementById('p1');
+            alert(p.first().nodeValue)
+        }
+        </script>
+</head>
+<body>
+<div id="id01">
+<div>fsdfsdfsd</div>
+<div title="qqq">aaa</div>
+<p id="p1">
+    bbbb</p>
+   <span>tttt
+       <span>mmmm
+       </span>
+       <span>uuuu</span>
+   </span>
+</div>
+<span>aaa</span>
+<span>aaa</span>
+<span>aaa</span>
+<input type="button" value="删除元素" onclick="fun01()">
+</body>
+</html>

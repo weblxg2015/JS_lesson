@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+         innerText 覆盖元素中的文本
+         innerHTML
+         outerText覆盖元素及文本
+         outerHTML
+         */
+        /*
+         document.forms 返回所有form表单元素
+         document.links 返回所有带href的<a>元素
+         document.anchors 返回所有带name的<a>元素
+         document.images 返回所有带<img>元素
+         document.all 返回所有html元素；浏览器支持有问题
+
+         document.body // <body>
+
+
+         表单应用
+         1.只读属性 readOnly
+         <input type="text" value="a1" name="inp01" readonly>
+         document.getElementById("id01").readOnly=true;
+
+         2.禁用属性 disabled
+         <button disabled>测试</button>
+         but.disabled=true;
+
+         3.选中文本
+         onclick="this.select()"
+         v.select();
+
+         4.表单控件类型--type
+         document.forms[0].elements[1]
+
+         */
+        window.onload=function(){
+////           document.write( document.all[0])
+//            var varr=document.links;
+//            for(var i=0;i<varr.length;i++){
+//                varr[i].style.fontSize="20px"
+//            }
+//          alert(
+//            document.forms[0].children[0].value //a1
+//            document.forms[0].inp01.value  //a2
+//            document.forms[0].id01.value //a2
+
+//                  document.forms[0].elements[0].value //a1
+//            document.forms[0].elements[1].value  //a2
+//
+//            document.forms['form01'].inp01.value //a1
+//            document.form01.inp01.value //a1
+//
+//            document.forms[0].action
+//            document.forms[0].method //get
+//          )
+        }
+
+//        function fun1(){
+//            document.getElementById("id01").readOnly=true;
+//        }
+//        function fun1(but){
+//            but.disabled=true;
+//        }
+
+        function fun2(v){
+//           v.value="";
+            v.select();
+        }
+
+    </script>
+</head>
+<body>
+<form name="form01" action="aa.html" method="get">
+
+    <input type="text" value="a1" name="inp01" readonly><br><br>
+    <input type="text" value="a2" id="id01" onclick="this.select()">
+                                           <!--onfocus="fun2(this)"-->
+                                           <!--onblur="fun2(this)"-->
+
+</form><br>
+<button disabled>测试</button>r
+<button onclick="fun1(this)" >测试</button>
+<!----------------------------------------------------->
+<!--<form>-->
+    <!--<input type="text">-->
+    <!--<input type="text">-->
+<!--</form>-->
+
+<!--<ul>-->
+    <!--<a href="" name="a1">11111</a>-->
+    <!--<a href="" name="a2">22222</a>-->
+    <!--<a>33333</a>-->
+    <!--<a href="">44444</a>-->
+    <!--<li>aaaaaaaaa</li>-->
+    <!--<li>ccccccccc</li>-->
+    <!--<li>bbbbbbbbb</li>-->
+    <!--<li>eeeeeeeee</li>-->
+    <!--</ul>-->
+<!--<script>-->
+    <!--var v1=document.getElementsByTagName("ul")[0].children[0];-->
+    <!--v1.innerText="111111";-->
+    <!--var v2=document.getElementsByTagName("ul")[0].children[1];-->
+    <!--v2.outerText="222222"-->
+<!--</script>-->
+</body>
+</html>

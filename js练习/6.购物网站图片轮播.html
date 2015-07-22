@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+   <style>
+       #wrap{
+           width: 500px;
+           height: 300px;
+       }
+       #wrap img{
+           position: absolute;
+           top: 0;
+           opacity: 0;
+       }
+
+       </style>
+
+</head>
+<body onload="fun01()">
+<div id="wrap" >
+    <img src="1.jpg" width="500px" height="300px">
+    <img src="2.jpg" width="500px" height="300px">
+    <img src="3.jpg" width="500px" height="300px">
+    </div>
+</body>
+</html>
+<script>
+    var a=1;
+    var j=1;
+    var m=0;
+    var n=1;
+    function fun01(){
+       var w1= document.getElementById("wrap");
+        if(a==7){
+//            w1.childNodes[a-2].style.opacity="0";
+            setTimeout(fun02,1);
+            function fun02(){
+                j-=0.1;
+               var k=j*10;
+                w1.childNodes[a-2].style.opacity=j;
+                if(k==0){
+                    clearTimeout(tim1);
+                    j=0;
+                }
+               var tim1= setTimeout(fun02,100);
+            }
+            a=1
+    }
+        setTimeout(fun03,1);
+        function fun03(){
+            m+=0.1;
+            var k=m*10;
+            w1.childNodes[a-2].style.opacity=m;
+            if(k==10){
+                clearTimeout(tim2);
+                m=0;
+            }
+            var tim2= setTimeout(fun03,100);
+        }
+
+       w1.childNodes[a].style.opacity="1";
+        if(a>=3){
+            setTimeout(fun04,1);
+            function fun04(){
+                n-=0.1;
+                var k=n*10;
+                w1.childNodes[a-2].style.opacity=n;
+                if(k==10){
+                    clearTimeout(tim3);
+                    n=1;
+                }
+                var tim3= setTimeout(fun04,100);
+            }
+            w1.childNodes[a-2].style.opacity="0";
+        }
+
+        a+=2;
+        setTimeout(fun01,1000)
+    }
+
+</script>

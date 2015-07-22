@@ -3,6 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+
     <!--
     js的内置函数
      1.parseInt()
@@ -46,7 +47,7 @@
          3.window.status 状态栏
 
     //        window.alert("ddd")
-    //        window.status="hello";
+            window.status="hello";
     //    document.title="hello222222"//标题栏
     //        document.status="hellolll"
 
@@ -56,16 +57,16 @@
        screenY：新窗口Y方向位置
 
 
-     window.open("text17.html","new window","height=300px,weight=100px,screenX=300px,
-     screenY=100px""scrollbars=no,resizable=no,titlebar=yes,toobar=yes,stauts=yas");
+     window.open("text17.html","new window","height=300px,width=100px,screenX=300px,
+     screenY=100px""scrollbars=no,resizable=no,titlebar=yes,toobar=yes,stauts=yes");
 
      */
 //        function fun01(){
-//          var win1= window.open("text17.html","new window","height=300px,weight=100px")
+//          var win1= window.open("text17.html","new window","height=300px,width=100px")
 //        }
 //        setTimeout(fun01,2000)
 //
-//   var win01= window.open("text17.html","new window","height=300px,weight=100px")
+//   var win01= window.open("text17.html","new window","height=300px,width=100px")
 
 //           if(win1==null){
 //               alert("已拦截一个窗口")
@@ -75,17 +76,17 @@
 //        setTimeout(fun2,1000);
 
 //        如何判断弹出窗口是否被拦截
-//    var win01= window.open("text17.html","new window","height=300px,weight=100px");
+//    var win01= window.open("text17.html","new window","height=300px,width=100px");
 //    if(win01==null) {
 //        alert("已拦截一个窗口")
 //    }
 
         /*子窗口与父窗口的通信*/
-//      var win01= window.open("text23.html","sub_id01","height=300px,weight=100px")
-//        function fun3(arg){
-//            win01.document.getElementById("sub_id01").innerHTML=arg;
-//        }
-//        alert(arg);
+      var win01= window.open("text23.html","sub_id01","height=300px,width=100px")
+        function fun3(arg){
+            win01.document.getElementById("sub_id01").innerHTML=arg;
+        }
+        alert(arg);
         //作业2：showModalDialog  应用
 //        练习：父窗口中输入三点坐标（x,y）,计算三点连线最长的两点，并计算三条边周长，返回到子窗口
 

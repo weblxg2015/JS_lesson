@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+        DOM操作
+        1.创建结点 createElement("div")
+        2.创建文本结点 createTextNode
+        3.追加 v1.appendChild(v2) v1-父元素 v2-子元素 结点插入到所有子节点之后
+        4.插入 v1.insertBefore(v2,v3) v1-父元素  v2-新节点子元素 v3--已经存在的旧结点
+                                      将v2插入到v3之前
+                                      将v2插入到指定结点之前
+        5.删除子节点removeChild（子节点）
+        6.replaceChild(v1,v2)取代子节点   v1--新元素  v2--旧元素
+        7.cloneNod  复制（克隆）子节点  //true false
+        true 复制的节点将包含所有子节点的内容
+        false：辅助的结点只包含指定对象的本身，不包含任何子节点
+
+        查找元素
+         getElementsByID() 按ID属性查找某个元素
+         getElementsByName 以数组形式返回指定name属性的所有元素
+
+         getElementsByTagName 以数组的形式返回指定标签的所有元素
+         getElementsByClassName 以数组的形式返回指定class属性的所有元素
+
+
+         document.forms 返回一个集合包含了了当前文档中的所有form元素
+         document.links 获取此 HTML 文档中所有超链接的列表
+         document.images 获取文档中所有图像标记的集合
+         document.all 文档中所有标签组成的一个数组变量，包括了文档对象中所有元素
+         document.anchors 集合可返回对文档中所有 Anchor (锚)对象的引用
+         document.body
+
+
+
+        */
+//        window.onload=function(){
+//           var div1= document.createElement("div");//等价于<div></div>
+//            var text1= document.createTextNode("hello world");//hello world！
+//
+//           var div_text =div1.appendChild(text1);//<div>hello  world</div>
+////            document.getElementById("id01").appendChild(div_text)
+//
+//           var v1=document.getElementById("id01_1");
+//            document.getElementById("id01").insertBefore(div_text,v1);
+
+//            document.getElementById("id01").removeChild(document.getElementById("id01"))
+//           var d1= document.getElementById("id01");
+////            var div1= document.createElement("div");//等价于<div></div>
+////            var text1= document.createTextNode("hello world");//hello world！
+////            div1.appendChild(text1);
+////            d1.replaceChild(div1,d1.childNodes[1])
+//
+//            var a1=d1.childNodes[1].cloneNode(true);
+//            d1.appendChild(a1,d1.childNodes[2]);
+
+//  function fun1(){
+//      var v1=document.getElementsByName("inp01");
+//      for(var i=0;i<v1.length;i++){
+//          if(v1[i].checked){
+//              alert(v1[i].value)
+//          }
+//      }
+//  }
+        window.onload=function(){
+            var varr=document.getElementsByTagName("div");
+            for(var i=0;i<varr.length;i++){
+                varr[i].onmousemove=function(){
+                    this.setAttribute("class","c1")
+                }
+                varr[i].onmouseout=function(){
+                    this.removeAttribute("class");
+                }
+            }
+        }
+//var varr=document.getElementsByTagName(div)
+
+
+        </script>
+
+    <style>
+        .c1{
+            color: red;;
+            font-size: 20px;
+        }
+        </style>
+</head>
+<body>
+
+<div>aaa</div>
+<div>bbb</div>
+<div>ccc</div>
+<!--<button onclick="fun1()">确定</button>-->
+
+  <!--<input type="checkbox" name="inp01" value="a1" class="c1">aa-->
+  <!--<input type="checkbox" name="inp01" value="a1">bb-->
+  <!--<input type="checkbox" name="inp01" value="a1">bb-->
+  <!--<button onclick="fun1()">确定</button>-->
+     <!--</div>-->
+</body>
+</html>

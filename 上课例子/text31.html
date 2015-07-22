@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--js xml解析-->
+    <script>
+        //xml文档加载
+//        var domxml;
+        if(navigator.userAgent.toLowerCase().indexOf("trident")){//ie浏览器
+            var domxml=new ActiveXObject("Microsoft.XMLDOM");
+            domxml.onload("学生信息.xml")
+        }
+        else{
+            domxml=document.implementation.createDocument("","",null);
+            domxml.load("学生信息.xml");
+        }
+        document.write(domxml.childNodes.length)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

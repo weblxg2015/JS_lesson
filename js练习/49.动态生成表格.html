@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--练习：动态生成表格，三行三列
+         实现可添加行，删除行，交换行
+    -->
+</head>
+<body onload="fun01()" id="body">
+<input type="button" value="添加" onclick="fun02()">
+<input type="button" value="删除" onclick="fun03()">
+<input type="button" value="交换" onclick="fun04()">
+</body>
+</html>
+        <script>
+            var tab=document.createElement("table");
+            tab.style.width="300px";
+            tab.style.height="100px";
+//            tab.style.border="1px solid red";
+            function fun01() {
+                for (i = 0; i < 3; i++) {
+                    var tr1 = document.createElement("tr");
+                    for (j = 0; j < 3; j++) {
+                        var td1 = document.createElement("td");
+                        tr1.appendChild(td1)
+                    }
+                    tab.appendChild(tr1);
+                }
+                for (n = 0; n < 3; n++) {
+                    for (m = 0; m < 3; m++) {
+                        tab.childNodes[n].childNodes[m].style.border = "1px solid black";
+                    }
+                }
+                document.body.appendChild(tab);
+
+//                var a11=document.createTextNode("11");
+//                var a12=document.createTextNode("12");
+//                var a13=document.createTextNode("13");
+            }
+
+            function fun02(){
+                for (i = 0; i < 1; i++) {
+                    var tr1 = document.createElement("tr");
+                    for (j = 0; j < 3; j++) {
+                        var td1 = document.createElement("td");
+                        tr1.appendChild(td1)
+                    }
+                    tab.appendChild(tr1);
+                }
+                for (n = 0; n <tab.children.length; n++) {
+                    for (m = 0; m < tab.children[n].children.length; m++) {
+                        tab.childNodes[n].childNodes[m].style.border = "1px solid black";
+                    }
+                }
+                document.body.appendChild(tab);
+            }
+
+            function fun03(){
+               var a1=tab.lastChild;
+                tab.removeChild(a1);
+            }
+            function fun04(){
+               var v1=prompt("请输入你要交换的数组");
+                var v2=prompt("请输入你要交换的数组");
+               var a1=tab.childNodes[v1];
+                    tab.replaceChild(a1,tab.childNodes[v2]);
+
+            }
+
+
+
+
+
+
+
+//                var body1=document.getElementById("body")
+//                tab.style.width="300px";
+//                tab.style.height="100px";
+//                tab.style.Cellspacing="0";
+//
+//                var tr1=document.createElement("tr");
+//                var tr2=document.createElement("tr");
+//                var tr3=document.createElement("tr");
+//
+//                var td11=document.createElement("td");
+//                var td12=document.createElement("td");
+//                var td13=document.createElement("td");
+//                var td21=document.createElement("td");
+//                var td22=document.createElement("td");
+//                var td23=document.createElement("td");
+//                var td31=document.createElement("td");
+//                var td32=document.createElement("td");
+//                var td33=document.createElement("td");
+//
+//                td11.style.border="1px solid black";
+//                td12.style.border="1px solid black";
+//                td13.style.border="1px solid black";
+//                td21.style.border="1px solid black";
+//                td22.style.border="1px solid black";
+//                td23.style.border="1px solid black";
+//                td31.style.border="1px solid black";
+//                td32.style.border="1px solid black";
+//                td33.style.border="1px solid black";
+//
+//                var a11=document.createTextNode("11");
+//                var a12=document.createTextNode("12");
+//                var a13=document.createTextNode("13");
+//
+//
+//
+//
+//                body1.appendChild(tab);
+//
+//                tab.appendChild(tr1);
+//                tab.appendChild(tr2);
+//                tab.appendChild(tr3);
+//
+//                tr1.appendChild(td11);
+//                tr1.appendChild(td12);
+//                tr1.appendChild(td13);
+//                tr2.appendChild(td21);
+//                tr2.appendChild(td22);
+//                tr2.appendChild(td23);
+//                tr3.appendChild(td31);
+//                tr3.appendChild(td32);
+//                tr3.appendChild(td33);
+//
+//                td11.appendChild(a11);
+//                td12.appendChild(a12);
+//                td13.appendChild(a13);
+//                td21.appendChild(a21);
+//                td22.appendChild(a22);
+//                td23.appendChild(a23);
+//                td31.appendChild(a31);
+//                td32.appendChild(a32);
+//                td33.appendChild(a33);
+
+
+
+
+
+        </script>

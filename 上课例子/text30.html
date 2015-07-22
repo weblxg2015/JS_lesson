@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+         DOM
+         1.概念
+         DOM--Document Object Model 文档对象模型
+         是用来描述脚本怎样与结构化文档进行交互和访问的web标准
+         2.结点
+         整个文档层次由不同的多个结点组成
+         结点分类：元素结点，文本结点，属性结点
+
+         3.结点引用
+         每个结点都有一个childNodes集合属性，是数组对象，表示该结点的所有子节点的集合
+
+         parentNode 父节点，返回的永远是元素结点
+                    document.parentNode //null；
+         previousSibling  返回指定结点的上一个相邻结点
+         nextSibling     返回指定结点的下一个相邻结点
+         firstChild      指定元素的第一个子节点
+         lastChild       指定元素的最后一个子节点
+
+
+         4.结点信息
+           nodeName 获取结点名称
+           nodeValue 获取结点值
+           nodeType  节点类型
+               元素结点 返回 1
+               文本结点 返回 3
+
+
+         */
+        //    document.write(document.childNodes[0]+"<br>");//DOCTYPE html
+        //    document.write(document.childNodes[0].childNodes[0]+"<br>");//undefined
+        //    document.write(document.childNodes[0].childNodes[1]+"<br>");//undefined
+        //    document.write(document.childNodes[1]+"<br>");//html
+        //    document.write(document.childNodes[1].childNodes[0]+"<br>");//head
+        //    document.write(document.childNodes[1].childNodes[1]+"<br>"+"<br>");//body
+
+        //        document.write(document.childNodes[1].childNodes[1].childNodes[]);
+//        window.onload=function() {
+//            document.write(document.getElementById("id01").childNodes[3].nodeName);//<p>
+//            document.write(document.getElementById("id01").childNodes[3].childNodes[0].nodeValue);//bbb
+//            document.write(document.getElementById("id01").childNodes[1].nodeType);//bbb
+//            输出结点的值
+//            var v1 = document.getElementById("id01").childNodes;
+//            for (i = 0; i < v1.length; i++) {
+//             if(v1[i].nodeType==1){
+//                 alert(v1[i].nodeName);
+//                 alert(v1[i].childNodes[0].nodeValue)
+//              }
+//            }
+
+//           var v2= document.getElementById("p1");
+//            document.write(v2.parentNode);
+//            document.write(v2.parentNode.childNodes[1].childNodes[0].nodeValue);
+//               var a1= v2.parentNode.childNodes[1].childNodes[0].nodeValue
+//            v2.parentNode.childNodes[1].style.color="red";
+
+//            var v3=v2.previousSibling;
+//            while(v3.nodeType==3){
+//                v3=v3.previousSibling;
+//            }
+//            v3.style.color="red";
+
+//              v2.previousSibling.previousSibling.previousSibling.previousSibling.style.color="red";
+//              v2.nextSibling.nextSibling.childNodes[3].style.color="green"
+
+//        }
+//        function fun01(){
+//            var v1=document.getElementById("p1");
+//             var v2=v1.previousSibling;
+//            while(v2.nodeType!=1){
+//                v2=v2.previousSibling;
+//            }
+//            //删除元素
+//            //e.removeChile(node)
+//            v2.parentNode.removeChild(v2)
+//        }
+
+        /*
+        HTMLElement --DOM元素中所有元素都继承于这个类型
+                      HTMLElement继承于Element，Element继承于Node类型
+         通过在HTMLElement的原型对象上定义的方法，为DOM文档中所有元素共用
+        */
+        HTMLElement.prototype.clearn=function(d){
+            var c1= d.childNodes;
+            for(var i=0;i<c1.length;i++){
+                if(c1[i].nodeType==3){
+                    d.removeChild(c1[i])
+                }
+            }
+            return d;
+        }
+//        function fun1(){
+//            alert(document.getElementById("id01").clearn().childNodes[3].clearn().childNodes[1].childNodes[0].nodeValue)
+//        }
+
+        /*原型封装扩展DOM方法
+        1.上一个兄弟结点
+        2.下一个兄弟结点
+        3.第一个结点
+        4.最后一个结点
+        以外部文件形式引入
+        * */
+
+    </script>
+
+</head>
+<body>
+<div id="id01">
+    <div>fsdfsdfsd</div>
+   <div title="qqq">aaa</div>
+   <p id="p1">bbbb</p>
+   <span>tttt
+       <span>mmmm
+
+       </span>
+       <span>uuuu</span>
+   </span>
+    </div>
+<input type="button" value="删除元素" onclick="fun1()">
+</body>
+</html>

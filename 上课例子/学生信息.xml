@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes" encoding="UTF-8"?>
+<student>
+     <message>
+          <name>张一</name>
+          <age>21</age>
+         <major>网络工程</major>
+     </message>
+
+    <message>
+        <name>李二</name>
+        <age>22</age>
+        <major>通信工程</major>
+    </message>
+
+    <message>
+        <name>王三</name>
+        <age>23</age>
+        <major>土木工程</major>
+    </message>
+
+    <message>
+        <name>杨四</name>
+        <age>21</age>
+        <major>生物工程</major>
+    </message>
+
+    <message>
+        <name>周五</name>
+        <age>23</age>
+        <major>法学</major>
+    </message>
+
+</student>

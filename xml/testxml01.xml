@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="yes" encoding="UTF-8"?>
+        <!--version: 说明这个文档符合1.0规范
+        standalone: 说明文档在这一个文件里还是需要从外部导入, standalone 的值设为yes 说明所有的文档都在这一文件里完成
+        encoding: 指文档字符编码
+
+        需要注意的是:
+           元素标记区分大小写，<Name> 与 <name>是两个不同的标记
+           结束标记必须有反斜杠，如 </Name>
+
+        XML元素标记命名规则如下:
+           名字中可以包含字母，数字及其它字母
+           名字不能以数字或下划线开头
+           名字不能用xml开头
+           名字中不能包含空格和冒号
+        -->
+<books>
+         <types>
+             <bookname>java</bookname>
+             <bookprice>23.23</bookprice>
+        </types>
+         <types>
+             <bookname>.net</bookname>
+             <bookprice>45.23</bookprice>
+         </types>
+</books>

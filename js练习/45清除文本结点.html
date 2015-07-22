@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+    练习：遍历文档中的元素节点中的文本结点，并清除（遍历文档中的空格bug并删除）
+    -->
+    <script>
+//        function fun01(){
+//            var body=document.childNodes[1].childNodes[2].childNodes;
+//            for(i=0;i<body.length;i++){
+//                var v1=body[i];
+//                if(v1.nodeType==3){
+//                    v1.parentNode.removeChild(v1)
+//                }
+//            }
+//        }
+
+function fun01(){
+        function clearn(d){
+          var c1 = d.childNodes;
+
+            for(var i=0;i<c1.length;i++){
+                if(c1[i].nodeType==3){
+                    d.removeChild(c1[i])
+                }
+            }
+            return d;
+        }
+       var v1 = document.getElementById("id01");
+       var v2=clearn(v1);
+        alert(v2.childNodes[0].childNodes[0].nodeValue)
+}
+    </script>
+</head>
+<body>
+<div id="id01">
+    <div>fsdfsdfsd</div>
+    <div title="qqq">aaa</div>
+    <p id="p1">bbbb</p>
+   <span>tttt
+       <span>mmmm
+       </span>
+       <span>uuuu</span>
+   </span>
+</div>
+<span>aaa</span>
+<span>aaa</span>
+<span>aaa</span>
+<input type="button" value="删除元素" onclick="fun01()">
+</body>
+</html>
