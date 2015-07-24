@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form>
+    爱好<br>
+<select name="sel1" multiple style="height:150px;width:100px" onclick="fun05()">
+    <option >吃饭</option>
+    <option>睡觉</option>
+    <option>游戏</option>
+    <option>不学习</option>
+    <option>不爱吃苦</option>
+    <option>不劳动</option>
+</select>
+    <select name="sel2" multiple style="height:150px;width:100px">
+
+    </select>
+<br>
+    <br>
+    <input type="button" value=">"  onclick="fun01()"><br><br>
+    <input type="button" value="<" onclick="fun02()"><br><br>
+    <input type="button" value=">>" onclick="fun03()"><br><br>
+    <input type="button" value="<<" onclick="fun04()">
+    </form>
+
+<script>
+    var v1=document.forms[0].elements["sel1"];
+    var v2=document.forms[0].elements["sel2"];
+
+    function fun01(){
+        for(var i=0;i<v1.length;i++){
+            if(v1.options[i].selected){
+                var a1=v1.options[i].value;
+                v2.options[v2.length]= new Option(a1,a1);
+                v1.options[i]=null;
+                i--;
+
+            }
+        }
+    }
+//    function fun05(){
+//        for(var i=0;i<v1.length;i++){
+//                v1.options[i].ondblclick=function(this){
+//                    var a1=v1.options[i].value;
+//                    v2.options[v2.length]= new Option(a1,a1);
+//                    v1.options[i]=null;
+//                    i--;
+//                    alert("1")
+//                }
+//            }
+//    }
+
+
+
+
+
+    function fun02(){
+        for(var i=0;i<v2.length;i++){
+            if(v2.options[i].selected){
+                var a1=v2.options[i].value;
+                v1.options[v1.length]= new Option(a1,a1);
+                v2.options[i]=null;
+                i--;
+            }
+
+        }
+    }
+    function fun03(){
+        for(var i=v1.length-1;i>=0;i--){
+                var a1=v1.options[i].value;
+                v1.options[i]=null;
+                v2.options[v2.length]= new Option(a1,a1);
+        }
+    }
+    function fun04(){
+        for(var i=v2.length-1;i>=0;i--){
+            var a1=v2.options[i].value;
+            v2.options[i]=null;
+            v1.options[v1.length]= new Option(a1,a1);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table td{
+            border: 1px solid red;
+            width: 150px;
+            height: 30px;
+        }
+    </style>
+<script>
+    window.onload=function(){
+        var t1=document.getElementById("table01");
+        for(var i=1;i<t1.rows.length;i++){
+            for(var j=0;j<t1.rows[i].cells.length;j++){
+                t1.rows[i].cells[j].aa=i;
+                t1.rows[i].cells[j].bb=j;
+                t1.rows[i].cells[j].onmouseover=function(){
+                   for(var k=0;k<4;k++){
+                       t1.rows[this.aa].cells[k].style.background="red"
+                   }
+                    for(var m=1;m<5;m++){
+                        t1.rows[m].cells[this.bb].style.background="red"
+                    }
+                }
+                t1.rows[i].cells[j].onmouseout=function(){
+                    for(var k=0;k<4;k++){
+                        t1.rows[this.aa].cells[k].style.background="white"
+                    }
+                    for(var m=1;m<5;m++){
+                        t1.rows[m].cells[this.bb].style.background="white"
+                    }
+                }
+            }
+        }
+    }
+    </script>
+
+</head>
+<body>
+<table id="table01" cellspacing="0">
+    <tr>
+        <td>title</td>
+        <td>title</td>
+        <td>title</td>
+        <td>title</td>
+    </tr>
+    <tr>
+        <td>aaa</td>
+        <td>bbb</td>
+        <td>ccc</td>
+        <td>ddd</td>
+    </tr>
+    <tr>
+        <td>aaa</td>
+        <td>bbb</td>
+        <td>ccc</td>
+        <td>ddd</td>
+    </tr>
+    <tr>
+        <td>aaa</td>
+        <td>bbb</td>
+        <td>ccc</td>
+        <td>ddd</td>
+    </tr>
+    <tr>
+        <td>aaa</td>
+        <td>bbb</td>
+        <td>ccc</td>
+        <td>ddd</td>
+    </tr>
+
+</table>
+</body>
+</html>

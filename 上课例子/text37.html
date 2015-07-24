@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table td{
+            border: 1px solid red;
+            width: 130px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<table id="table01">
+    <tr>
+        <td ondblclick="fun1(this)" id="td1">aaa</td>
+        <td>bbb</td>
+    </tr>
+    <tr>
+        <td>ccc</td>
+        <td>ddd</td>
+    </tr>
+    <tr>
+        <td>eee</td>
+        <td>fff</td>
+    </tr>
+</table>
+</body>
+</html>
+        <script>
+            doucumengt.getE
+            document.getElementById("id01");
+            var d1;
+            var td1=document.getElementById("td1");
+            function fun1(v){
+                td1.innerHTML="<input type='text' value='"+v.innerText+"' onblur='fun2(this)'>"
+            }
+            function fun2(n){
+                td1.innerText= n.value;
+                td1.innerHTML= n.value;
+                n.innerText
+//                n.parentNode.innerText= n.value;
+            }
+
+            </script>

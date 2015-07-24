@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table tr td{
+            width: 100px;
+            height: 40px;
+            border: 1px solid #000000;
+            text-align: center;
+        }
+        </style>
+</head>
+<body>
+<table cellspacing="0" id="tb">
+    <tr>
+        <td>全选</td>
+        <td>发件人</td>
+        <td>邮件名称</td>
+        <td>邮件附属信息</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>王二</td>
+        <td>邮件1</td>
+        <td>信息1</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>王三</td>
+        <td>邮件1</td>
+        <td>信息1</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>王四</td>
+        <td>邮件1</td>
+        <td>信息1</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>王5</td>
+        <td>邮件1</td>
+        <td>信息1</td>
+    </tr>
+</table><br>
+
+<input type="button" value="全选" onclick="fun01()">
+<input type="button" value="取消全选" onclick="fun02()">
+<input type="button" value="反选" onclick="fun03()">
+<input type="button" value="删除所选" onclick="fun04()"><br><br>
+&nbsp;发件人:<input type="text" id="name"><br><br>
+邮件名称:<input type="text" id="email"><br><br>
+附属信息:<input type="text" id="add"><br><br>
+<input type="button" value="添加" onclick="fun05()">
+</body>
+</html>
+
+        <script>
+            var tb=document.getElementById("tb");
+            function fun01(){
+                for(i=1;i<tb.rows.length;i++){
+                      var v1= tb.rows[i].cells[0].childNodes[0];
+                   if(v1.nodeName.toLowerCase()=="input"){
+                       v1.checked=true
+                   }
+                    }
+                }
+
+            function fun02(){
+                for(i=1;i<tb.rows.length;i++){
+                    var v1= tb.rows[i].cells[0].childNodes[0];
+                    if(v1.nodeName.toLowerCase()=="input"){
+                        v1.checked=false
+                    }
+                }
+            }
+            function fun03(){
+                for(i=1;i<tb.rows.length;i++){
+                    var v1= tb.rows[i].cells[0].childNodes[0];
+                    if(v1.nodeName.toLowerCase()=="input"){
+                        if(v1.checked==true){
+                            v1.checked=false;
+                        }
+                        else if (v1.checked==false){
+                            v1.checked=true;
+                        }
+                    }
+                }
+            }
+
+            function fun04(){
+                for(i=1;i<tb.rows.length;i++){
+                    var v1= tb.rows[i].cells[0].childNodes[0];
+                    if(v1.nodeName.toLowerCase()=="input"){
+                        if(v1.checked==true){
+                           tb.deleteRow(i)
+                            i--;
+                        }
+                    }
+                }
+            }
+
+            function fun05(){
+                var v1=document.getElementById("name").value;
+                var v2=document.getElementById("email").value;
+                var v3=document.getElementById("add").value;
+
+                var tr1 = tb.insertRow(tb.length);
+                var td1 = tr1.insertCell(0);
+                var td2 = tr1.insertCell(1);
+                var td3 = tr1.insertCell(2);
+                var td4 = tr1.insertCell(3);
+                td1.innerHTML="<input type='checkbox'>";
+                td2.innerText = v1;
+                td3.innerText = v2;
+                td4.innerText = v3;
+            }
+
+
+
+            </script>

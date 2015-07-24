@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+      /*  表单
+      下拉列表
+      1.下拉列表格数
+       alert(document.getElementById("idsel").getElementsByTagName("option").length)}
+       alert(document.forms[0].elements["nsel"].length)
+
+       2.获取选项个数
+       var v1= document.forms[0].elements["nsel"];
+       for(var i=0;i<v1.length;i++){
+       if(v1.options[i].selected){
+       alert(v1.options[i].value)
+       }
+       }
+       3.每个选项都有一个索引值 selectedIndex
+       alert(v1.selectedIndex)
+
+       4.添加选项  new Option(text,value);
+       v1.options[v1.length]= new Option("ddddd","d1");在列表后添加
+
+       5.删除选项  v1.options[1]=null;
+       v1.options[1]=null;//删除索引值为1的元素
+
+       6.替换选项
+       v1.options[1]=new Option("ddddd","d1");
+
+       7.  alert(v1.options[i].value);//获取value值
+       alert(v1.options[1].text);//获取text属性
+       v1.options[i].getAttribute("value")//b1
+
+      */
+//        window.onload=function(){
+//            alert(document.getElementById("idsel").getElementsByTagName("option").length)}
+//    alert(document.forms[0].elements["nsel"].length)
+//      }
+
+
+        function fun1(){
+//           var v1= document.forms[0].elements["nsel"].option;
+            var v1= document.forms[0].elements["nsel"];
+//            for(var i=0;i<v1.length;i++){
+//                if(v1.options[i].selected){
+//                    alert(v1.options[i].value)
+//                    alert(v1.selectedIndex)
+//                }
+//            }
+
+//           v1.options[v1.length]= new Option("ddddd","d1");
+//            v1.options[1]=null;//删除索引值为1的元素
+//            v1.options[1]=new Option("ddddd","d1");
+//            alert(v1.options[i].value);//获取value值
+//            alert(v1.options[1].text);//获取text属性
+//            v1.options[i].getAttribute("value")//b1
+
+//            用DOM方式创建<select选项>==v1.options[1]=new Option("ffffff","f1");
+//            var v2=document.createElement("option");//<option></option>
+//            var v1_text=document.createTextNode("ffffff");//ffffff
+//            v2.appendChild(v2_text);//<option>ffffffff</option>
+//            v2.setIdAttribute("value","f1");//<option value="f1">ffffffff</option>
+//            v1.appendChild(v2);
+
+
+           var v3= document.forms[0].elements;
+            for(var i=0;i<v3.length;i++){
+                if(v3[i].type=="checkbox"){
+//                    alert("1")
+                    v3[i].style.height="400px"
+                }
+            }
+        }
+        </script>
+</head>
+<body>
+<form>
+    <input type="checkbox">aa
+    <input type="checkbox">aa
+    <input type="checkbox">aa
+
+<select id="idsel" name="nsel" onchange="fun1()" multiple>
+      <option>aaaaa</option>
+      <option>bbbbb</option>
+      <option>ccccc</option>
+</select>
+    </form>
+</body>
+</html>
