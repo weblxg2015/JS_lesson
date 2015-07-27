@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*js事件处理
+        1.事件的传播过程
+           冒泡时间流：事件由下至上传播（传递过程像水泡一样不断上升到顶端，所以比喻为冒泡）
+             div_1-->div-->body
+           捕获事件流，与冒泡时间流相反，事件由上至下传播 bodydivdiv-->div_1
+           (1)默认情况：事件使用冒泡时间流
+          （2）ie8及以下版本只支持冒泡事件流
+          （3）ie9及以上，现在浏览器同时支持以上两种事件流
+
+       2.事件模型
+       DOM-->DOM1-->DOM2
+       (1)DOM0级事件模型
+           [1]<div onclick="fun2()">bbb</div>
+              <div onclick="alert('hello')">bbb</div>
+           [2]document.getElementById("id01").onclick = function () {
+              alert('hello11')
+         }
+         实现结构与行为的分离 （js是行为）
+         灵活:可动态进行事件响应
+
+         注意：事件处理函数不会明确要求返回值，如不返回值，则会发生默认的行为
+              如果事件处理函数返回false，将会组织浏览器执行这些默认动作
+         特殊： as[0].onmouseover=function(){
+         window.status=" ";
+         return true;
+         }
+         onmouseover 方法在低版本浏览器中  return true 表示阻止  IE8中有效
+
+
+         例子输入空，阻止网页弹出
+         function fun4(){
+         var v1=document.getElementById("uname").value.length;
+         if(v1==0){
+         return false
+         }
+         }
+         <form action="text01.html" onsubmit="return fun4();">
+
+    3.事件参数
+     事件参数表示当前发生的事件的event对象，该事件记录了事件发生的相关信息
+     由于ie浏览器（低版本）将事件参数存储在window对象中，调用方式window.e
+
+   4.鼠标事件
+      onclick
+      ondbclick
+      onmouseover
+      onmousemout
+      onmousedown
+      onmouseup
+      onmousemove
+      鼠标事件的响应顺序：当点击事件发现时事件响应顺序
+         onmousedown-->onmouseup-->onclick
+
+         pageX
+         pageY
+         offsetX
+         offsetY
+         screenX
+         screenY
+         layerX
+         layerY
+         clientX
+         clientY
+
+
+
+         * */
+//        function fun1(v){
+//            alert(v)
+//        }
+//        function fun2(){
+//            alert("hello")
+//        }
+        window.onload=function() {
+//            document.getElementById("id01").onclick =fun3;
+//            document.getElementById("id01").ondblclick =fun3;
+//            document.getElementById("id01").onmousemove =fun3;
+////            document.getElementById("but01").onclick=fun3;
+//            function fun3(){
+//                alert("hello11")
+//            }
+
+//            var a1=document.getElementsByTagName("a");
+//            var a2=document.links;
+//                for(var i=0;i<a1.length;i++){
+//                     a1[i].aa=i;
+//                    a1[i].onclick=function(){
+//                        this.style.color="green";
+//                    }
+//                }
+//        }
+
+//        var f1=true;
+//        function fun4(){
+//            var v1=document.getElementById("uname").value.length;
+//            if(v1==0){
+//                alert("error!!");
+////                f1=false;
+//                return false
+//            }
+            document.getElementById("but01").onclick = function (e1) {
+                // e  evevt
+                // e  window.e  ie低版本
+//            alert(e.srcElement.innerText)
+                e1 = e1 || window.e;
+                //e.srcElement事件源
+                //e.target 火狐(ff)事件源
+                var src = e1.srcElement || e1.target;
+//                alert(src.innerHTML)
+        //火狐ff浏览器不支持innerText，用textContent代替
+//                var a= src.innerText ||src.textContent;
+//                alert(a)
+                alert(src.tagName)//数据源的标签名
+
+                var src_r=e1.relatedTarget || e1.fromCharCode()
+            }
+//
+            document.getElementById("but01").onmouseover=function(e){
+                e=e|| window.e;
+                //relatedTarget相邻元素，获取当前时间的相邻结点 其他浏览器
+                //fromElement 相邻元素，获取当前时间的相邻结点    te
+                var src_r= e.relatedTarget || e.fromElement
+                alert(src_r.tagName)
+            }
+
+            document.getElementById("but01").onmouseout=function(e){
+                e=e|| window.e;
+                var src_r= e.relatedTarget || e.fromElement
+                alert(src_r.tagName)
+            }
+
+        }
+
+
+
+
+        </script>
+</head>
+<body>
+<div id="id01"></div>
+<!--<button id="but01">cccc</button>-->
+<!--<div style="width: 150px;height: 150px;background: yellow">-->
+
+<!--<p id="but01" style="width: 50px;height: 50px;background: red">cccc</p>-->
+
+<!--</div>-->
+<!--<div style="width: 150px;height: 150px;background: #ff3138"-->
+     <!--onclick="alert('11')" ondbclick="alert('22')"-->
+      <!--onmouseup="alert('55')"  >-->
+    <!--
+
+     -->
+
+ </div>
+
+ <!--<a href="test01.html" onclick="alert('aaaa');return false;">链接1</a>-->
+<!--<a href="#">链接2</a>-->
+<!--<a>链接3</a>-->
+<!--<a>链接4</a>-->
+
+<!--<form action="text01.html" onsubmit="return fun4();">-->
+    <!--用户名：<input type="text" id="uname">-->
+        <!--<input type="submit" value="确定">-->
+    <!--</form>-->
+
+<!--<div id="id01">bbb、/div>-->
+<!--<button id="but01">ccc</button>-->
+<!--<body onclick="fun1('body')">-->
+<!--<div onclick="fun1('div')">aaaaa-->
+    <!--<div onclick="fun1('div_1')">aaaaa</div>-->
+<!--</div>-->
+<script>
+//    var a1=document.getElementsByTagName("a");
+//    //            var a2=document.links;
+//    for(var i=0;i<a1.length;i++){
+////        a1[i].aa=i;
+//        a1[i].onmouseup=function(){
+//            this.style.color="green";
+////                        this.style.
+//        }
+//    }
+document.onmousemove=function(e){
+    e=e||window.e;
+    document.getElementById("id01").innerText="x:"+ e.clientX+" y："+ e.clientY;
+}
+
+</script>
+</body>
+</html>

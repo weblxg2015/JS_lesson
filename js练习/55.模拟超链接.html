@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<span href="44.新浪.html">啊啊啊啊啊</span>
+</body>
+</html>
+<script>
+
+        var sp1=document.getElementsByTagName("span");
+        for(var i=0;i<sp1.length;i++){
+            sp1[i].onclick=function(){
+                var h1=this.getAttribute("href");
+//                alert(h1)
+                window.location=h1
+            }
+        }
+
+    </script>
