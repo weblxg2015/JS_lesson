@@ -17,14 +17,6 @@
         <td ondblclick="fun1(this)" id="td1">aaa</td>
         <td>bbb</td>
     </tr>
-    <tr>
-        <td>ccc</td>
-        <td>ddd</td>
-    </tr>
-    <tr>
-        <td>eee</td>
-        <td>fff</td>
-    </tr>
 </table>
 </body>
 </html>
@@ -37,9 +29,6 @@
                 td1.innerHTML="<input type='text' value='"+v.innerText+"' onblur='fun2(this)'>"
             }
             function fun2(n){
-//                td1.innerText= n.value;
                 td1.innerHTML= n.value;
-//                n.innerText;
-//                document.write()
             }
             </script>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+         * js事件处理
+         * 1、事件的传播过程
+         *    冒泡事件流：事件由下至上传播（传递过程像水泡一样不断上升到顶端，所以比喻为冒泡）
+         *                div_1-->div-->body
+         *    捕获事件流：与冒泡事件流相反，事件由上至下传播 body-->div-->div_1
+         *
+         *    （1）默认情况：事件使用冒泡事件流
+         *    （2）ie8及以下版本只支持冒泡事件流
+         *    （3）ie9及以上、现在浏览器同时支持以上两种事件流
+         *
+         *  2、事件模型
+         *  DOM0-->DOM1-->DOM2
+         *    (1)DOM0级事件模型
+         *      [1] <div onclick="fun2()">bbb</div>
+         *          <div onclick=" alert('hello');">bbb</div>
+         *      [2]document.getElementById("id01").onclick=function(){
+         alert('hello11');
+         }
+         实现结构与行为的分离
+         灵活，可动态进行事件响应
+         注意：
+         事件处理函数不会明确要返回值，如不返回值，则会发生默认的行为
+         如果事件处理函数返回false,将会阻止浏览器执行这些默认动作
+         <a href="test01.html" onclick="alert('aaaa');return false;">链接1</a>
+         <form action="test42.html" onsubmit=" var v1=document.getElementById('uname').value.length;
+         if(v1==0){alert('error!!');return false;}">
+         <form action="test42.html" onsubmit="return fun4()">
+
+         特殊： onmouseover="  window.status='';return true;"
+         onmouseover方法在低版本浏览器中（ie8），return true表示阻止默认事件
+
+
+
+         3、事件参数
+         事件参数表示当前发生的事件的event对象，该事件记录了事件发生的相关信息
+         由于ie浏览器（低版）将事件参数存储在window对象中，调用方式window.e
+
+         4、鼠标事件
+         onclick
+         ondbclick
+         onmouseover
+         onmouseout
+         onmousedown
+         onmouseup
+         onmousemove
+
+         鼠标事件的响应顺序：当点击事件发生时事件响应顺序  onmousedown-->onmouseup-->onclick-->ondbclick
+
+         (1) Document对象的坐标系(以浏览器边界作起始点)
+         pagex
+         pagey
+
+         (2)以计算机屏幕左上角为定位原点
+         screenx
+         screeny
+
+         clientx
+         clienty
+
+         offsetx
+         offsety
+
+         layerx
+         layery
+
+
+
+
+         * */
+
+        //function fun1(v){
+        //    alert(v);
+        //}
+
+        //        function fun2(){
+        //            alert('hello');
+        //        }
+        //     window.onload=function(){
+        //         document.getElementById("id01").onclick=fun3;
+        //         document.getElementById("id01").ondbclick=fun3;
+        //         document.getElementById("id01").onmouseover=fun3;
+        ////         document.getElementById("but01").onclick=fun3;
+        ////
+        //          function fun3(){
+        //                     alert('hello11');
+        //          }
+        //     }
+        //
+        //        function fun4(){
+        //            var v1=document.getElementById("uname").value.length;
+        //            if(v1==0){
+        //                alert("error!!");
+        //                return false;
+        //            }
+        //
+        //        }
+        window.onload=function(){
+//    var varr=document.getElementsByTagName("a");
+//     for(var i=0;i<varr.length;i++){
+//         varr[i].onmouseover=function(){
+//            window.status="";
+//             return true;
+//         }
+//     }
+//        var sarr=document.getElementsByTagName('span')[0];
+//
+//         sarr.onclick=function(){
+//             var hattr=sarr.getAttribute("href");
+//             window.location=hattr;
+//         }
+
+//     for(var i=0;i<sarr.length;i++){
+//         sarr
+//     }
+
+//     document.getElementById("but01").onclick=function(e1){
+            //e  event
+            //e   window.e  ie 低版本
+//         alert(e.srcElement.innerText);
+//           e1= e1 || window.e; //兼容处理
+            // e.srcElement  事件源
+            //e.target  火狐(ff)事件源
+//         var  src=e1.srcElement || e1.target; //兼容处理
+
+//         alert(src.innerHTML);
+
+            //ff 浏览器不支持innerText，用textcontent代替
+//        var a= src.innerText || src.textContent;  //兼容处理
+//         alert(a);
+//           alert(src.tagName);//数据源的标签名
+
+
+
+//     }
+
+//     document.getElementById("but01").onmouseover=function(e){
+//          e= e || window.e;
+//
+//         //e.relatedTarget 获取当前事件的相邻结点   其他浏览器
+//         //e.fromElement  获取当前事件的相邻结点    ie
+//         var src_r=e.relatedTarget || e.fromElement;
+//         alert(src_r.tagName);
+//
+//     }
+//     document.getElementById("but01").onmouseout=function(e){
+//         e= e || window.e;
+//         var src_r=e.relatedTarget || e.fromElement;
+//         alert(src_r.tagName);
+//
+//     }
+
+//        document.onmousemove=function(e){
+//            e=e || window.e;
+//           document.getElementById("id01").innerText="x:"+ e.pageX+"   y:"+ e.pageY;
+//        }
+
+            var px=0,py=0;
+            document.getElementById('id_1').onmousemove=function(e){
+                //         e=e || window.e;
+//         document.getElementById("id01").innerText="x:"+ e.pageX+"   y:"+ e.pageY;
+//         document.getElementById("id02").innerText="x:"+ e.clientX+"   y:"+ e.clientY;
+
+//         pos_mouse(e);
+//         document.getElementById("id01").innerText="x:"+ px+"   y:"+ py;
+
+                e=e || window.e;
+                if(e.pageX || e.pageY){
+                    px= e.pageX;
+                    py= e.pageY;
+                }else if(e.clientX || e.clientY){
+                    px= e.clientX+document.body.scrollLeft;
+                    py= e.clientY+document.body.scrollTop;
+                }
+
+                var idmouse=document.getElementById("id_mouse");
+                idmouse.style.position='absolute';
+                idmouse.style.left=px+10+"px";
+                idmouse.style.top=py+10+"px";
+            }
+
+//     //封装鼠标定位（兼容）
+//     function pos_mouse(e){
+//         e=e || window.e;
+//         if(e.pageX || e.pageY){
+//             px= e.pageX;
+//             py= e.pageY;
+//         }else if(e.clientX || e.clientY){
+//             px= e.clientX+document.body.scrollLeft;
+//             py= e.clientY+document.body.scrollTop;
+//         }
+//     }
+
+        }
+    </script>
+</head>
+<body>
+
+<div id="id01" style="position: fixed;top:50px;"></div>
+<div id="id02"  style="position: fixed;top:150px;"></div>
+
+<div id="id_mouse" style="width: 20px;height: 20px;background: gold"></div>
+
+<div id="id_1" style="width:200px;height: 2000px;background: red;margin: 0 auto"> </div>
+
+<!--<div  onmousedown="alert('down')"  onmouseup="alert('up')" onclick="alert('click')" ondblclick="alert('dbclick')" style="width: 150px;height: 150px;background: #ffd635">-->
+
+<!--<p id="but01" style="width: 50px;height: 50px;background: red">-->
+<!--cccc-->
+<!--</p>-->
+
+
+<!--</div>-->
+
+
+<!--<a href="test01.html" onclick="alert('aaaa');return false;">链接1</a>-->
+<!--<a href="test01.html" onmouseover="  window.status='';return false;">链接2</a>-->
+<!--<a href="test01.html">链接3</a>-->
+<!--<a href="test01.html">链接4</a>-->
+
+<!--<span href="test01.html" >aaaa</span>-->
+<!--鼠标悬停所有超链接，禁止在状态栏中显示链接的url信息-->
+
+
+<!--<form action="test42.html" onsubmit=" var v1=document.getElementById('uname').value.length;-->
+<!--if(v1==0){alert('error!!');return false;}">-->
+<!--<form action="test42.html" onsubmit="return fun4()">-->
+<!--用户名：<input type="text" id="uname">-->
+<!--<input type="submit" value="确定">-->
+<!--</form>-->
+
+
+<!-- 网页中的任意超链接，点击时都变成绿色 -->
+
+<!--<div id="id01">bbb</div>-->
+<!--<button id="but01" >cccc</button>-->
+
+

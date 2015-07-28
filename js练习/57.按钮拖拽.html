@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+   <style>
+       .b1{
+           margin: 0 auto;
+           width: 200px;
+           height: 30px;
+           border: 1px solid black;
+           border-radius: 15px;
+           font-size: 18px;
+           line-height: 30px;
+           position: relative;
+       }
+       .on{
+            margin-left: 10px;
+        }
+       .off{
+           margin-left: 130px;
+       }
+       .b2{
+           width: 50px;
+           height: 32px;
+          position: absolute;
+          background: yellow;
+           border-radius: 16px;
+          top:-1px;
+           cursor: pointer;
+       }
+       </style>
+</head>
+<body>
+    <div class="b1"><span class="on">on</span><span class="off">off</span>
+        <div class="b2" id="button"></div>
+    </div>
+</body>
+</html>
+<script>
+ var b1=document.getElementById("button");
+ var px_o, ox, px_n
+    b1.onmousedown=function(e){
+        e = e || window.e;
+        if (e.pageX) {
+            px_o = e.pageX;
+        } else if (e.clientX) {
+            px_o = e.clientX + document.body.scrollLeft;
+        }
+        var src_e = e.srcElement || e.target;
+        ox = src_e.offsetLeft;
+
+        b1.onmousemove=function(e){
+            e = e || window.e;
+            if (e.pageX) {
+                px_n = e.pageX;
+            } else if (e.clientX) {
+                px_n = e.clientX + document.body.scrollLeft;
+            }
+            var src_e = e.srcElement || e.target;
+            var v1=px_n - (px_o - ox);
+            if(v1>=150){
+                v1=150
+            }
+            else if(v1<=0){
+                v1=0;
+            }
+            else{
+                v1=px_n - (px_o - ox)
+            }
+            src_e.style.left = v1 + "px";
+        }
+        b1.onmouseup=function(e){
+            e = e || window.e;
+            src = e.srcElement || e.target;
+            src.onmousemove = null;
+        }
+        b1.onmouseout=function(e){
+            e = e || window.e;
+            src = e.srcElement || e.target;
+            src.onmousemove = null;
+        }
+    }
+
+
+
+</script>

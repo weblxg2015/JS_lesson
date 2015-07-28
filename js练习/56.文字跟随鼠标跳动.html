@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body onload="fun01()">
+<div id="id01" style="position: absolute">
+<span>北</span>
+<span>京</span>
+<span>欢</span>
+<span>迎</span>
+<span>你</span>
+
+    </div>
+</body>
+</html>
+<script>
+    var d1 = document.getElementById("id01");
+    var a1=d1.children;
+    var px=0;
+    var py=0;
+    document.onmousemove=function(e){
+        if(e.pageX || e.pageY){
+            px= e.pageX;
+            py= e.pageY;
+        }else if(e.clientX || e.clientY){
+            px= e.clientX+document.body.scrollLeft;
+            py= e.clientY+document.body.scrollTop;
+        }
+//        d1.style.position='absolute';
+        d1.style.left=px+10+"px";
+        d1.style.top=py+10+"px";
+
+    }
+    var w1=0;var w2=0;
+    function fun01() {
+        for (var i = 0; i < a1.length; i++) {
+            a1[i].style.position = 'relative';
+            a1[i].style.top = w1+ "px";
+              w1+=5;
+            if(w1==50){
+               setTimeout(fun02,100)
+            }
+        }
+    }
+    function fun02() {
+        for (var i = 0; i < a1.length; i++) {
+            a1[i].style.position = 'relative';
+            a1[i].style.top = w2+ "px";
+            if(w2==0){
+
+            }
+        }
+    }
+
+
+
+    </script>

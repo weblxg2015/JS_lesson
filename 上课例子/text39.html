@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+        <script>
+            //鼠标按键
+            /* e.button--获取当前鼠标按下的键
+                           ie事件模型    DOM事件模型
+             左键              1            0
+             右键              2            2
+             滚轮              4            1
+
+             e.preventDefault();与return false区别
+             e.preventDefault()
+             return false
+             都会阻止浏览器的默认事件
+             但return false表示退出执行，即其后代码不会被执行
+
+           */
+
+
+
+//            window.onload=function() {
+//                document.onmousedown=function(e){
+////                    e.button--获取当前鼠标按下的键
+//                    e=e||window.e
+//                    if(e.button==2){
+////                        alert("别按");
+//                        e.preventDefault();
+//                        return false
+//                    }
+                document.oncontextmenu=function(){return false;};//禁用右键菜单
+                    document.onpaste=function(){return false;};//禁用粘贴
+                    document.oncope=function(){return false;};//禁用拷贝
+                    document.oncut=function(){return false;};//禁用剪切
+                    document.onmousewheel=function(){return false;};//禁用鼠标滚轮
+                    document.onselectstart=function(){return false;}//禁止选择
+
+//                document.getElementById("linkopen").onclick=function(e){
+//                    window.open(this.getAttribute("href"),"newopen","width=300,height=300")
+//                    e=e||window.e;
+//                    e.preventDefault();//
+//                    window.open(this.href,"newopen","width=300,height=300");
+//                    return false; //
+//
+//                }
+                function re() {
+                    var v1 = document.getElementById("id01");
+                    var px_o, py_o, ox, oy, px_n, py_n;
+                    v1.onmousedown = function (e) {
+                        e = e || window.e;
+
+//                 px_o=e.pageX;
+//                 py_o= e.pageY;
+                        //计算鼠标落点的x、y坐标
+                        if (e.pageX || e.pageY) {
+                            px_o = e.pageX;
+                            py_o = e.pageY;
+                        } else if (e.clientX || e.clientY) {
+                            px_o = e.clientX + document.body.scrollLeft;
+                            py_o = e.clientY + document.body.scrollTop;
+                        }
+
+                        //获取元素的offsetleft\offsettop值
+//                 this.offsetLeft
+//                 this.offsetTop
+                        var src_e = e.srcElement || e.target;//等价于document.getElementById("id01");
+                        ox = src_e.offsetLeft;
+                        oy = src_e.offsetTop;
+
+
+                    }
+                    v1.onmousemove = function (e) {
+                        e = e || window.e;
+                        //计算鼠标移动的x、y坐标
+                        if (e.pageX || e.pageY) {
+                            px_n = e.pageX;
+                            py_n = e.pageY;
+                        } else if (e.clientX || e.clientY) {
+                            px_n = e.clientX + document.body.scrollLeft;
+                            py_n = e.clientY + document.body.scrollTop;
+                        }
+
+                        //随鼠标移动定位元素
+                        var src_e = e.srcElement || e.target;
+                        src_e.style.left = px_n - (px_o - ox) + "px";
+                        src_e.style.top = py_n - (py_o - oy) + "px";
+                    }
+                    v1.onmouseup = function (e) {
+                        e = e || window.e;
+                        src = e.srcElement || e.target;
+                        src.onmousedown = null;
+                        src.onmousemove = null;
+                        setTimeout(re, 0);
+                    }
+            }
+
+        </script>
+
+    <title></title>
+</head>
+<body onload="re()">
+<!--<a href="test01.html" id="linkopen">打开新页</a>-->
+<div id="id01" style="width: 100px;height: 100px;background:red;position: absolute;;left: 100px;top:100px"></div>
+</body>
+</html>

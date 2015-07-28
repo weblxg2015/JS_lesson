@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+        键盘事件
+        keydown：键盘按下某个键时触发 （字母都以大写方式显示）
+        keypress：释放某个键时触发   （字母都以大写方式显示）
+        onkeypress：按下某个键并释放时触发  （字母都以大、小写方式显示--区分大小写）
+
+         e.keyCode获取当前按下键盘键的编码（Ascii编码）
+         1.---49；
+         回车---13
+         退格---8
+
+        */
+        window.onload=function(){
+            var v1=document.getElementById("inp01")
+            v1.onkeypress=function(e){
+                e=e||window.e;
+                alert(e.keyCode);//键值
+            }
+        }
+        </script>
+</head>
+<body>
+<input type="text"id="inp01">
+<!--对输入框内容进行验证，必须为数字，回车与确定按钮功能相同-->
+</body>
+</html>

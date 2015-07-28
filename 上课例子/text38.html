@@ -8,7 +8,7 @@
         1.事件的传播过程
            冒泡时间流：事件由下至上传播（传递过程像水泡一样不断上升到顶端，所以比喻为冒泡）
              div_1-->div-->body
-           捕获事件流，与冒泡时间流相反，事件由上至下传播 bodydivdiv-->div_1
+           捕获事件流，与冒泡时间流相反，事件由上至下传播 body-->div-->div_1
            (1)默认情况：事件使用冒泡时间流
           （2）ie8及以下版本只支持冒泡事件流
           （3）ie9及以上，现在浏览器同时支持以上两种事件流
@@ -57,17 +57,42 @@
       鼠标事件的响应顺序：当点击事件发现时事件响应顺序
          onmousedown-->onmouseup-->onclick
 
+         pageX 鼠标在页面上的位置,从页面左上角开始,即是以页面为参考点,不随滑动条移动而变化
+         pageY
+         offsetX IE特有,鼠标相比较于触发事件的元素的位置,以元素盒子模型的内容区域的左上角为参考点,如果有boder,可能出现负值
+         offsetY
+         screenXscreenX:鼠标在屏幕上的位置,从屏幕左上角开始,
+         screenY
+         layerX layerX:FF特有,鼠标相比较于当前坐标系的位置,即如果触发元素没有设置绝对定位或相对定位,以页面为参考点,如果有,将改变参考坐标系,从触发元素盒子模型的border区域的左上角为参考点
+                也就是当触发元素设置了相对或者绝对定位后,layerX和offsetX就幸福地生活在一起^-^,几乎相等,唯一不同就是一个从border为参考点,一个以内容为参考点
+         layerY
+         clientX 鼠标在页面上可视区域的位置,从浏览器可视区域左上角开始,即是以浏览器滑动条此刻的滑动到的位置为参考点,随滑动条移动 而变化
+         clientY
+
+         （1）Document对象的坐标系（以浏览器边界作为起始点）
          pageX
          pageY
-         offsetX
-         offsetY
+
+         （2）以计算机屏幕左上角为定位原点
          screenX
          screenY
-         layerX
-         layerY
+
+         (3)针对ie低版本的方法，与pxgeX|pageY类似
          clientX
          clientY
 
+
+         （4）在元素内部定位鼠标指针
+         ff部分版本，ie版本不支持
+        offsetX
+         offsetX
+
+         针对ff，ie低版本
+         目前高级浏览器也支持
+         layerX，layerY以绝对定位的父元素参照物，如没有绝对的元素或本身没有定位，
+         则以document对象（即浏览器边界）为参照物
+         layerX
+         layerY
 
 
          * */
@@ -114,7 +139,7 @@
                 var src = e1.srcElement || e1.target;
 //                alert(src.innerHTML)
         //火狐ff浏览器不支持innerText，用textContent代替
-//                var a= src.innerText ||src.textContent;
+                var a= src.innerText ||src.textContent;
 //                alert(a)
                 alert(src.tagName)//数据源的标签名
 
@@ -123,8 +148,8 @@
 //
             document.getElementById("but01").onmouseover=function(e){
                 e=e|| window.e;
-                //relatedTarget相邻元素，获取当前时间的相邻结点 其他浏览器
-                //fromElement 相邻元素，获取当前时间的相邻结点    te
+                //relatedTarget相邻元素，获取当前事件的相邻结点 其他浏览器
+                //fromElement 相邻元素，获取当前事件的相邻结点    ie
                 var src_r= e.relatedTarget || e.fromElement
                 alert(src_r.tagName)
             }
@@ -143,7 +168,7 @@
         </script>
 </head>
 <body>
-<div id="id01"></div>
+<!--<div id="id01"></div>-->
 <!--<button id="but01">cccc</button>-->
 <!--<div style="width: 150px;height: 150px;background: yellow">-->
 
@@ -157,7 +182,7 @@
 
      -->
 
- </div>
+ <!--</div>-->
 
  <!--<a href="test01.html" onclick="alert('aaaa');return false;">链接1</a>-->
 <!--<a href="#">链接2</a>-->
@@ -175,6 +200,15 @@
 <!--<div onclick="fun1('div')">aaaaa-->
     <!--<div onclick="fun1('div_1')">aaaaa</div>-->
 <!--</div>-->
+
+<div id="id01" style="position: fixed;top: 100px"></div>
+<div id="id02" style="position: fixed;top: 150px"></div>
+
+<div id="id_mouse" style="width: 20px;height: 20px;background: gold"></div>
+
+<div id="id_1" style="width: 200px;height: 2000px;background: #ff0000;margin: 0 auto;position: relative"></div>
+
+
 <script>
 //    var a1=document.getElementsByTagName("a");
 //    //            var a2=document.links;
@@ -185,10 +219,48 @@
 ////                        this.style.
 //        }
 //    }
-document.onmousemove=function(e){
-    e=e||window.e;
-    document.getElementById("id01").innerText="x:"+ e.clientX+" y："+ e.clientY;
+//            document.onmousemove=function(e){
+//                e=e||window.e;
+//                document.getElementById("id01").innerHTML= e.pageX+" "+ e.pageY;
+//            }
+document.getElementById("id_1").onmousemove=function(e){
+
+//    e=e||window.e;
+//    document.getElementById("id02").innerHTML= "X:"+e.pageX+" Y:"+ e.pageY;
+//    document.getElementById("id01").innerHTML= "X:"+e.offsetX+" Y:"+ e.offsetY;
+//    document.getElementById("id01").innerHTML= "X:"+(e.clientX+document.body.scrollLeft)+" Y:"+ (e.clientY+document.body.scrollTop);
+    document.getElementById("id01").innerHTML= "X:"+e.layerX+" Y:"+ e.layerY;
+//    var px=0;
+//    var py=0;
+//    e=e||window.e;
+//    if(e.pageX|| e.pageY){
+//        px= e.pageX;
+//        py= e.pageY;
+//    }
+//    else if(e.clientX||e.clientX){
+//        px= e.clientX+document.body.scrollLeft;
+//        px= e.clientY+document.body.scrollTop;
+//    }
+//
+//  var idmouse=document.getElementById("id_mouse");
+//    idmouse.style.position="absolute"
+//    idmouse.style.left=px+"px"
+//    idmouse.style.top=py+"px"
+//
 }
+//封装鼠标定位(兼容)
+function pos_mouse(e){
+    e=e||window.e;
+    if(e.pageX|| e.pageY){
+        px= e.pageX;
+        py= e.pageY;
+    }
+    else if(e.clientX||e.clientX){
+        px= e.clientX+document.body.scrollLeft;
+        py= e.clientY+document.body.scrollTop;
+    }
+}
+//封装鼠标定位(兼容)end
 
 </script>
 </body>
