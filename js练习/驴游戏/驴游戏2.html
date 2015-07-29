@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .img1{
+            width: 50px;
+            height: 100px;
+            position: absolute;
+            left: 500px;
+            top: 200px;
+        }
+        .d1{
+            width: 50px;
+            height: 50px;
+            background: black;
+            position: absolute;
+            left: 200px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+<img src="lv2.jpg" id="lv" class="img1">
+<div class="d1"></div>
+</body>
+</html>
+<script>
+var d1= document.getElementById("lv");
+var tim1;
+var tim2;
+var tim3;
+var tim4;
+document.onkeydown=function(e) {
+    e = e || window.e;
+    var px = d1.offsetLeft;
+    var py = d1.offsetTop;
+
+    if (e.ctrlKey && e.keyCode == 37){
+        clearInterval(tim1);
+        left(5);
+    }
+    else if (e.ctrlKey && e.keyCode == 39){
+        clearInterval(tim2);
+        right(5);
+    }
+    else if (e.ctrlKey && e.keyCode == 40){
+        clearInterval(tim3);
+        down(5)
+    }
+    else if (e.ctrlKey && e.keyCode == 38){
+        clearInterval(tim4);
+        up(5);
+    }
+    else if (e.altKey && e.keyCode == 37){
+        clearInterval(tim1);
+        left(20);
+    }
+    else if (e.altKey && e.keyCode == 39){
+        clearInterval(tim2);
+        right(20);
+    }
+    else if (e.altKey && e.keyCode == 40) {
+        clearInterval(tim3);
+        down(20);
+    }
+    else if (e.altKey&& e.keyCode == 38){
+        clearInterval(tim4);
+        up(20);
+    }
+    else if( e.keyCode ==65&&e.altKey){
+        d1.setAttribute("src", "lv2.jpg");
+        clearInterval(tim1);
+        clearInterval(tim2);
+        clearInterval(tim3);
+        clearInterval(tim4);
+
+    }
+    else if (e.keyCode == 37||e.keyCode == 65) {
+        clearInterval(tim1);
+           left(10);
+    }
+   else if (e.keyCode == 39 || e.keyCode == 68)  {
+        clearInterval(tim2);
+           right(10);
+    }
+    else if (e.keyCode == 40 || e.keyCode == 83){
+        clearInterval(tim3);
+        down(10)
+    }
+    else if (e.keyCode == 38 || e.keyCode == 87){
+        clearInterval(tim4);
+         up(10)
+    }
+
+        function left(v) {
+            clearInterval(tim2);
+            clearInterval(tim3);
+            clearInterval(tim4);
+            d1.setAttribute("src", "lv1.jpg");
+            var a1=d1.offsetLeft;
+            function funleft() {
+                d1.style.left = a1 + "px";
+                a1--;
+                var q2=d1.offsetLeft;
+                var q3=d1.offsetTop;
+                if( (q3>=100&&q3<=250)&&(q2>=150&&q2<=250)){
+                    alert("你输了");
+                    window.location.reload();
+                }
+            }
+          tim1=setInterval(funleft,v);
+        }
+
+        function right(v) {
+             clearInterval(tim1);
+            clearInterval(tim3);
+            clearInterval(tim4);
+            d1.setAttribute("src", "lv3.jpg");
+            var a2=d1.offsetLeft;
+            function funright() {
+             d1.style.left = a2 + "px";
+            a2++;
+                var q2=d1.offsetLeft;
+                var q3=d1.offsetTop;
+                if( (q3>=100&&q3<=250)&&(q2>=150&&q2<=250)){
+                    alert("你输了");
+                    window.location.reload();
+                }
+
+        }
+         tim2=setInterval(funright,v)
+    }
+
+    function up(v) {
+        clearInterval(tim1);
+        clearInterval(tim2);
+        clearInterval(tim4);
+        d1.setAttribute("src", "lv2.jpg");
+        var a3=d1.offsetTop;
+        function funtop() {
+            d1.style.top = a3 + "px";
+            a3--;
+
+            var q2=d1.offsetLeft;
+            var q3=d1.offsetTop;
+            if( (q3>=100&&q3<=250)&&(q2>=150&&q2<=250)){
+                alert("你输了");
+                window.location.reload();
+            }
+        }
+       tim3=setInterval(funtop,v)
+    }
+
+    function down(v) {
+        clearInterval(tim1);
+        clearInterval(tim2);
+        clearInterval(tim3);
+        d1.setAttribute("src", "lv2.jpg");
+        var a4=d1.offsetTop;
+        function fundown() {
+            d1.style.top =a4  + "px";
+            a4++;
+
+            var q2=d1.offsetLeft;
+            var q3=d1.offsetTop;
+            if( (q3>=100&&q3<=250)&&(q2>=150&&q2<=250)){
+                alert("你输了");
+                window.location.reload();
+            }
+        }
+        tim4=setInterval(fundown,v)
+    }
+}
+
+</script>

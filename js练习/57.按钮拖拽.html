@@ -38,6 +38,7 @@
 </body>
 </html>
 <script>
+
  var b1=document.getElementById("button");
  var px_o, ox, px_n
     b1.onmousedown=function(e){
@@ -79,6 +80,7 @@
             e = e || window.e;
             src = e.srcElement || e.target;
             src.onmousemove = null;
+            src.onmousedown = null;
         }
     }
 

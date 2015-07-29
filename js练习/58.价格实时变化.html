@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+单价<input type="text" id="d1" > 数量<input type="number" value="1" id="num"><br><br>
+<div>实时总价：<span id="show"></span></div>
+</body>
+</html>
+<script>
+    var EventUtil = {
+        addHandler: function (element, type, handler) {  //elemnt--元素 type--事件模型，handler执行函数
+            if (element.addEventListener) { //支持DOM2事件模型
+                element.addEventListener(type, handler, false);
+            }
+            else if (element.attachEvent) { //ie事件模型
+                element.attachEvent("on" + type, handler);
+            }
+            else {
+                element["on" + type] = handler;//DOM事件模型
+            }
+        },
+        removeHandler: function (element, type, handler) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, handler, false);
+            }
+            else if (element.detachEvent) { //ie事件模型
+                element.detachEvent("on" + type, handler);
+            }
+            else {
+                element["on" + type] = null;//DOM事件模型
+            }
+        },
+        //跨浏览器的事件对象
+        getEvent:function(e){
+            return e ? e:window.e;
+        },
+        //跨浏览器的事件源
+        eventSrc:function(e){
+            return e.srcElement||e.target;
+        },
+        //跨浏览器阻止冒泡
+        stopmp:function(e){
+            if(e.stopPropagation) {
+                e.stopPropagation()
+            }
+            e.cancelBubble=true;
+        }
+    }
+    var show=document.getElementById("show");
+    var num=document.getElementById("num");
+    var d1=document.getElementById("d1")
+    function fun1(){
+       var a1=Number(d1.value);
+         var a2=Number(num.value);
+         show.innerText=a1*a2
+   }
+    function fun2(){
+        var a1=Number(d1.value);
+        var a2=Number(num.value);
+        show.innerText=a1*a2
+    }
+
+    EventUtil.addHandler(d1,'keyup',fun1);
+    EventUtil.addHandler(num,'change',fun2)
+
+    </script>

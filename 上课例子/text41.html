@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //获得css里的样式参数
+        window.onload=function(){
+            var v1=document.getElementsByTagName('img')[0];
+//            alert(v1.width)
+//            alert(v1.getAttribute("width"))
+
+            var v2=document.getElementsByTagName('div')[0];
+//            alert(v2.width)
+//            alert(v2.currentStyle.width)//IE
+           var m= document.defaultView.getComputedStyle(v2,null)//其他浏览器
+            alert(m.backgroundColor)
+        }
+
+
+    </script>
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+        }
+        div{
+            width: 100px;
+           height: 100px;
+            background: red;
+        }
+        </style>
+</head>
+<body>
+<img src="1.jpg">
+<div></div>
+</body>
+</html>

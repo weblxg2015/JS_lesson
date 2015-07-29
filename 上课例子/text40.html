@@ -14,14 +14,23 @@
          1.---49；
          回车---13
          退格---8
+         ```
+         e.ctrlKey 按下ctrl
+         e.altKey   按下alt
+         e.shiftKey 按下shift
+         e.ctrlKey && e.keyCode==65 同时按下ctrl+a
 
         */
         window.onload=function(){
             var v1=document.getElementById("inp01")
-            v1.onkeypress=function(e){
+            v1.onkeydown=function(e){
                 e=e||window.e;
-                alert(e.keyCode);//键值
-            }
+//                alert(e.keyCode);//键值
+//               if( e.ctrlKey && e.keyCode==65){//ctrl+a
+//                   alert("true...ctrl")
+                alert(e.keyCode)
+               }
+
         }
         </script>
 </head>

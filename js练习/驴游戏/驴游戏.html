@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+       .img1{
+           width: 60px;
+           height: 120px;
+           position: absolute;
+           left: 500px;
+           top: 200px;
+       }
+    </style>
+</head>
+<body>
+<img src="lv2.jpg" id="lv" class="img1">
+</body>
+</html>
+<script>
+    //左37 上38 右39 下40
+//      65    87  68   83
+    var d1= document.getElementById("lv");
+    document.onkeydown=function(e) {
+        e = e || window.e;
+        var px = d1.offsetLeft;
+        var py = d1.offsetTop;
+        if (e.ctrlKey && e.keyCode == 37) {
+            var a3 = px - 6;
+            if (a3 <= 0) {
+                a3 = 0
+            }
+            d1.style.left = a3 + "px";
+            d1.setAttribute("src", "lv1.jpg")
+        }
+        else if (e.ctrlKey && e.keyCode == 39) {
+            var b3 = px + 6;
+            if (b3 >= 1000) {
+                b3 = 1000
+            }
+            d1.style.left = b3 + "px";
+            d1.setAttribute("src", "lv3.jpg")
+        }
+        else if (e.ctrlKey && e.keyCode == 40) {
+            var c3 = py + 6;
+            if (c3 >= 1000) {
+                c3 = 1000
+            }
+            d1.style.top = c3 + "px";
+            d1.setAttribute("src", "lv2.jpg")
+        }
+        else if (e.ctrlKey && e.keyCode == 38) {
+            var d3 = py - 6;
+            if (d3 <= 0) {
+                d3 = 0
+            }
+            d1.style.top = d3 + "px";
+            d1.setAttribute("src", "lv2.jpg")
+        }
+
+        else if (e.altKey && e.keyCode == 37) {
+            var a4 = px - 1;
+            if (a4 <= 0) {
+                a4 = 0
+            }
+            d1.style.left = a4 + "px";
+            d1.setAttribute("src", "lv1.jpg")
+        }
+        else if (e.altKey && e.keyCode == 39) {
+            var b4 = px + 1;
+            if (b4 >= 1000) {
+                b4 = 1000
+            }
+            d1.style.left = b4 + "px";
+            d1.setAttribute("src", "lv3.jpg")
+        }
+        else if (e.altKey && e.keyCode == 40) {
+            var c4 = py + 1;
+            if (c4 >= 1000) {
+                c4 = 1000
+            }
+            d1.style.top = c4+ "px";
+            d1.setAttribute("src", "lv2.jpg")
+        }
+        else if (e.altKey&& e.keyCode == 38) {
+            var d4 = py - 1;
+            if (d4 <= 0) {
+                d4 = 0
+            }
+            d1.style.top = d4 + "px";
+            d1.setAttribute("src", "lv2.jpg")
+        }
+
+        else if (e.keyCode == 37 || e.keyCode == 65) {
+            var a1 = px - 3;
+            if (a1 <= 0) {
+                a1 = 0
+            }
+            d1.style.left = a1 + "px";
+            d1.setAttribute("src", "lv1.jpg")
+        }
+        else if (e.keyCode == 39 || e.keyCode == 68) {
+            var b1 = px + 3;
+            if (b1 >= 1000) {
+                b1 = 1000
+            }
+            d1.style.left = b1 + "px";
+            d1.setAttribute("src", "lv3.jpg")
+        }
+        else if (e.keyCode == 40 || e.keyCode == 83) {
+            var c1 = py + 3;
+            if (c1 >= 1000) {
+                c1 = 1000
+            }
+            d1.style.top = c1 + "px";
+            d1.setAttribute("src", "lv2.jpg")
+        }
+        else if (e.keyCode == 38 || e.keyCode == 87) {
+            var d2 = py - 3;
+            if (d2 <= 0) {
+                d2 = 0
+            }
+            d1.style.top = d2 + "px";
+            d1.setAttribute("src", "lv2.jpg")
+        }
+    }
+
+
+
+    document.onkeyup = function () {
+        d1.setAttribute("src", "lv2.jpg")
+    }
+
+</script>

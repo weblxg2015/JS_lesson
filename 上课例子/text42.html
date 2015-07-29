@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+        事件模型
+        （1）DOM1事件模型
+         v.onclick=function(){}
+         [1]该方式不支持对同一个元素的同一个事件注册多个事件监听
+         v.onclick=function(){alert("a")}
+         v.onclick=function(){alert("b")}
+         只输出最后一个
+         [2]只支持冒泡传播方式
+
+        （2）DOM2事件模型(ie低版本不支持)
+         v.addEventListener(arg1,arg2,arg3)
+               arg1:要绑定事件的类型名
+               arg2:回调函数
+               arg3:事件的传播方式
+                    true：支持的事件捕获
+                    false：支持事件冒泡
+
+                    v.addEventListener('click', fun1，false);
+                     v.addEventListener('click', fun2,false);
+                    function fun1() {alert("a");}
+                    function fun2() {alert("b");}
+
+         removeEventListener(参数同上)
+                (1)移除事件可释放系统资源
+                (2)移除（销毁）事件的参数一定要与绑定事件的参数一致
+         v.removeEventListener('click',fun1,false);
+
+        （3）IE事件模型
+         attachEvent(arg1,arg2);
+               arg1:要绑定事件的类型名
+               arg2:回调函数
+
+         detachEvent移除
+
+         注意：由于attachEvent、detachEvent不支持事件捕获，默认的就是冒泡传播，所以只有两个参数
+         v1.attachEvent('onclick', fun1);
+          v1.attachEvent('onclick', fun2);
+
+         跨浏览器事件处理程序
+         function aa(element, type, handler) {  //elemnt--元素 type--事件模型，handler执行函数
+         if (element.addEventListener) { //支持DOM2事件模型
+         element.addEventListener(type, handler, false);
+         }
+         else if (element.attachEvent) { //ie事件模型
+         element.attachEvent("on" + type, handler);
+         }
+         else {
+         element["on" + type] = handler;//DOM事件模型
+         }
+         }
+
+         //跨浏览器事件移除程序
+         function bb(element, type, handler) {
+         if (element.removeEventListener) {
+         element.removeEventListener(type, handler, false);
+         }
+         else if (element.detachEvent) { //ie事件模型
+         element.detachEvent("on" + type, handler);
+         }
+         else {
+         element["on" + type] = null;//DOM事件模型
+         }
+         }
+
+        组织冒泡传播
+         e.stopPropagation(); --W3C
+        src.topPropagation(); --ie
+
+        常用事件
+        onload函数调用
+        onunload反调用
+         onkeydown
+         onkeyup
+         onkeypress
+         onmouseover
+         onmouseout
+         onmousemove
+         onmousedown
+         onmouseup
+         onclick
+         ondbclick
+         onchange
+         onselect
+         onsubmit
+         onfocus
+         onblur
+         onscroll
+
+
+       */
+        window.onload=function() {
+
+////            v.addEventListener('click', fun1);
+////            v.addEventListener('click', fun2);
+////            function fun1() {alert("a");}
+////            function fun2() {alert("b");}
+////            v.removeEventListener('click',fun1,false);
+//            v1.attachEvent('onclick', fun1);
+//            v1.attachEvent('onclick', fun2);
+//            function fun1() {
+//                alert("a");
+//            }
+//            function fun2(){ alert("b");}
+//        }
+//            v['onclick'] = fun1;
+//        }
+
+            //跨浏览器事件处理程序
+            var EventUtil = {
+                addHandler: function (element, type, handler) {  //elemnt--元素 type--事件模型，handler执行函数
+                    if (element.addEventListener) { //支持DOM2事件模型
+                        element.addEventListener(type, handler, false);
+                    }
+                    else if (element.attachEvent) { //ie事件模型
+                        element.attachEvent("on" + type, handler);
+                    }
+                    else {
+                        element["on" + type] = handler;//DOM事件模型
+                    }
+                },
+                removeHandler: function (element, type, handler) {
+                    if (element.removeEventListener) {
+                        element.removeEventListener(type, handler, false);
+                    }
+                    else if (element.detachEvent) { //ie事件模型
+                        element.detachEvent("on" + type, handler);
+                    }
+                    else {
+                        element["on" + type] = null;//DOM事件模型
+                    }
+                },
+                //跨浏览器的事件对象
+                getEvent:function(e){
+                   return e ? e:window.e;
+                },
+                //跨浏览器的事件源
+                eventSrc:function(e){
+                    return e.srcElement||e.target;
+                },
+              //跨浏览器阻止冒泡
+                stopmp:function(e){
+                  if(e.stopPropagation) {
+                      e.stopPropagation()
+                  }
+                    e.cancelBubble=true;
+                }
+            }
+//            var v = document.getElementById("id01");
+//            function fun1(){
+//                alert("a")
+//            }
+//            EventUtil.addHandler(v,'click',fun1);
+//            EventUtil.removeHandler(v,'click',fun1)
+//        }
+            //跨浏览器事件处理程序end
+//        }
+
+            document.getElementById("id01").onclick = function (e) {
+//               src=EventUtil.eventSrc(e);
+                alert("aaaaa");
+//               e.stopPropagation();
+//                e.cancelBubble=true
+                EventUtil.stopmp(e);
+            }
+
+//        function fun3(e){
+//            alert("aaa");
+//            e.stopPropagation();
+//            src.topPropagation();
+//        }
+
+
+
+
+        }
+        </script>
+</head>
+<body>
+<!--<div onclick="alert('bbb')">-->
+           <!--<div id="id01">aaa</div>-->
+<!--</div>-->
+<div id="id02" style="position: absolute; width: 100px;height: 100px;background:red"></div>
+<div style="height: 2000px;width: 300px;background: gold"></div>
+</body>
+</html>
+
+<script>
+    var vid02=document.getElementById("id02")
+    window.onscroll=function(){
+        vid02.style.top=document.body.scrollTop+50+"px"
+    }
+    </script>
