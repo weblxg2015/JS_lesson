@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+        函数
+        1.完成某一功能的一组语句
+            可接收0到多个参数执行函数体后可返回处理结果
+        2.基础语法
+           function 函数名（参数）{
+           函数体
+           return 返回结果
+           }
+      */
+
+//        function fun01(){
+//           var v1=document.getElementsByTagName('input');
+//            var a=Number(v1[0].value);
+//            var b=Number(v1[1].value);
+////            if(a>b)
+////                alert(a);//只有一条语句{}可以省略
+////            else
+////                alert(b)
+//            alert(fun2(a,b));
+//        }
+//普通函数的调用
+//        function fun2(a,b){ //形参
+//            if(a>b)
+//              return a;
+//            else
+//              return b;
+//        }
+//      var v=fun2(3,4); //实参
+//        alert(v);
+//       alert(fun2(3,4))
+
+        //匿名函数
+//       var v1= function(a,b){ //形参
+//            if(a>b)
+//                return a;
+//            else
+//                return b;
+//        }
+//
+//        alert(v1(1,2));
+//        document.getElementsByTagName('button')[0].onclick=function(){
+//        }
+//
+  //直接调用  （function...）（参数）
+//        var m;   //表示立即执行
+//        (function(a,b){
+//            if(a>b)
+//                m=a;
+//            else
+//               m=b;
+//        })(3,4);
+//        alert(m)
+
+//函数对象创建
+//        var fun4= new Function('a','b','return(a>b?a:b)');
+//        alert(fun4(7,4));
+
+/*练习：输入三点坐标，求三条连线的长度，并计算两条线间的夹角*/
+/*
+        3.返回值
+        函数参数个数不限，但返回值只能有一个
+        如多个返回值，可数组传递
+  */
+//        function fun2(a,b){
+//            var arr1=[];
+//            if(a>b) {
+//                arr1[0] = a;
+//                arr1[1] = b;
+//            }
+//            else {
+//                arr1[0] = b;
+//                arr1[1] = a;
+//            }
+//            return arr1;
+//        }
+//        var v1=fun2(3,4);
+//        document.write("最大值"+v1[0]+"最小值"+v1[1])
+
+//        function fun4(x,y){
+//            return function(){
+//                return x+y;
+//            }
+//        }
+//alert(fun4(3,4)())
+//         var i=1;
+//        function fun5(){
+//                i++;
+//                return fun5
+//            }
+//           fun5()()()()()()()()();
+//            alert(i);
+//        function f(){
+//            return 1
+//        }
+
+//        function f(){
+//            return f();
+//            function f(){
+//                return n();
+////                function n(){//未注销输出5，注销输出2
+////                    return 5;
+////                }
+//            }
+//            function n(){
+//                return 2;
+//            }
+//        }
+//        alert(f())
+
+//        function fun6(a,b){
+//            return a%b+a;
+//        }
+//        function fun6(a,b){
+//            return a%b+ a++ + --a + ++b - --a%b++;
+//        }
+//
+//        alert(fun6(fun6(12,7),fun6(5,9))); //24
+//        alert(fun6(fun6(fun6(3,4),fun6(7,3)),fun6(15,9)))//24
+
+        //函数嵌套
+//        function f(a,b){
+//            function e(x,y){
+//                return x*y;
+//            }
+//            return e(3,4)+a+b;
+//        }
+//        alert(f(7,8))
+//内部函数变量只能在函数内部使用，函数体外不能调用
+//        function f(a,b){
+//                    function e(){
+//                        var x=3;
+//                        var y=4
+//                        return x*y;
+//                    }
+//                    return e()+x+b;
+//                }
+//                alert(f(7,8))
+
+        //变量作用域
+//例1
+//        function fun6(){
+//            var i=2;
+//            alert(i);//2
+//        }
+//        fun6();
+//        alert(i)//错误
+// 例2
+//        function fun6(){
+//            i=2;//如省略var，相当于全局变量
+//            alert(i);//2
+//        }
+//        fun6();
+//        alert(i)//2
+// 例3
+//       var i=2;
+//        function fun6(){
+//            alert(i);//2如内部未定义，则寻找全局变量
+//        }
+//        fun6();
+//        alert(i)//2
+
+// 例4JS在预编译时，会对所有var变量进行创建，给默认值underfined但不赋值，执行时才会赋值
+//                function fun6(){
+//                    alert(i);//underfined
+//                    var i=2;
+//                    alert(i);//2
+//                }
+//                fun6();
+// 例5
+//        var i=3;
+//        function fun6(){
+//             i=2;
+//            alert(i);//2
+//        }
+//        alert(i);//3
+//        fun6();
+//        alert(i);//2
+
+ // 例6
+//        function fun6(){
+//                alert(i);//underfined
+//                var i=2;
+//                i++;
+//                alert(i);//3
+//           }
+//        fun6();
+//        alert(i);//错误
+
+ //例7  先内部查找，再向上搜索
+//       var i=2;
+//        function fun6(){
+//            var i=1;
+//            alert(i);//1
+//            i++;
+//            alert(i);//2
+//        }
+//        fun6();
+//        alert(i)//2
+
+//例8
+//        var i=2;
+//        function fun6(i){
+//            alert(i);//2
+//            i++;
+//            alert(i);//3
+//        }
+//        fun6(i);
+//        alert(i); //2
+
+       var f = function() {return true;};
+       var g = function() {return false;};e
+        (function() {
+            if (g() && [] == ![]) {//false
+                f = function f() {return false;};
+                    function g() {return true;}
+            }
+        })();
+        alert(f());
+//        alert(typeof (![]));
+//        if(![]==[]){ //true
+//            alert("true")
+//        }
+//        else{
+//            alert('false')
+//        }
+
+
+       // (1)
+//        var tt = 'aa';
+//        function test(){
+//            alert(tt); //underfined
+//            var tt = 'dd';
+//            alert(tt); //dd
+//        }
+//        test();
+
+//       // (2)
+//        var tt = 'aa';
+//        function test(tt){
+//            alert(tt);// aa
+//            var tt = 'dd';
+//            alert(tt); //dd
+//        }
+//        test(tt);
+//
+//
+//        //(3)
+//        var tt = 'aa';
+//        function test(tt){
+//            alert(tt); //aa
+//            tt = 'dd';
+//            alert(tt); //dd
+//        }
+//        test(tt);
+//        alert(tt); //aa
+
+//        执行完毕后 ,x，y，z的值分别是多少
+//        var x= 2,y=z=1;
+//        function add(n){
+//           return n+1;
+//        }
+//        y=add(x);
+//        function add(n){
+//            return n=n+3;
+//        }
+//        z=add(x)
+//        alert(x);
+//        alert(y);
+//        alert(z);
+////          x=2;y=5;z=5
+
+//      //函数重载与命名冲突问题
+        //重载：一般指函数名相同，参数个数类型不同
+        //js不支持重载，后面的同名函数会覆盖前面的同名函数
+//      1.  function sum(a){
+//            alert(a+20)
+//        }
+//        function sum(a){
+//            alert(a+30)
+//        }
+//        sum(10);//40
+
+//       2.         function sum(a){
+//                    alert(a+20)
+//                }
+//                function sum(a,b){
+//                    alert(a+30)
+//                }
+//                sum(10);//40
+
+//      3.  function sum(a,b){
+//            alert(a+30)
+//        }
+//        function sum(a){
+//            alert(a+20)
+//        }
+//
+//        sum(10,20);//20
+//
+//        4.
+//      function f(){
+//          return 1;
+//      }
+//        alert(f());
+//        var f=function(){
+//            return 2
+//        }
+//        alert(f());
+//        if(2==3){
+//      function f(){
+//            return 3
+//         }
+//        }
+//        alert(f());
+
+
+        /*
+        函数的生命周期
+           使用function语句声明的函数被预先编译，此时如果存在相同的同名函数，
+           则会按顺序被覆盖
+           而函数直接量及函数对象定义都属于表达式，他们在代码执行时，才被激活生命周期
+        */
+        //            function f(){
+        //                return 1;
+        //            }
+        //            alert(f())//3
+        //            var f=function(){
+        //                return 2;
+        //            }
+        //            alert(f())//2
+        //
+        //                  function f(){
+        //                   return 3;
+        //            }
+        //            alert(f())//2
+        //function f(){
+        //                return 1;
+        //            }
+        //            alert(f())//5
+        //            var f=function(){
+        //                return 2;
+        //            }
+        //            alert(f())//2
+        //
+        //                  function f(){
+        //                   return 3;
+        //            }
+        //            alert(f())//2
+        //            var f=new Function('return 4')
+        //            alert(f())//4
+        //
+        //            function f(){
+        //                return 5;
+        //            }
+        //            alert(f())//4
+        //var f=new Function('return 6')
+        //alert(f())//6
+        //
+        //var f=function(){
+        //    return 7;
+        //}
+        //alert(f())//7
+
+//        (2)
+
+//        function add(n) {
+//            return n = n+1;
+//        }
+//        alert(add(1));//4
+//
+//        function add(n) {
+//            return n = n+3;
+//        }
+//        alert(add(1));//4
+
+//        (3)
+//        var x = 1, y = z = 0;
+//        function add(n) {
+//            return n = n+1;
+//        }
+//        y = add(x);//4
+//
+//        function add(n) {
+//            return n + 3;
+//        }
+//        z = add(x);//3
+
+//        (4)
+//        var a=5;
+//        var b=10;
+//        var c='5';
+//        alert(a=b); //10
+//        alert(a==b); //true
+//        a=5;
+//        alert(a==c);//true
+//        alert(a===c);//false
+
+////        (4)
+//        alert(null instanceof Object )//false
+//        alert(null==undefined)//true
+//        alert(null===undefined)//false
+//        alert(NaN==NaN)//false
+
+
+
+    </script>
+</head>
+<body>
+<input type="text">
+<input title="text">
+<button onclick="fun01()">计算</button>
+
+</body>
+</html>

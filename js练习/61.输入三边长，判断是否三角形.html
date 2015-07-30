@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+    在同一个函数里
+    （1）输入三边长，判断是否三角形，判断是否为三角形
+    （2）输入两个数，求其和
+    -->
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var v1=Number(prompt("请输入第一个数"));
+    var v2=Number(prompt("请输入第二个数"));
+    var v3=Number(prompt("请输入第三个数"));
+   function fun01() {
+       if (v3.length==0)
+           return function (v1, v2, v3) {
+               return (v1 + v2)
+           }
+   else
+       {
+           return function (v1, v2, v3) {
+               if ((v1 + v2 > v3) && (v1 + v3 > v2) && (v3 + v2 > v1))
+                   return "这是三角形"
+               else
+                   return "这不是三角形"
+           }
+       }
+
+    }
+    alert(fun01()(v1,v2,v3))
+</script>

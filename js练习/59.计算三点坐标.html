@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+X1：<input type="text"> Y1：<input type="text"><br><br>
+X2：<input type="text"> Y2：<input type="text"><br><br>
+X3：<input type="text"> Y2：<input type="text"><br><br>
+<input type="button" value="计算" onclick="fun01()" id="but">
+<div id="show"> </div>
+</body>
+</html>
+<script>
+    var inp = document.getElementsByTagName('input');
+    var show = document.getElementById('show');
+
+    function fun01(){
+        var x1=Number(inp[0].value);
+        var y1=Number(inp[1].value);
+        var x2=Number(inp[2].value);
+        var y2=Number(inp[3].value);
+        var x3=Number(inp[4].value);
+        var y3=Number(inp[5].value);
+
+        var v1=Math.sqrt(Math.pow((x1-x2),2)+Math.pow((y1-y2),2));
+        var v2=Math.sqrt(Math.pow((x1-x3),2)+Math.pow((y1-y3),2));
+        var v3=Math.sqrt(Math.pow((x3-x2),2)+Math.pow((y3-y2),2));
+              var a1=Math.acos(((Math.pow(v1,2)+ Math.pow(v2,2)- Math.pow(v3,2))/(2*v1*v2)))*180/Math.PI;
+              var a2=Math.acos(((Math.pow(v1,2)+ Math.pow(v3,2)- Math.pow(v2,2))/(2*v1*v3)))*180/Math.PI;
+              var a3=Math.acos(((Math.pow(v2,2)+ Math.pow(v3,2)- Math.pow(v1,2))/(2*v2*v3)))*180/Math.PI;
+        show.innerHTML="第一和第二个点的距离是"+Math.round(v1)+"<br>"+
+                         "第一和第三个点的距离是"+Math.round(v2)+"<br>"+
+                         "第二和第三个点的距离是"+Math.round(v3)+"<br>"+
+                          "三条边的角度为"+Math.round(a1)+"<br>"+Math.round(a2)+"<br>"+Math.round(a3)
+    }
+//    var x1=prompt('输入A点x坐标');
+//    var y1=prompt('输入A点y坐标');
+//    var x2=prompt('输入B点x坐标');
+//    var y2=prompt('输入B点y坐标');
+//    var x3=prompt('输入C点x坐标');
+//    var y3=prompt('输入C点y坐标');
+//    var f1=function(x1,y1,x2,y2,x3,y3){
+//        var v1=Math.sqrt(Math.pow((x1-x2),2)+Math.pow((y1-y2),2));
+//        var v2=Math.sqrt(Math.pow((x1-x3),2)+Math.pow((y1-y3),2));
+//        var v3=Math.sqrt(Math.pow((x3-x2),2)+Math.pow((y3-y2),2));
+//        var a1=Math.acos(((Math.pow(v1,2)+ Math.pow(v2,2)- Math.pow(v3,2))/(2*v1*v2)))*180/Math.PI;
+//        var a2=Math.acos(((Math.pow(v1,2)+ Math.pow(v3,2)- Math.pow(v2,2))/(2*v1*v3)))*180/Math.PI;
+//        var a3=Math.acos(((Math.pow(v2,2)+ Math.pow(v3,2)- Math.pow(v1,2))/(2*v2*v3)))*180/Math.PI;
+//        return "第一和第二个点的距离是"+Math.round(v1)+"<br>"+ "第一和第三个点的距离是"+Math.round(v2)+"<br>"+ "第二和第三个点的距离是"+Math.round(v3)+"<br>"+ "三条边的角度为"+Math.round(a1)+"<br>"+Math.round(a2)+"<br>"+Math.round(a3)
+//    }
+//    document.write(f1(x1,y1,x2,y2,x3,y3));
+
+var z1;
+        var x1=prompt('输入A点x坐标');
+        var y1=prompt('输入A点y坐标');
+        var x2=prompt('输入B点x坐标');
+        var y2=prompt('输入B点y坐标');
+        var x3=prompt('输入C点x坐标');
+        var y3=prompt('输入C点y坐标');
+    (function(x1,y1,x2,y2,x3,y3){
+        var v1=Math.sqrt(Math.pow((x1-x2),2)+Math.pow((y1-y2),2));
+        var v2=Math.sqrt(Math.pow((x1-x3),2)+Math.pow((y1-y3),2));
+        var v3=Math.sqrt(Math.pow((x3-x2),2)+Math.pow((y3-y2),2));
+        var a1=Math.acos(((Math.pow(v1,2)+ Math.pow(v2,2)- Math.pow(v3,2))/(2*v1*v2)))*180/Math.PI;
+        var a2=Math.acos(((Math.pow(v1,2)+ Math.pow(v3,2)- Math.pow(v2,2))/(2*v1*v3)))*180/Math.PI;
+        var a3=Math.acos(((Math.pow(v2,2)+ Math.pow(v3,2)- Math.pow(v1,2))/(2*v2*v3)))*180/Math.PI;
+      z1="第一和第二个点的距离是"+Math.round(v1)+"<br>"+ "第一和第三个点的距离是"+Math.round(v2)+"<br>"+ "第二和第三个点的距离是"+Math.round(v3)+"<br>"+ "三条边的角度为"+Math.round(a1)+"<br>"+Math.round(a2)+"<br>"+Math.round(a3)
+    })(x1,y1,x2,y2,x3,y3);
+    document.write(z1)
+</script>

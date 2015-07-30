@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--输入两个数，实现他们的加减乘除结果-->
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var v1=Number(prompt("请输入第一个数"));
+    var v2=Number(prompt("请输入第二个数"));
+    function fun01(v1,v2){
+        var arr=[];
+        arr[0]=v1+v2;
+        arr[1]=v1-v2;
+        arr[2]=v1*v2;
+        arr[3]=v1/v2;
+        return arr
+    }
+    var a1=fun01(v1,v2);
+   document.write(v1+"和"+v2+"的相加结果是"+a1[0]+"<br>"+
+                   v1+ "和"+v2+"的相减结果是"+a1[1]+"<br>"+
+                   v1+"和"+v2+"的相乘结果是"+a1[2]+"<br>"+
+                   v1+"和"+v2+"的相除结果是"+a1[3]+"<br>"
+   )
+</script>
