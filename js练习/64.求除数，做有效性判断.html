@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--//练习：输入两个数，求他们的除数，进行有效性判断-->
+    <!--//1.除数不能为0，错误码1001-->
+    <!--//2.参数非数字，错误码1002-->
+    <!--//3.参数不符，错误码1003-->
+    <!--//并给出以上错误提示-->
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    function fun01(a,b){
+        var error1=new Error();
+        var v1=fun01.length;
+        var v2=arguments.length;
+        if(v1!=v2){
+            error1.meg="参数不符，请重新输入";
+            error1.num="1003";
+            throw error1;
+        }
+        if(b==0){
+            error1.meg="除数不能为0，请重新输入";
+            error1.num="1001";
+            throw error1;
+        }
+        if(isNaN(a)||isNaN(b)){
+            error1.meg="参数非数字，请重新输入";
+            error1.num="1002";
+            throw error1;
+        }
+    }
+    try{
+        fun01("afsdf","jyj")
+    }
+    catch(err){
+        alert("错误信息："+err.meg+"错误为："+err.num)
+    }
+</script>

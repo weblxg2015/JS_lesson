@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--练习：利用函数实现，根据参数个数执行相应的内容并返回结果
+          （1）输入两个参数，返回两参之间的累加和
+           (2)输入数组，对该数组排序后返回
+           (3)创建五个复选框，并利用该函数返回该复选框的值
+          -->
+</head>
+<body>
+<input type="checkbox" value="1" onchange="fun1(this)">1<br>
+<input type="checkbox" value="2" onchange="fun1(this)">2<br>
+<input type="checkbox" value="3" onchange="fun1(this)">3<br>
+<input type="checkbox" value="4" onchange="fun1(this)">4<br>
+<input type="checkbox" value="5" onchange="fun1(this)">5<br>
+<button onclick="fun1()">输出</button>
+</body>
+</html>
+<script>
+    var inp= document.getElementsByTagName("input");
+    var arr1=[];
+
+    function fun1(a,b){
+        if(arguments.length==2){
+            var sum=0;
+            if(a<b){
+                for(var i=a;i<=b;i++){
+                    sum+=i;
+                }
+                return sum;
+            }
+            else{
+                for(var j=b;j<=a;j++){
+                    sum+=j;
+                }
+                return sum;
+            }
+        }
+        else if(arguments.length==1){
+            if(arguments[0] instanceof Array){
+                 arguments[0].sort();
+                 return arguments[0]
+             }
+           else if(arguments[0].nodeName.toLocaleLowerCase()=="input"){
+                return(a.value)
+            }
+        }
+       else if(arguments.length==0){
+             for(var m=0;m<inp.length;m++){
+                 if(inp[m].checked){
+                     arr1.push(inp[m].value)
+                 }
+             }
+           return(arr1)
+        }
+    }
+</script>

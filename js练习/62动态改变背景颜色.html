@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+    练习：利用函数实现，每次点击按钮，输入颜色值，动态改变网页背景颜色，同是按钮颜色随之改变
+
+    -->
+</head>
+<body>
+ <input type="text">
+ <input type="text">
+<input type="button" value="改变">
+</body>
+</html>
+<script>
+    var inp=document.getElementsByTagName("input")
+    inp[2].onclick=function(){
+        var c1=inp[0].value;
+        var c2=inp[1].value;
+        bgc(c1,c2)
+    }
+
+    function bgc(v1,v2){
+       document.body.style.background=v1;
+        inp[2].style.background=v2;
+    }
+    </script>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+        函数参数
+        （1）形参：在函数定义中出现的参数
+             实参：函数调用时出现的参数
+
+         (2)如果函数的实参数量多于形参数量，函数会忽略多余的实参
+              如果函数的实参数量小于形参数量。多余出来的形参被赋予underfined
+              fun1.length 获取形参参数的数量
+
+         （3）参数管理器  arguments
+               可不用指定形参，在函数体内通过arguments获取传递给该函数的每个实参值
+              [1]可获取实参个数，但是该对象仅能在函数体内使用
+              [2]arguments可用数组的形式来调用实参值，但它不是数组
+                  alert( arguments instanceof Object)//true
+                 alert( arguments instanceof Array)//false
+             [3]可以修改 arguments 长度与值
+                  arguments.length=2;
+                  arguments[2]=1;
+
+             [4]验证数据是否非法
+      */
+
+
+//        function sum(a,b){
+//            return a+b;
+//        }
+//        sum(3,4)
+
+
+
+
+//function sum(a,b){
+////    alert(a);
+////    alert(b);
+//   alert( arguments instanceof Object)//true
+//    alert( arguments instanceof Array)//false
+////     for(var i=0;i<arguments.length;i++){
+////        alert(i+"个参数是"+arguments[i])
+////    }
+//    arguments.length=2;
+//    arguments[2]=1;
+//    for(var i in arguments){
+//        alert(i+"个参数是"+arguments[i])
+//    }
+//    return a+b;
+//}
+//        sum(3,4,5);//7
+//        alert(sum.length)//2
+//        sum(3);//NaN
+//        alert(sum.length)//2
+
+//        function fun1(a1,a2){
+//            var v1 = fun1.length;//提取形参个数
+//            var v2 = arguments.length;//提取实参个数
+//            if(v1!=v2){
+////                alert("参数不符，请重新输入")
+//                var error=new Error();
+//                error.meg="参数不符，请重新输入";
+//                error.enum=1000;
+//                throw error;
+//            }
+//        }
+//            try {
+//                fun1(2, 3, 4)
+//            }
+//            catch(err){
+//                alert("错误信息"+err.meg+" 错误码"+err.enum)
+//            }
+//        (5)callee
+//            arguments.callee返回当前arguments所属的函数引用
+//        function fun1(a1,a2){
+//            var v1 = arguments.callee.length;//提取形参个数
+//            var v2 = arguments.length;//提取实参个数
+//            alert(v1)
+//            if(v1!=v2){
+//                alert("参数不符，请重新输入")
+//
+//            }
+//        }
+//        fun1(2, 3, 4);
+
+
+//        var f1=function(n){
+//            if(n>0)
+////            return n+f1(n-1);//迭代
+//              return n+arguments.callee(n-1);
+//            return 0
+//        }
+//        alert(f1(10))//55
+
+        // callee和caller区别
+        //caller --返回调用者，没有调用者返回为空
+        function f1(){
+            if(f1.caller){
+                alert(f1.caller)
+            }
+            else{
+                alert("直接调用")
+            }
+        }
+        function f2() {
+            f1();
+        }
+        f2()
+    </script>
+</head>
+<body>
+
+</body>
+</html>

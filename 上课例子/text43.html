@@ -214,15 +214,15 @@
 //        fun6(i);
 //        alert(i); //2
 
-       var f = function() {return true;};
-       var g = function() {return false;};e
-        (function() {
-            if (g() && [] == ![]) {//false
-                f = function f() {return false;};
-                    function g() {return true;}
-            }
-        })();
-        alert(f());
+//       var f = function() {return true;};
+//       var g = function() {return false;};
+//        (function() {
+//            if (g() && [] == ![]) {//false
+//                f = function f() {return false;};
+//                    function g() {return true;}
+//            }
+//        })();
+//        alert(f());
 //        alert(typeof (![]));
 //        if(![]==[]){ //true
 //            alert("true")
@@ -407,15 +407,43 @@
 //        alert(null==undefined)//true
 //        alert(null===undefined)//false
 //        alert(NaN==NaN)//false
+//
 
+        //4
+//       var d1= new Date();
+//        var a1=d1.getTime();
+//        for(var i=0;i<1000000;i++){
+//                function f(){
+//            }
+//        }
+//    var d2= new Date;
+//    var a2=d2.getTime();
+//        alert(a2-a1)
 
+        //119
+               var d1= new Date();
+                var a1=d1.getTime();
+                for(var i=0;i<100000;i++){
+                        new Function()
+
+                }
+            var d2= new Date;
+            var a2=d2.getTime();
+                alert(a2-a1)
+
+        /*
+        js解析器首先把function语句定义的函数提取出来进行编译，这样循环执行该函数时，
+        就不再重新编译该函数对象了
+
+        而Function方式定义的函数，每次循环时都需要动态的编译，所以效率低
+        */
 
     </script>
 </head>
 <body>
-<input type="text">
-<input title="text">
-<button onclick="fun01()">计算</button>
+<!--<input type="text">-->
+<!--<input title="text">-->
+<!--<button onclick="fun01()">计算</button>-->
 
 </body>
 </html>
