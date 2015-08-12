@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+      <script>
+          /*        练习：
+           利用上面四种对象模式，针对“制冷设备”对象进行编写
+           要求：设备类型、厂家、价格、功能等相关属性
+           以上属性与方法自行修改，注意公共属性与方法
+           */
+          //工厂模式
+//          function fun01(v1,v2,v3){
+//              var ref=new Object();
+//               ref.equipment=v1;
+//               ref.manufacturers=v2;
+//               ref. price=v3;
+//               ref.function="制冷";
+//              ref.say=function(){
+//                  alert(this.equipment+"，"+this.manufacturers+"，"+this.price+"，"+this.function);
+//              }
+//              return ref;
+//          }
+
+          //构造函数模式
+//              function Refrigeration(v1,v2,v3){
+//                  this.equipment=v1;
+//                  this.manufacturers=v2;
+//                  this.price=v3;
+//                  this.function="制冷";
+//                  this.say=function(){
+//                      alert(this.equipment+"，"+this.manufacturers+"，"+this.price+"，"+this.function);
+//                  }
+//              }
+
+//          原型模式prototype
+//          function refrigeration(){}
+//              refrigeration.prototype.equipment=v1;
+//              refrigeration.prototype.manufacturers=v2;
+//              refrigeration.prototype.price=v3;
+//              refrigeration.prototype.function="制冷";
+//              refrigeration.prototype.say=function(){
+//                  alert(this.equipment+"，"+this.manufacturers+"，"+this.price+"，"+this.function);
+//          }
+
+          //构造函数原型模式
+          function Refrigeration(v1,v2,v3){
+              this.equipment=v1;
+              this.manufacturers=v2;
+              this.price=v3;
+          }
+          Refrigeration.prototype={
+              function:"制冷",
+              say:function(){
+                  alert(this.equipment+"，"+this.manufacturers+"，"+this.price+"，"+this.function);
+              }
+          }
+          var b1=new Refrigeration("空调","美的",3200);
+          b1.say()
+
+
+      </script>
+</head>
+<body>
+
+</body>
+</html>

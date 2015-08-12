@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+           <!--练习：定义一个求多边（三角形，四边形，六变形..）形周长函数
+                定义一个判断是否位三角形
+                   定义一个执行函数，可输入任意参数，根据情况求周长
+                                       如为三个参数，判断是否为三角形，如是，求边长
+           分别用apply/call实现-->
+    <script>
+        function f1(a,b,c){
+            if(a+b>c&&a+c>b&&b+c>a){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        var sum=0;
+        function f3(){
+            for(var i=0;i<arguments.length;i++){
+                sum+=arguments[i]
+            }
+            return sum
+        }
+        function f2(){
+             if(arguments.length<3){
+                 return "这不是多边形"
+             }
+            else {
+                 if(arguments.length==3){
+                     if(f1.apply(this,arguments)){
+                        alert(f3.apply(this,arguments))
+                     }
+                     else{
+                        alert( '这不是三角形')
+                     }
+
+                 }
+                 else {
+                     alert(f3.apply(this,arguments))
+                 }
+             }
+        }
+f2(2,2,3,8,5,8,90);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

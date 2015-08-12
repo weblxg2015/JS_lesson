@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //html5音频与视频处理
+        //动态创建音频
+//        window.onload=function() {
+//            var a1 = document.createElement("audio");
+////            a1.innerHTML = "<source  src='media/1.mp3'>";
+//            a1.setAttribute("src","media/1.mp3")
+//           a1.setAttribute("autoplay","true")
+//            document.body.appendChild(a1);
+//        }
+
+        /*属性
+            1.src:指定媒体数据url地址
+            2.autoplay ：媒体是否在页面加载完后自动播放
+                      autoplay=true
+                      autoplay=false
+           3.preload：媒体数据是否预加载
+                auto：默认，预加载全部音频视频
+                none：不进行预加载
+                metadeta：只加载媒体的部分数据
+                preload="none";
+           4. loop 是否循环播放媒体
+                    true
+                    false
+            5.controls ：添加浏览器自带的播放控制条
+
+          6.poster（视频video特有）：视频不可用时，可展示一张代替的图片
+                    <video ..poster="aa.jpg">
+          7.width/heigth(视频videoo特有)：指定视频宽、高，以像素为单位
+                              <video ..width="400">
+
+           8.error:媒体出现错误属性
+                       error.code=1  媒体下载过程中由于用户的操作原因被终止
+                       error.code=2  下载是出现网络错误
+                       error.code=3  解码时发生错误
+                       error.code=4   媒体格式不被支持
+
+           9.返回布尔型，表示媒体当前的状态
+             played   返回TimeRanges对象，该对象可读取媒体文件已播放的时间段
+             paused  返回布尔型，表示媒体当前的状态
+             ended   返回布尔型，表示媒体当前的状态
+
+          10.duration  媒体文件的总播放时间
+              currentTime 媒体文件播放的当前时间
+
+          11. playbackRate 读取或修改当前的播放速率（播放倍数） 最小值是0
+                  默认速率为1；
+
+          12.muted 读取或修改媒体的静音状态 （布尔值）
+                 true --  处于静音状态
+                 false-- 非静音状态
+
+         13.volume 读取或修改媒体的播放音量，范围0-1  0为静音 1为最大
+
+
+
+         */
+
+        /*
+        事件
+        1.error
+        2.ended
+        3.timeupdata 当前文件位置被改变触发该事件
+
+         1.play()播放
+         * 2.pause()暂停
+         * 3.load()重新载入
+         * 4.canPlayType()检测浏览器是否支持指定的媒体类型
+
+
+        */
+//        window.onload=function(){
+//            var v_audio=document.getElementById('audio01');
+//             v_audio.addEventListener("error",function(){
+//               var n= v_audio.error.code;//获取当前音频错误码
+////                 alert(n)
+//                 switch (n){
+//                     case 1:alert("媒体下载过程中由于用户的操作原因被终止");
+//                          break;
+//                     case 2:alert("下载是出现网络错误");
+//                         break;
+//                     case 3:alert("解码时发生错误");
+//                         break;
+//                     case 4:alert("媒体格式不被支持");
+//                         break;
+//                 }
+//             },false)
+//        }
+
+        window.onload=function() {
+            var v_audio = document.getElementById('audio01');
+            v_audio.addEventListener("timeupdate", funtimeupdate, false);
+
+            var v_pro = document.getElementById('progressid');
+            v_pro.addEventListener("click", propress_click, false);
+
+
+            function funtimeupdate(){
+                var v1=Math.round((Math.floor(v_audio.currentTime)/Math.floor(v_audio.duration))*100);
+                document.getElementById("progressid").value=v1;
+            }
+            function propress_click(e){
+//               var x1= e.offsetX;
+//               var w1=parseFloat(document.getElementById("progressid").style.width);
+//                v_audio.currentTime=(x1/w1)*(Math.floor(v_audio.duration));
+                v_audio.currentTim=Math.floor((e.offsetX/ v_pro.clientWidth)*Math.floor(v_audio.duration))
+            }
+
+        };
+
+
+        function fun1(v){
+            var v_audio = document.getElementById('audio01');
+           if(v_audio.paused){
+               v_audio.play();
+               v.innerText="暂停"
+           }
+           else  if(v_audio.played){
+                v_audio.pause();
+                v.innerText="播放"
+            }
+        }
+
+        function fun2() {
+            var v_audio = document.getElementById('audio01');
+            v_audio.load();
+//            alert(v_audio.duration);
+//            alert(v_audio.currentTime);
+        }
+
+
+        function fun3(){
+            var v_audio = document.getElementById('audio01');
+//            alert(v_audio.playbackRate)
+              v_audio.playbackRate+=1
+        }
+        function fun4(){
+            var v_audio = document.getElementById('audio01');
+//            alert(v_audio.playbackRate)
+            if(v_audio.playbackRate==1) {
+                v_audio.playbackRate = 1
+            }
+            else{
+                v_audio.playbackRate -= 1
+            }
+        }
+        function fun5() {
+            var v_audio = document.getElementById('audio01');
+            if( v_audio.muted){
+                v_audio.muted=false;
+                document.getElementById('jy').innerText="静音"
+            }
+            else {
+                v_audio.muted = true;
+                document.getElementById('jy').innerText="取消静音"
+            }
+        }
+//var v_vilume;
+        function fun6() {
+            var v_audio = document.getElementById('audio01');
+            if(v_audio.volume<1) {
+                v_audio.volume += 0.1;
+            }
+        }
+        function fun7() {
+            var v_audio = document.getElementById('audio01');
+            if(v_audio.volume>0) {
+                v_audio.volume -= 0.1;
+            }
+        }
+
+
+        </script>
+</head>
+<body>
+<!--运行中的进度条-->
+<progress max="100" value="0" id="progressid" style="width:300px;"></progress>
+
+<audio src="media/1.mp3" autoplay="true" preload="none" loop controls id="audio01">
+    你当前的浏览器不支持音频
+</audio>
+<button onclick="fun1(this)">暂停</button>
+<button onclick="fun2()">重播</button>
+<button onclick="fun3()">快进</button>
+<button onclick="fun4()">快退</button>
+<button onclick="fun5()" id="jy">静音</button>
+
+<button onclick="fun6()" id="zdyl">增大音量</button>
+<button onclick="fun7()" id="jdyl">降低音量</button>
+<!--可放多个音频文件-->
+   <!--<audio autoplay>-->
+       <!--<source  src="media/1.mp3">-->
+       <!--<source  src="media/1.wma">-->
+       <!--<source  src="media/1.avi">-->
+   <!--</audio>-->
+<!--<video poster="images/kaka.jpg" autoplay width="500" controls>-->
+    <!--<source src="media/vid1.mp4">-->
+<!--</video>-->
+
+</body>
+</html>
+
+<!--作业1：百度音乐播放器-->
+<!--作业2：多网页采用同一首歌-->
+<!--作业3：一个图片元素向上下左右移动，发出不同的声音-->

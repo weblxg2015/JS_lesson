@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+        原型链
+           我们将这种层层指向父原型的关系称为原型链
+        */
+        function a(x){
+            this.x=x;
+        }
+        a.prototype.x=0;
+        function b(x){
+            this.x=x;
+        }
+        b.prototype=new a(1);
+        function c(x){
+            this.x=x;
+        }
+        c.prototype=new b(2);
+
+        var c1=new c(3);
+       alert(c1.x)//3
+        delete c1.x;
+               alert(c1.x)//2
+        delete c.prototype.x;
+        alert(c1.x)//1
+        delete b.prototype.x;
+        alert(c1.x)//0
+        delete a.prototype.x;
+        alert(c1.x)//underfined
+
+
+
+        function father(x){
+            this.x1=x;
+            this.get1=function(){
+                return this.x1;
+            }
+        }
+        function son(x){
+            this.x2=x;
+            this.get2=function(){
+                return this.x2;
+            }
+        }
+        son.prototype=new father(1); //建立继承关系
+        var s=new son(2);
+        alert(s.get2());//2
+        alert(s.get1());//1
+
+
+
+
+ 1.在继承关系之前建立的子对象原型属性和方法，对于在继承关系之后的实例对象是无效的
+       解决：将子对象原型属性与方法建立在“继承关系”之后
+        父对象（类）
+        function car(){
+            this.factory='一汽大众';
+        }
+        car.prototype.what=function(){
+            return "生产厂家"+this.factory;
+        }
+//        子对象（类）
+//
+         function car_sub(){
+             this.color='red';
+         }
+        car_sub.prototype.what_sub=function(){
+            return "颜色："+this.color;
+        }
+
+        var c1=new car_sub();
+        建立继承关系
+        car_sub.prototype=new car();
+        alert(c1.what());//报错
+        alert(c1.what_sub())
+
+        2.重写父对象的属性和方法
+        car_sub.prototype=new car();
+        var c1=new car_sub();
+        c1.factory="哈飞";
+
+       alert(c1.what());//生产厂家哈飞
+        c1.what=function(){
+            alert("修改父类对象！！")
+        };
+        c1.what();//修改父类对象
+
+        3.修改子对象属性与方法
+        car_sub.prototype=new car();
+        var c1=new car_sub();
+        car_sub.prototype.what_sub=function(){
+            alert('子对象原型方法')
+        }
+        c1.what_sub();//正常
+        car_sub.prototype={
+            what_sub:function(){
+                alert('子对象原型方法')
+            }
+        }
+        c1.what_sub();//报错
+    </script>
+</head>
+<body>
+
+</body>
+</html>

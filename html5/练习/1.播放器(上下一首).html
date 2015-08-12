@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="上一首" onclick="fun03()">
+<input type="button" value="暂停" onclick="fun01(this)">
+<input type="button" value="下一首" onclick="fun02()">
+<audio src="../media/1.mp3" autoplay="true" preload="none" controls id="audio01">
+    你当前的浏览器不支持音频
+</audio>
+<div id="id01"></div>
+</body>
+</html>
+<script>
+    var i=0;
+    var m1=['1.mp3','2.mp3','3.mp3','4.mp3','5.mp3'];
+    var v_audio=document.getElementById('audio01');
+    var d1=document.getElementById("id01");
+    d1.innerHTML='您正在听'+m1[i];
+
+    v_audio.addEventListener("ended",function(){
+        i += 1;
+        if (i == m1.length) {
+            i = 0;
+        }
+        v_audio.src ="media/"+ m1[i];
+        d1.innerHTML='您正在听'+m1[i];
+    },false);
+
+    function fun01(v){
+        if(v_audio.paused){
+            v_audio.play();
+            v.value="暂停";
+        }
+        else  if(v_audio.played){
+            v_audio.pause();
+            v.value="播放";
+        }
+    }
+
+    v_audio.src ="media/"+ m1[i];
+    function fun02(){
+        i+=1;
+        if(i==m1.length){
+            i=0
+        }
+        v_audio.src ="media/"+ m1[i];
+        d1.innerHTML='您正在听'+m1[i];
+    }
+
+    function fun03(){
+        i-=1;
+        if(i<0){
+            i=m1.length-1;
+        }
+        v_audio.src ="media/"+ m1[i];
+        d1.innerHTML='您正在听'+m1[i];
+    }
+
+
+</script>

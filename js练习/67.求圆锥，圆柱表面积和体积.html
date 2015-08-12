@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //练习 创建对象，求圆柱、圆锥体的表面积和体积
+        //用五种对象创建方式
+//        直接量法方法
+//        var column=new Object();
+//        var column={
+//            pi:3.14,
+//            area:function(r,h){
+//                var s=[];
+//                var f1=confirm("是否为圆柱");
+//                if(f1){
+//                    s.push( this.pi*r*r*h);
+//                    s.push( this.pi*r*r*2+this.pi*2*r*h);
+//                    return s;
+//                }
+//                else{
+//                    s.push( (this.pi*r*r*h)/3);
+//                    s.push( this.pi*r*r*+Math.sqrt(Math.pow(this.pi*2*r,2)+Math.pow(h,2)));
+//                    return s;
+//                }
+//            }
+//        };
+
+//        //        普通创建方法
+                var column=new Object();
+                column.pi=3.14;
+                column.area=function(r,h){
+                var s=[];
+                var f1=confirm("是否为圆柱");
+                if(f1){
+                    s.push( this.pi*r*r*h);
+                    s.push( this.pi*r*r*2+this.pi*2*r*h);
+                    return s;
+                }
+                else{
+                    s.push( (this.pi*r*r*h)/3);
+                    s.push( this.pi*r*r*+Math.sqrt(Math.pow(this.pi*2*r,2)+Math.pow(h,2)));
+                    return s;
+                }
+            };
+
+
+        //构造函数方式
+//        function Column() {
+//            this.pi = 3.14;
+//            this.area = function (r, h) {
+//                var s = [];
+//                var f1 = confirm("是否为圆柱");
+//                if (f1) {
+//                    s.push(this.pi * r * r * h);
+//                    s.push(this.pi * r * r * 2 + this.pi * 2 * r * h);
+//                    return s;
+//                }
+//                else {
+//                    s.push((this.pi * r * r * h) / 3);
+//                    s.push(this.pi * r * r * +Math.sqrt(Math.pow(this.pi * 2 * r, 2) + Math.pow(h, 2)));
+//                    return s;
+//                }
+//            }
+//        }
+//        var a1=new Column();
+//        alert(a1.area(2,5))
+
+//        函数对象方式
+//        var column=new Function(
+//                "this.pi = 3.14;" +
+//                "this.area = function (r, h) {" +
+//                "var s = [];" +
+//                "var f1 = confirm('是否为圆柱');" +
+//                "if (f1) {" +
+//                "s.push(this.pi * r * r * h);" +
+//                "s.push(this.pi * r * r * 2 + this.pi * 2 * r * h);" +
+//                "return s;" +
+//                "}" +
+//                "else {" +
+//                "s.push((this.pi * r * r * h) / 3);" +
+//                "s.push(this.pi * r * r * +Math.sqrt(Math.pow(this.pi * 2 * r, 2) + Math.pow(h, 2)));" +
+//                "return s;" +
+//                "}" +
+//                "}"
+//        );
+//
+//        var a1=new column();
+//                alert(a1.area(2,5));
+
+
+//        var column=function(){
+//            var col=new Object();
+//            col.pi = 3.14;
+//            col.area = function (r, h) {
+//                var s = [];
+//                var f1 = confirm("是否为圆柱");
+//                if (f1) {
+//                    s.push(col.pi * r * r * h);
+//                    s.push(col.pi * r * r * 2 + col.pi * 2 * r * h);
+//                    return s;
+//                }
+//                else {
+//                    s.push((col.pi * r * r * h) / 3);
+//                    s.push(col.pi * r * r * +Math.sqrt(Math.pow(this.pi * 2 * r, 2) + Math.pow(h, 2)));
+//                    return s;
+//                }
+//            };
+//            return col;
+//        };
+//
+//        var a1=new column();
+
+
+//老师标准答案
+//        var yz={
+//            pi:3.14,
+//            flag:1,//立标志位
+//            bmj:function(r,h){
+//                if(this.flag==1) {
+//                    return 10;//圆柱表面积
+//                }
+//                else if(this.flag==0){
+//                    return 5;//圆锥表面积
+//                }
+//            }
+//        }
+//        yz.flag=0;
+//        alert(yz.bmj(2,3));
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

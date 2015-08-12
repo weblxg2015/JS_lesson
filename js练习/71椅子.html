@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--练习：公园里的椅子是公共的，家里的椅子是私有的，但现要求，公园和家里共用椅子-->
+    <script>
+        function park(){
+            this.pubchair="可用的公用椅子";
+
+        }
+        function home(){
+            this.perchair="可用的私有的椅子";
+        }
+
+        var h1=new home();
+        park.call(h1);
+        var p1=new park();
+        home.call(p1);
+        alert(p1.pubchair)
+
+
+
+
+        </script>
+</head>
+<body>
+
+</body>
+</html>

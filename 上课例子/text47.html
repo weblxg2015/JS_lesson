@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+        js 面向对象
+        1、对象的创建
+
+        */
+//        //(1)普通创建方法
+//        var per=new Object();//new Array
+//        //对象属性
+//        per.age=23;
+//        per.sex="男";
+//        per.name="chen";
+//        //对象的方法
+//        per.say=function(){
+//            alert("我在说话...")
+//        }
+//        per.eat=function(){
+//            alert("我爱吃肉")
+//        }
+//        //对象的调用
+//        alert(per.age);
+//        per.say()
+
+        //直接量方法
+//        var per={
+//            age:23,
+//            sex:"男",
+//            name:"chen",
+//            say:function(){alert("我在说话...");},
+//            eat:function(){alert("我爱吃肉");}
+//        };
+////        alert(per.age)
+//        per.say();
+        //练习：创建“风扇”对象，要求有4个属性、3个方法，可传递参数，分别用上面两种方式实现
+
+        //构造函数方式
+/*        1.构造函数一般首字母大写，来与普通函数进行区别
+          2.一般通过this，制定构造函数成员
+          3.构造函数由new进行创建
+          4.构造函数一般情况没有返回值
+             如果构造函数返回的是一个对象，则返回的对象会覆盖构造函数的对象
+             如构造函数返回的是原始值，则不会出现此情况
+
+      */
+//        function Per(){
+//            this.name="chen";
+//            this.sex="男";
+//            this.age=23;
+//            this.say=function(){alert("我在说话...");};
+//            this.eat=function(){alert("我爱吃肉")}
+//        }
+//        //构造函数调用
+//        var p1=new Per();
+//            alert(p1.age);
+//              p1.say();
+
+
+        //特例
+//        function F1(){
+//            this.a=1;
+//            return true;
+//        }
+//        var f=new F1();
+//        alert(f.a);//1
+//        alert(F1());//true
+
+//        function F1(){
+//            this.a=1;
+//            return{b:2};
+//        }
+//        var f=new F1();
+//        alert(f.a) //underfined
+//        alert(f.b) //2
+
+
+        /*
+        (4)函数对象方式
+         */
+//        new Function('a',"b","return a+b;");
+
+//      var person = new Function("this.name1='chen';this.sex='男';this.age=23;this.say=function(){alert('我在说话...');};this.eat=function(){alert('我爱吃肉')}")
+//      var p=new person();
+//       alert( p.name1);
+//        p.say();
+
+        /*
+         (5)对普通函数的封装
+         */
+//         var person=function(){
+//             var per=new Object();
+//             per.name="chen";
+//             per.sex="男";
+//             per.age=23;
+//             per.say=function(){alert("我在说话...");};
+//             per.eat=function(){alert("我爱吃肉")};
+//
+//             return per;
+//         };
+//         var p=new person();
+//        alert(p.age);
+//        p.say();
+
+
+//        var cirele={
+//                pi:3.14,
+//                area:function(r){
+//                    return this.pi*r*r;
+//        }
+//     };
+//
+//        alert(cirele.area(10))
+
+        //练习 创建对象，求圆柱、圆锥体的表面积和体积
+        //用五种对象创建方式
+
+        //        var yz={
+        //            pi:3.14,
+        //            flag:1,//立标志位
+        //            bmj:function(r,h){
+        //                if(this.flag==1) {
+        //                    return 10;//圆柱表面积
+        //                }
+        //                else if(this.flag==0){
+        //                    return 5;//圆锥表面积
+        //                }
+        //            }
+        //        }
+        //        yz.flag=0;
+        //        alert(yz.bmj(2,3));
+
+/*      2.对象的属性与方法
+        方法1：对象名.属性名
+        方法2：对象名[“属性名”]
+        */
+//        var user=new Object;
+        //        //添加属性
+        //        //user.name='zs'
+        //        user['name']='zs';
+        //
+        //        //输出属性
+        //        alert(user.name);
+        //        alert(user['name']);
+
+
+//        function User(){
+//            this.name="zs";
+//        }
+//      var u1=new User();
+//        u1.say=function(){
+//            alert(this.name);
+//        }
+//        //修改属性
+//        u1.name='ls';
+//        u1.name=undefined;//删除属性
+//        u1.say();
+//        alert("1")
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

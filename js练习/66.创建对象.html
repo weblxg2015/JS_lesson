@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //练习：创建“风扇”对象，要求有4个属性、3个方法，可传递参数，分别用上面两种方式实现
+//        var fan=new Object();
+//        fan.rev=5000;
+//        fan.height="3m";
+//        fan.color="white";
+//        fan.radius="2m";
+//        fan.turning=function(){
+//            alert("正在转")
+//        };
+//        fan.noturning=function(){
+//            alert("没有在转")
+//        };
+//        fan. electricity=function(){
+//            alert("有电")
+//        };
+
+        var fan={
+           rev:5000,
+        height:"3m",
+        color:"white",
+        radius:"2m",
+            turning:function(){
+            alert("正在转")
+        },
+            noturning:function(){
+            alert("没有在转")
+        },
+            electricity:function(){
+            alert("有电")
+        }
+        }
+        alert(fan.color);
+
+
+        </script>
+</head>
+<body>
+
+</body>
+</html>

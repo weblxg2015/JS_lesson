@@ -308,17 +308,17 @@
 //      function f(){
 //          return 1;
 //      }
-//        alert(f());
+//        alert(f());//3
 //        var f=function(){
 //            return 2
 //        }
-//        alert(f());
+//        alert(f()); //2
 //        if(2==3){
 //      function f(){
 //            return 3
 //         }
 //        }
-//        alert(f());
+//        alert(f());//2
 
 
         /*
@@ -327,46 +327,48 @@
            则会按顺序被覆盖
            而函数直接量及函数对象定义都属于表达式，他们在代码执行时，才被激活生命周期
         */
-        //            function f(){
-        //                return 1;
-        //            }
-        //            alert(f())//3
-        //            var f=function(){
-        //                return 2;
-        //            }
-        //            alert(f())//2
-        //
-        //                  function f(){
-        //                   return 3;
-        //            }
-        //            alert(f())//2
-        //function f(){
-        //                return 1;
-        //            }
-        //            alert(f())//5
-        //            var f=function(){
-        //                return 2;
-        //            }
-        //            alert(f())//2
-        //
-        //                  function f(){
-        //                   return 3;
-        //            }
-        //            alert(f())//2
-        //            var f=new Function('return 4')
-        //            alert(f())//4
-        //
-        //            function f(){
-        //                return 5;
-        //            }
-        //            alert(f())//4
-        //var f=new Function('return 6')
-        //alert(f())//6
-        //
-        //var f=function(){
-        //    return 7;
-        //}
-        //alert(f())//7
+//                    function f(){
+//                        return 1;
+//                    }
+//                    alert(f())//3
+//                    var f=function(){
+//                        return 2;
+//                    }
+//                    alert(f())//2
+//
+//                          function f(){
+//                           return 3;
+//                    }
+//                    alert(f())//2
+
+//        function f(){
+//                        return 1;
+//                    }
+//                    alert(f())//5
+//                    var f=function(){
+//                        return 2;
+//                    }
+//                    alert(f())//2
+//
+//                          function f(){
+//                           return 3;
+//                    }
+//                    alert(f())//2
+//                    var f=new Function('return 4')
+//                    alert(f())//4
+//
+//                    function f(){
+//                        return 5;
+//                    }
+//                    alert(f())//4
+
+//        var f=new Function('return 6')
+//        alert(f())//6
+//
+//        var f=function(){
+//            return 7;
+//        }
+//        alert(f())//7
 
 //        (2)
 
@@ -409,7 +411,7 @@
 //        alert(NaN==NaN)//false
 //
 
-        //4
+//        4
 //       var d1= new Date();
 //        var a1=d1.getTime();
 //        for(var i=0;i<1000000;i++){
@@ -418,18 +420,18 @@
 //        }
 //    var d2= new Date;
 //    var a2=d2.getTime();
-//        alert(a2-a1)
+//        alert(a2-a1)//8
 
-        //119
+//        119
                var d1= new Date();
                 var a1=d1.getTime();
-                for(var i=0;i<100000;i++){
+                for(var i=0;i<1000000;i++){
                         new Function()
 
                 }
             var d2= new Date;
             var a2=d2.getTime();
-                alert(a2-a1)
+                alert(a2-a1)//2038
 
         /*
         js解析器首先把function语句定义的函数提取出来进行编译，这样循环执行该函数时，

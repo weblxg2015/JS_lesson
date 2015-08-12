@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+<script>
+    //  练习：创建有关于"鱼"的继承方式，属性方法自定义
+    // (父元素中至少有两个属性与方法，至少有三个子元素，每个子元素下要再有两个子元素)
+//父类
+    function bigfish(){
+        this.species="fish";
+        this.action=function(){
+            alert("会游")
+      }
+    }
+    //子类
+        function midfish1(){
+           this.breed="鲤鱼";
+            this.size="70cm"
+        }
+        midfish1.prototype=new bigfish();
+
+    function midfish2(){
+        this.breed="泥鳅";
+        this.size="70cm"
+    }
+    midfish2.prototype=new bigfish();
+
+    function midfish3(){
+        this.breed="鲨鱼";
+        this.size="70cm";
+        this.color="hi"
+    }
+    midfish3.prototype=new bigfish();
+
+//孙类
+    function smallfish11(){
+        this.color="red";
+    }
+    smallfish11.prototype=new midfish1();
+
+    function smallfish12(){
+        this.color="green";
+    }
+    smallfish12.prototype=new midfish1();
+
+    function smallfish13(){
+        this.color="black";
+    }
+    smallfish13.prototype=new midfish1();
+
+
+    function smallfish21(){
+        this.color="yellow";
+    }
+    smallfish21.prototype=new midfish2();
+
+    function smallfish22(){
+        this.color="blue";
+    }
+    smallfish22.prototype=new midfish2();
+
+    function smallfish23(){
+        this.color="pink";
+    }
+    smallfish23.prototype=new midfish2();
+
+
+    function smallfish31(){
+        this.color="gold";
+    }
+    smallfish31.prototype=new midfish3();
+
+    function smallfish32(){
+        this.color="grey";
+    }
+    smallfish32.prototype=new midfish3();
+
+    function smallfish33(){
+        this.color="white";
+    }
+    smallfish33.prototype=new midfish3();
+
+    var smf=new smallfish33();
+    delete smf.color;
+    alert(smf.color);
+
+</script>
+    </head>
+<body>
+
+</body>
+</html>

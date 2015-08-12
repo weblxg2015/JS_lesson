@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*
+    闭包：closure
+
+    */
+
+//var n=10;
+//function f1(){
+//    alert(n);
+//}
+//    f1();//10
+
+//    var n=10;
+//    function f1(){
+//        alert(n);//underfined
+//        var n=20;
+//        alert(n);//20
+//    }
+//    f1();
+//    alert(n);//10
+//    alert(n);//error
+//    f1();//20
+//
+
+//    var n=10;
+//    function f1(){
+//        n=20;
+//        alert(n);
+//    }
+//    alert(n);//10
+//    f1();
+//    alert(n);//20
+
+
+    //由外部读取局部变量
+    //js链式作用域结构，子对象会一级一级向上寻找父对象变量，直到找到为止
+//                     所以，父对象所有对子对象是可见的
+//                       而子对象变量对父对象是不可见的
+//    function f1(){
+//        var n=20;
+//        function f1_1(){
+//            var m=10;
+//            alert(n);
+//        }
+//        alert(m)//error
+//        return f1_1()
+//    }
+//    f1();
+
+    /*
+     闭包：closure
+
+     f1_1相当于闭包
+     1、闭包就是能够读取其他函数内部变量的函数
+     2、闭包是定义在一个函数内部的函数
+     3、闭包就是讲将函数内部与函数外部链接起来的一座桥梁
+
+     特点：将变量始终保存在内存中;
+      缺点：由于闭包会使函数中的变量保存在内存中，内存消耗大
+           所以不要滥用闭包，否则会造成网页的性能
+     */
+//    function f1(){
+//        var n=20;
+//        function f1_1(){
+//            return n;
+//        }
+//        return f1_1;
+//
+//    }
+//   var v1=f1();
+//    var m=v1();
+//    alert(m);//20  == alert(f1()());
+//
+//    var f1=function(){
+//        var c=0;
+//        var f2=function(){
+//            c++;//2
+//            return c
+//        };
+//        return f2;
+//    };
+//    var v1=f1();//f2
+//    console.log(v1());//1
+//    console.log(v1());//2
+//    console.log(v1());//3
+//
+//    var v2=f1();
+//    console.log(v2());//1
+//    console.log(v2());//2
+//    console.log(v2());//3
+
+//    function f1(){
+//        var n=10;
+//        f2=function(){
+//            n++;
+//        }
+//        function f3(){
+//            alert(n);
+//        }
+//         return f3();
+//        }
+//    f1();//10
+//    f2();
+//    f1();//10
+
+
+//    function f1(){
+//        var n=10;
+//        f2=function(){
+//            n++;
+//        };
+//        function f3(){
+//            alert(n);
+//        }
+//        return f3;
+//    }
+//    var v=f1();
+//    v();//10
+//    f2();  //f2前面没有var 相当于全局函数，将n变量保存于内存
+//    v();//11
+//    v();//11
+//    v();//11
+//    var v2=f1();
+//    v2();//10
+//    f2();
+//    v2();//11
+//    v2();//11
+//    v2();//11
+
+
+    function f1(){
+          n=0;
+    }
+    var n=2;
+    f1();
+    alert(n);//0
+
+
+
+</script>
+</body>
+</html>

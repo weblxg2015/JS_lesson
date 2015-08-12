@@ -27,9 +27,9 @@
       */
 
 
-//        function sum(a,b){
-//            return a+b;
-//        }
+        function sum(a,b){
+            return a+b;
+        }
 //        sum(3,4)
 
 
@@ -60,7 +60,7 @@
 //            var v2 = arguments.length;//提取实参个数
 //            if(v1!=v2){
 ////                alert("参数不符，请重新输入")
-//                var error=new Error();
+//
 //                error.meg="参数不符，请重新输入";
 //                error.enum=1000;
 //                throw error;
@@ -80,7 +80,6 @@
 //            alert(v1)
 //            if(v1!=v2){
 //                alert("参数不符，请重新输入")
-//
 //            }
 //        }
 //        fun1(2, 3, 4);
@@ -95,19 +94,20 @@
 //        alert(f1(10))//55
 
         // callee和caller区别
+//        arguments.callee返回当前arguments所属的函数引用
         //caller --返回调用者，没有调用者返回为空
-        function f1(){
-            if(f1.caller){
-                alert(f1.caller)
-            }
-            else{
-                alert("直接调用")
-            }
-        }
-        function f2() {
-            f1();
-        }
-        f2()
+//        function f1(){
+//            if(f1.caller){
+//                alert(f1.caller)
+//            }
+//            else{
+//                alert("直接调用")
+//            }
+//        }
+//        function f2() {
+//            f1();
+//        }
+//        f2()
     </script>
     <script>
         </script>

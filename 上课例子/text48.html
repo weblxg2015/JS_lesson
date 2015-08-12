@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //对象模式
+//       var book=new Object();
+//        book.title='js编程';
+//        book.pub='人民邮电';
+//        book.price=23;
+//        book.dosoming=function(){
+//            alert("可读标题 "+this.title+" 出版社"+this.pub+" 价格："+this.price)
+//        }
+//        book.dosoming();
+
+        //工厂模式
+//        function fun1(title,pub,price){
+//            var book=new Object();
+//            book.title=title;
+//            book.pub=pub;
+//            book.price=price;
+//            book.dosoming=function(){
+//                alert("可读标题 "+this.title+" 出版社"+this.pub+" 价格："+this.price)
+//            };
+//            return book;
+//        }
+//
+//       var b1= fun1("css设计","机械出版社",34);
+//        b1.dosoming();
+//         var b2=fun1("html","电子","45");
+//        b2.dosoming();
+
+        //构造函数模式
+//        function Book(v1,v2,v3) {
+//            this.title = v1;
+//            this.pub = v2;
+//            this.price = v3;
+//            this.dosoming = function () {
+//                alert("可读标题 " + this.title + " 出版社" + this.pub + " 价格：" + this.price)
+//       }
+//            }
+//        }
+//        var b1=new Book("css设计","机械出版社",34);
+        //                    b1.dosoming();
+//        var b2=new Book("html","电子",45);
+        //                b2.dosoming()
+
+        /*原型模式prototype
+        prototype表示对象的原型，每个对象都有该属性
+         js中每个函数都有一个prototype原型属性，这个属性是一个指针，指向一个对象
+
+        原型特点：所有对象实例都“共享”她所包含的属性和方法；
+             即在所有原型对象中创建的属性和方法都直接被所有对象实例共享
+
+        */
+//      function book(){}//对象
+//           book.prototype.title = 'js编程';
+//        book.prototype.pub = "出版社";
+//        book.prototype.price = 23;
+//        book.prototype.dosoming = function () {
+//            alert("可读：标题" + this.title + " 出版社：" + this.pub + " 价格:" + this.price);
+//        }
+//        var b1=new book();
+//                            b1.dosoming();//实例
+//        var b2=new book();
+//                        b2.dosoming()
+//        alert(b1.dosoming()==b2.dosoming())
+
+//构造函数原型模式
+//        function Book(v1,v2){
+//            this.title=v1;
+//            this.price=v2
+//        }
+//        Book.prototype.pub='人民有点出版社';
+//        Book.prototype.dosoming=function(){
+//            alert("可读：标题" + this.title + " 出版社：" + this.pub + " 价格:" + this.price);
+//        }
+//        Book.prototype={
+//            pub:'人民出版社',
+//                dosoming:function(){
+//            alert("可读：标题" + this.title + " 出版社：" + this.pub + " 价格:" + this.price);
+//        }
+//        }
+//
+//        var b1=new Book("css设计",34);
+//        b1.dosoming();
+//        var b2=new Book("html",45);
+//        b2.dosoming();
+
+
+        //动态原型模式
+        function Book(v1,v2){
+                    this.title=v1;
+                    this.price=v2
+
+         if(typeof this.dosoming()!="function") {//判断原型中的属性或方法，保证原型只能被执行一次
+            Book.prototype = {
+                pub: '人民出版社',
+                dosoming: function () {
+                    alert("可读：标题" + this.title + " 出版社：" + this.pub + " 价格:" + this.price);
+                }
+            }
+          }
+        }
+                    var b1=new Book();
+
+
+
+
+/*      原型
+ 方法与属性先在实例中查找，如没有再在原型中查找
+ */
+//              function book(){}//对象
+//                book.prototype.title = 'js编程';
+//                book.prototype.pub = "出版社";
+//                book.prototype.price = 23;
+//                book.prototype.dosoming = function () {
+//                    alert("可读：标题" + this.title + " 出版社：" + this.pub + " 价格:" + this.price);
+//                };
+//
+//                var b1=new book();//实例
+//                var b2=new book();
+//
+//
+//       alert(b1.dosoming()==b2.dosoming());//true
+//        b1.title="css应用";
+//        b1.dosoming=function(){
+//            alert(this.title+" "+this.pub);
+//            alert("可读：标题" + this.title + " 出版社：" + this.pub + " 价格:" + this.price);
+//        };
+
+        //删除属性
+//        delete b1.title;
+
+//        alert(b1.title);//css应用  b1.title属性来自于 实例
+//        alert(b2.title);//js编程   b2.title属性来自于 原型
+//       alert(b1.title)///css应用
+//        b1.dosoming();//css应用 出版社
+
+//hasOwnProperty 可以检测一个属性是否在实例中还是在原型中
+//      alert(b1.hasOwnProperty("title")); //true  实例
+//        alert(b2.hasOwnProperty("title"));//false 原型
+//        alert(b1.dosoming==b2.dosoming);//false
+//        alert(b1.dosoming===b2.dosoming);//false
+
+//in 操作符
+//只要通过对象能够访问到属性就返回true
+//
+//        alert('title' in b1);//true
+//        alert('title' in b2);//ture
+//        alert('aa' in b1);//false
+
+
+        //列举出对象上的所有属性
+//        function book(){}//对象
+//        book.prototype.title = 'js编程';
+//        book.prototype.pub = "出版社";
+//        book.prototype.price = 23;
+//        book.prototype.dosoming = function () {
+//            alert("可读：标题" + this.title + " 出版社：" + this.pub + " 价格:" + this.price);
+//        };
+//        var b1=new book();//实例
+//        b1.title="css应用";
+//        b1.dosoming=function() {
+//            alert(this.title+" "+this.pub);
+//        };
+//       var v= Object.keys(b1);  //枚举实例属性与方法
+//        alert(v); //tilte dosomeing
+//
+//        var v=Object.keys(book.prototype);//枚举原型属性与方法
+//        alert(v)  //title pub price dosoming
+
+        //constructor--所有对象都会自动获得一个constructor构造函数属性
+        //             该属性包含一个指向prototype所在函数的指针
+
+//       alert( b1 instanceof Object);//true 判断b1是否是一个对象
+//        alert(b1 instanceof book);  //true 判断b1是否是book的一个对象
+//        alert(b1.constructor==book);//true
+//        alert( b1.constructor==Object);//false
+
+
+
+        //如用如下方式，constructor属性不再指向book，而是指向Object
+//        function book(){}//对象
+//        book.prototype= {
+//               constructor:book,
+//                title:'js编程',
+//                pub: "出版社",
+//                price : 23,
+//                dosoming : function () {
+//                    alert("可读：标题" + this.title + " 出版社：" + this.pub + " 价格:" + this.price);
+//                }
+//        }
+//        var b1=new book();
+//        alert( b1 instanceof Object);//true 判断b1是否是一个对象
+//        alert(b1 instanceof book);  //true 判断b1是否是book的一个对象
+//        alert(b1.constructor==book);//false
+//        alert(b1.constructor==Object);//ture
+
+
+//        如一定要使用constructor属性，可改为：
+//        function book(){}//对象
+//        book.prototype= {
+//            constructor:book,
+//            title:'js编程',
+//            pub: "出版社",
+//            price : 23,
+//            dosoming : function () {
+//                alert("可读：标题" + this.title + " 出版社：" + this.pub + " 价格:" + this.price);
+//            }
+//        }
+//        var b1=new book();
+//        alert(b1.constructor==book);//true
+//        alert(b1.constructor==Object);//false
+
+
+        //原型的动态性
+        //由于在原型中的查找值的过程是一次搜索，因此，对原型对象做的任何修改，都能立即从实例上反应出来
+       //即使先创建了实例后创建了原型
+//        function book(){}//对象
+//        book.prototype= {
+//            title:'js编程',
+//            pub: "出版社",
+//            price : 23,
+//            dosoming : function () {
+//                alert("可读：标题" + this.title + " 出版社：" + this.pub + " 价格:" + this.price);
+//            }
+//        }
+//        var b1=new book();
+//       book.prototype.size="大";
+//        alert(b1.size);
+
+
+//重写原型对象，切断了现有原型与任何之前已经存在的对象实例之间的联系
+
+//      function book(){}
+//        var b1=new book();
+//        book.prototype= {
+//            constructor:book,
+//            title:'js编程',
+//            pub: "出版社",
+//            price : 23,
+//            dosoming : function () {
+//                alert("可读：标题" + this.title + " 出版社：" + this.pub + " 价格:" + this.price);
+//            }
+//        }
+//     alert(b1.title);//undefuned
+//        b1.dosoming()//错误
+
+//        作业1. typeof  instanceof  constructor  区别与应用
+        //      作业2：查void（）的用法
+
+
+
+        /*原型对象的问题
+        如某个实例对原型属性或方法进行了修改，则所有的实例对象都可见
+        */
+//        function person(){}
+//        person.prototype={
+//            age:23,
+//            name:'zs',
+//            friends:['ww','ls','aa']
+//        }
+//        var p1=new person();
+//            p1.friends.push('bb');
+//        var p2=new person();
+//       alert(p2.friends);//ww ls aa bb
+
+
+//        13---1101
+//        13>>2  1101-->11-->0011 3   13>>5正数右移超范围，为0
+//       -13>>2  1101取反0010-->加1 0011（补码）-->右移2位 00 -->取反 --> 11 -->1  100 --加符号位 -4
+//        -13>>1 1101-->0010-->0011-->右移1位 001-->110-->111 加符号位 -7
+//
+//        -9>>2  -3
+//        -12>>1  -6
+//        -14>>3  -2
+
+
+//        9<<2 1001-->左移动2位  100100 -->36
+//        -9<<2 10001-->100100 符号位 -36
+//
+//
+//        -19<<2 -76
+//        -13<<1 -26
+//        -24<<3 -192
+//        24>>3
+//        ~12  -13
+//        ~-12  11
+
+//        逻辑右移
+//     alert（13>>>2）   //3   等价于13>>2
+//        alert(-13>>>2)   负数逻辑右移，前面所有位用1补齐
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

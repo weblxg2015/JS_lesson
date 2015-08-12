@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    /*
+    apple 与 call
+      1.将函数绑定到另一个对象上去进行
+      apply、call都可以进行参数传递，但传输方式不同
+      apply 以数组或者参数对象的形式传递
+      call 分开传递
+
+      2.apply与call可以"扩充函数赖以生存的作用与"
+        即能够改变函数内部指针的指向，从而实现属性和的继承
+
+    */
+//        function sum(a,b){
+//            return a+b;
+//        }
+//        function f1(x,y){
+//          var v=sum.call(this,x,y)
+//            alert(v)//5
+//        }
+//      f1(2,3);
+
+//        function f1(x,y,z1,z2){
+//            var v=sum.call(this,x,y)
+//            alert(v)  //5
+//        }
+//        f1(2,3,4,5)
+
+//            function f1(x,y){
+//                var v=sum.apply(this,arguments);
+//                alert(v);//5
+//            }
+//          f1(2,3);
+
+//    function f1(x,y,z1,z2){
+//        var v=sum.apply(this,arguments);
+//        alert(v);//5
+//    }
+//    f1(2,3,4,5);
+//        function sum(a,b){
+//            return a+b
+//        }
+//        function fun1(x,y){
+////            var v11=sum.apply(this,[3,4]);//var v11=sum.apply(arguments.callee,[3,4]);
+//            return x*y
+//        }
+//     alert( sum.apply(fun1,[3,4]));//7
+//       console.log( sum.apply(fun1,[3,4]))
+
+//        练习：定义一个求多边（三角形，四边形，六变形..）形周长函数
+//              定义一个判断是否位三角形
+//                定义一个执行函数，可输入任意参数，根据情况求周长
+//                                    如为三个参数，判断是否为三角形，如是，求边长
+//        分别用apply/call实现
+
+//        var v1="a1";
+//        function f1(){
+//            v1='b1'
+//        }
+//        function f2(){
+//            alert(v1)
+//        }
+////        f2()//a1
+//        f2.call(f1());//b1
+//        f2.apply(f1());//b1
+
+//        var v2="c1";
+//        function a(){
+//            this.v2="d1";
+//        }
+//        function b(){this.v2="e1";}
+//        function c(){alert(v2)}
+//        function d(){
+//            var v2="m1";
+//            alert(this.v2);//c1 this-->window
+
+//            v2="m1";
+//            alert(this.v2);//m1 this-->window
+//            var v2="m1";
+//            alert(this.v2)
+//        }
+//        d(); //this指针指的是window对象
+//    d.call(a()); //d中的this指针指向函数a
+//    d.call(b());//e1 d中this指针指向函数b
+//    d.call(c())
+
+
+//        function sum(n1,n2){
+//            return n1+n2;
+//        }
+//    function qj(a,b){
+//        return a*b;
+//    }
+//        function fun1(x,y){
+//            if(x>10){
+//                return sum.call(this,x,y);//return sum.apply(this,arguments);
+//            }
+//            else {
+//                return qj.call(this, x, y);
+//            }
+//        }
+//        alert(fun1(2,3));//5
+
+    //实现继承
+//        function car(){
+//            this.factory='一汽大众';
+//        }
+//
+//        function car_sub(){
+//            this.price=23000;
+////            car.call(this)//扩大了子对象的作用域--相当于继承了car
+//
+//
+//        }
+//        var c1=new car_sub();
+//           car.call(c1);
+////        alert(c1.price);
+//        alert(c1.factory)
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

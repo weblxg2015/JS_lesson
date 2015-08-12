@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .d1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 300px;
+            top: 300px;
+            background: red;
+        }
+        </style>
+</head>
+<body>
+<div class="d1" id="d1"></div>
+</body>
+</html>
+<script>
+    //左37 上38 右39 下40
+  var d1= document.getElementById("d1")
+   document.onkeydown=function(e){
+        e=e||window.e;
+        var px=d1.offsetLeft;
+        var py=d1.offsetTop;
+       if(e.keyCode==37){
+           var a1=px-10;
+           if(a1<=0){
+               a1=0
+           }
+           d1.style.left=a1+"px";
+
+       }
+       else if(e.keyCode==39){
+           var b1=px+10;
+           if(b1>=1000){
+               b1=1000
+           }
+           d1.style.left=b1+"px";
+       }
+       else if(e.keyCode==40){
+           var c1=py+10;
+           if(c1>=1000){
+               c1=1000
+           }
+           d1.style.top=c1+"px";
+       }
+       else if(e.keyCode==38){
+           var d2=py-10;
+           if(d2<=0){
+               d2=0
+           }
+           d1.style.top=d2+"px";
+       }
+
+    }
+    </script>

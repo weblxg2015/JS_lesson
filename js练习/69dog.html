@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+       /* 小贤是一条可爱的小狗(Dog)，它的叫声很好听(wow)，每次看到主人的时候就会乖乖叫一声(yelp)。
+        从这段描述可以得到以下对象：
+        function Dog() {
+        this.wow = function() {
+        alert(’Wow’);
+        }
+        this.yelp = function() {
+        this.wow();
+        }
+        }
+
+        小芒和小贤一样，原来也是一条可爱的小狗，可是突然有一天疯了(MadDog)，
+        一看到人就会每隔半秒叫一声(wow)地不停叫唤(yelp)。
+        请根据描述，按示例的形式用代码来实。（原型，setInterval）*/
+
+//       function Dog() {
+//           this.wow = function() {
+//               alert('Wow');
+//           };
+//           this.yelp = function() {
+//               setInterval(this.wow,500)
+//           }
+//       }
+//       var maddog=new Dog();
+//        maddog.yelp();
+
+
+       <!--* 问题1: 请给所有的汽车人增加shoot的能力,每次shoot执行,count减1,最小为0;增加reload能力,每次reload执行,恢复count的原始值(可自定义).-->
+
+       <!--问题2: 汽车人迫切需要其他能力.比如jump,hide等.他们需要一个强大的改造车间(Autobot.decorators),尽快升级能力.-->
+       <!--请写出上面示例中decorate方法的示例代码.-->
+
+
+//       var Autobot = function(nickname,count){
+//                   this.nickname = nickname || "autobot";
+//                   this.abilities = ["transform","talk"];
+//                   this.count = count || 1000;//弹药数量
+//                    this.shoot=function(){
+//                        if(this.count>0){
+//                           this.count-=1;
+//                        }
+//                    }
+//                   this.reload=function(){
+//                       this.count=count;
+//                   }
+//               };
+//               Autobot.prototype.transform = function(){
+//                   console.log("Aha, I'm " + this.nickname + ", I can " + this.abilities.join(", ") + "!");
+//               }
+//       Autobot.prototype.decorators=function(){
+//           this.abilities.push("jump");
+//           this.abilities.push("hide");
+//       }
+
+
+//function foo(x){
+//    alert(arguments)
+//    return x
+//}
+//        foo(1,2,3,4,5)
+//
+       function foo(x){
+           alert(arguments)
+           return x
+       }(1,2,3,4,5)
+
+
+//       (function foo(x){
+//           alert(arguments)
+//           return x
+//       })(1,2,3,4,5)
+
+
+//        function foo(){bar.apply(null,arguments)}
+//        function bar(x){alert(arguments)}
+//        foo(1,2,3,4,5)
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
+
