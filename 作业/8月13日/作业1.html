@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #canvas1{
+            border: 1px solid black;
+            /*background: black;*/
+        }
+    </style>
+</head>
+<body>
+<canvas width="1300" height="600" id="canvas1"></canvas>
+</body>
+</html>
+<script>
+    var canv=document.getElementById('canvas1');
+    var context=canv.getContext("2d");
+    var c1=context.createLinearGradient(0,0,600,1000);
+                c1.addColorStop(0,'rgba(255,255,255,0.5)');
+                c1.addColorStop(0.4,'rgba(144,195,61,0.5)');
+                c1.addColorStop(0.6,'rgba(216,22,144,0.5)');
+                c1.addColorStop(1,'rgba(255,255,255,0.5)');
+    context.fillStyle=c1;
+    context.fillRect(0, 0, 1300, 600);
+
+    context.beginPath();
+    context.bezierCurveTo(0, 400 ,100,250,600,400);
+    context.bezierCurveTo(600, 400 ,900,500,1300,250);
+    context.strokeStyle = 'white';
+    context.lineWidth = 1;
+    context.stroke();
+    context.closePath();
+
+    context.beginPath();
+    context.bezierCurveTo(0, 450,100,250,600,380);
+    context.bezierCurveTo(600,380,1100,550,1300,250);
+    context.strokeStyle = 'white';
+    context.lineWidth = 1;
+    context.stroke();
+    context.closePath();
+
+
+
+</script>
