@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+         * 原生ajax
+         * ajax :  asynchronous javascript and xml
+         * 工作原理：使用XMLHttpRequest 对象获取服务器的数据，再通过DOM将数据插入到页面中
+         *          实现“异步交互”，“局部刷新”
+         * 核心技术：XMLHttpRequest 对象
+         * */
+
+        function createXHR(){
+            var XHRequst;
+            if(window.XMLHttpRequest){ //目前高版本浏览器，ie高版本
+                XHRequst =new XMLHttpRequest();
+            }else if(window.ActiveXObject){
+                try{
+                    XHRequst=  new ActiveXObject("Msxml2.XMLHTTP");//ie7+  firefox 低版本
+                }catch (e){
+                    XHRequst=  new ActiveXObject("Microsoft.XMLHTTP");//ie5 ie6
+                }
+            }
+            return XHRequst;
+        }
+
+
+        function funajax(){
+//                var v_name= document.getElementById("nameid").value;
+//                var v_id= document.getElementById("pwdid").value;
+            var v_name= document.getElementsByName("uname")[0].value;
+            var v_id= document.getElementsByName("pwd")[0].value;
+
+
+
+//               // get方式
+//               //传送数据
+//               //http://localhost:81/javascriptproject_33/test57_php.php?uname=zs&pwd=123
+//                var url="test57_php.php?uname="+v_name+"&pwd="+v_id;
+//               //get方式
+//                XHRequst.open("GET",url,true);//true--异步提交
+//
+//                //回调--XMLHttpRequest属性readystate
+//                /* XHRequst.readyState  状态值
+//                      0  -- 未初始化，表示对象已经建立，但尚未初始化，尚未调用open（）方法
+//                      1  -- 初始化（启动），表示对象已经建立，但尚未调用send()方法
+//                      2  -- 发送数据（已发送），表示send方法已经调用，尚未接到响应（当前状态及http头未知）
+//                      3  -- 数据传送中（接收），已经接到部分响应数据
+//                      4  -- 完成，收到全部响应数据
+//                */
+//                XHRequst.onreadystatechange=function(){
+//                  //接收数据
+//                  if(XHRequst.readyState ==4 && XHRequst.status==200){
+//                      var v_str=XHRequst.responseText;
+//                      alert(v_str);
+//                  }
+//                }
+//
+//                XHRequst.send();
+
+//            //post
+            var url="test57_php.php";
+            var arg="uname="+v_name+"&pwd="+v_id;
+            var str= ajax1(url,arg);
+            document.getElementById("result").innerText=v_str;
+        }
+
+        function ajax1(url,arg){
+            var v_str;
+            //创建  XMLHttpRequest 对象
+            var XHRequst=  createXHR();
+
+            XHRequst.open("POST",url,true);
+            XHRequst.setRequestHeader('Content-type',"application/x-www-form-urlencoded");
+
+            XHRequst.onreadystatechange=function(){
+                //接收数据
+                if(XHRequst.readyState ==4 && XHRequst.status==200){
+                    v_str=XHRequst.responseText;
+                    alert(v_str);
+//                    document.getElementById("result").innerText=v_str;
+                }
+            }
+            XHRequst.send(arg);
+
+            return v_str;
+        }
+
+        /*
+         * get方式
+         *    简单、方便，适合传递一些简单的参数信息
+         *    缺点：传递信息量有限
+         post方式
+         1、传递的信息是无限
+         2、不受字符编码限制
+         3、安全性好
+         适用于传递文件或大容量信息时及需要安全处理信息采用该方式
+         *
+         * */
+
+    </script>
+</head>
+<body>
+
+
+用户名：<input type="text" name="uname" id="nameid"><br><br>
+密  码：<input type="password" name="pwd" id="pwdid"><br><br>
+<input type="button" value="登陆" onclick="funajax()">
+<div id="result"></div>
+
+
+<!--<form action="test57_php.php" method="get">-->
+<!--用户名：<input type="text" name="uname"><br><br>-->
+<!--密  码：<input type="password" name="pwd"><br><br>-->
+<!--<input type="submit" value="登陆">-->
+<!--</form>-->
+</body>
+</html>

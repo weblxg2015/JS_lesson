@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #canvas1{
+            background: black;
+        }
+    </style>
+</head>
+<body>
+<canvas width="500" height="500" id="canvas1"></canvas>
+<script>
+//    window
+var i=50;j=50;
+var can1=document.getElementById("canvas1");
+    var context=can1.getContext("2d");
+    context.fillStyle="red";
+    context.fillRect(i,j,100,100);
+
+    document.onkeydown=function(e) {
+        context.clearRect(0, 0, 500, 500);
+        if (e.keyCode == 37) {
+            i--;
+            if(i==-50){
+                i=500;
+            }
+            context.fillStyle = "red";
+            context.fillRect(i, j, 100, 100);
+        }
+        else if (e.keyCode == 39) {
+            i++;
+            if(i==500){
+                i=0;
+            }
+            context.fillStyle = "red";
+            context.fillRect(i, j, 100, 100);
+        }
+        else if (e.keyCode == 38) {
+            j--;
+            if(j==-50){
+                j=500;
+            }
+            context.fillStyle = "red";
+            context.fillRect(i, j, 100, 100);
+        }
+        else if (e.keyCode == 40) {
+            j++;
+            if(j==500){
+                j=0;
+            }
+            context.fillStyle = "red";
+            context.fillRect(i, j, 100, 100);
+        }
+    }
+
+
+</script>
+</body>
+</html>

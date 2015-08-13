@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table tr td{
+            width: 150px;
+            height: 30px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+<!--</head>-->
+<body>
+<input type="button" value="获取所有" onclick="fun_queryall()">
+<table id="tab1" cellspacing="0"></table>
+</body>
+</html>
+<script>
+
+    function createXHR(){
+        var XHRequst;
+        if(window.XMLHttpRequest){
+            XHRequst =new XMLHttpRequest();
+        }else if(window.ActiveXObject){
+            try{
+                XHRequst=  new ActiveXObject("Msxml2.XMLHTTP");
+            }catch (e){
+                XHRequst=  new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        }
+        return XHRequst;
+    }
+
+
+
+    function ajax1(url,arg){
+        var v_str;
+        var XHRequst=  createXHR();
+
+        XHRequst.open("POST",url,false);//false同步，所有页面执行完在输出；true异步
+        XHRequst.setRequestHeader('Content-type',"application/x-www-form-urlencoded");
+
+        XHRequst.onreadystatechange=function(){
+            //接收数据
+            if(XHRequst.readyState ==4 && XHRequst.status==200){
+                v_str=XHRequst.responseText;
+//                alert(v_str);
+            }
+        }
+        XHRequst.send(arg);
+        return v_str;
+    }
+var tab1=document.getElementById("tab1");
+    var sum='';
+    function fun_queryall(){
+        var v_url="phptext03.php";
+        var v_str=ajax1(v_url,null);
+//        alert(v_str)
+        var v1=eval(v_str);
+        for(var i=0;i<v1.length;i++){
+            sum+="<tr><td>"+v1[i].username+"</td><td>"+v1[i].pwd+"</td></tr>"
+        }
+        tab1.innerHTML=sum;
+    }
+
+</script>

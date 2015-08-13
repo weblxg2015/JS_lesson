@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //html5音频与视频处理
+        //动态创建音频
+//        window.onload=function() {
+//            var a1 = document.createElement("audio");
+////            a1.innerHTML = "<source  src='media/1.mp3'>";
+//            a1.setAttribute("src","media/1.mp3")
+//           a1.setAttribute("autoplay","true")
+//            document.body.appendChild(a1);
+//        }
+
+        /*属性
+            1.src:指定媒体数据url地址
+            2.autoplay ：媒体是否在页面加载完后自动播放
+                      autoplay=true
+                      autoplay=false
+           3.preload：媒体数据是否预加载
+                auto：默认，预加载全部音频视频
+                none：不进行预加载
+                metadeta：只加载媒体的部分数据
+                preload="none";
+           4. loop 是否循环播放媒体
+                    true
+                    false
+            5.controls ：添加浏览器自带的播放控制条
+
+          6.poster（视频video特有）：视频不可用时，可展示一张代替的图片
+                    <video ..poster="aa.jpg">
+          7.width/heigth(视频videoo特有)：指定视频宽、高，以像素为单位
+                              <video ..width="400">
+
+           8.error:媒体出现错误属性
+                       error.code=1  媒体下载过程中由于用户的操作原因被终止
+                       error.code=2  下载是出现网络错误
+                       error.code=3  解码时发生错误
+                       error.code=4   媒体格式不被支持
+         */
+
+        /*
+        事件
+        1.error
+
+
+
+
+        */
+        window.onload=function(){
+            var v_audio=document.getElementById('audio01');
+             v_audio.addEventListener("error",function(){
+               var n= v_audio.error.code;//获取当前音频错误码
+//                 alert(n)
+                 switch (n){
+                     case 1:alert("媒体下载过程中由于用户的操作原因被终止");
+                          break;
+                     case 2:alert("下载是出现网络错误");
+                         break;
+                     case 3:alert("解码时发生错误");
+                         break;
+                     case 4:alert("媒体格式不被支持");
+                         break;
+                 }
+             },false)
+        }
+
+
+        </script>
+</head>
+<body>
+<audio src="media/1.mp3" autoplay="true" preload="none" loop controls id="audio01">
+    你当前的浏览器不支持音频
+</audio>
+
+
+<!--可放多个音频文件-->
+   <!--<audio autoplay>-->
+       <!--<source  src="media/1.mp3">-->
+       <!--<source  src="media/1.wma">-->
+       <!--<source  src="media/1.avi">-->
+   <!--</audio>-->
+<!--<video poster="images/kaka.jpg" autoplay width="500" controls>-->
+    <!--<source src="media/vid1.mp4">-->
+<!--</video>-->
+
+</body>
+</html>

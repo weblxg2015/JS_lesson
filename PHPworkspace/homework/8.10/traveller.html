@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<span class="red">*</span>姓名：<input type="text" id="name" onblur="fun01()">
+<span id="name1"></span><br><br>
+
+<span class="red">*</span>性别：<input type="radio" value="nan" name="sex" checked>男<input type="radio" value="nv" name="sex">女<br><br>
+
+国家/地区：<select id="country">
+    <option>CHINA</option>
+    <option>USA</option>
+    <option>UK</option>
+    <option>JP</option>
+</select><br><br>
+
+<span class="red">*</span>
+证件类型：<select id="idtype">
+    <option>ID</option>
+    <option>Passport</option>
+    <option>Military Card</option>
+</select><br><br>
+
+<span class="red">*</span>证件号码：<input type="text" id="idnumber" onblur="fun02()"><span id="idnumber1"></span><br><br>
+
+手机号码：<input type="text" id="phonenumber" onblur="fun03()"><span id="phonenumber1"></span><br><br>
+
+固定电话：<input type="text" id="telephone"><br><br>
+
+电子邮件：<input type="text" id="email" onblur="fun04()"><span id="email1"></span><br><br>
+
+地址：<input type="text" id="site"><br><br>
+
+邮编：<input type="text" id="postcode"><br><br>
+
+<span class="red">*</span>旅客类型：<select id="type">
+    <option>student</option>
+    <option>adult</option>
+</select><br><br>
+
+
+<span class="red">*</span>学校所在省份：<select id="provinces">
+    <option>Guangdong</option>
+    <option>Zhejiang</option>
+</select><br><br>
+
+
+<span class="red">*</span>学校名称：<input type="text" id="schoolname" onblur="fun05()"><span id="schoolname1"></span><br><br>
+
+院系：<input type="text" id="faculty"><br><br>
+
+班级：<input type="text" id="class"><br><br>
+
+<span class="red">*</span>学号：<input type="text" id="stunumber" onblur="fun06()"><span id="stunumber1"></span><br><br>
+
+<span class="red">*</span>学制：<select id="schooling">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+</select><br><br>
+
+<span class="red">*</span>入学年份：<select id="edustartdate">
+    <option>2012</option>
+    <option>2013</option>
+    <option>2014</option>
+    <option>2015</option>
+</select><br><br>
+
+优惠卡号：<input type="text" id="cardnumber"><br><br>
+
+<span class="red">*</span>优惠区间：<input type="text" name="range" onblur="fun07()">--<input type="text" name="range" onblur="fun07()"><span id="range1"></span>
+<br><br><br>
+
+<input type="button" value="取消"> <input type="button" value="保存" onclick="funajax()">
+<div id="request"></div>
+</body>
+</html>
+<!--<script src="js1.js" type="text/javascript"></script>-->
+<script>
+    var z1=0,z2=0,z3=0,z4=0,z5=0,z6=0,z7=0;
+    function fun01(){
+        var name=document.getElementById("name");
+        var name1=document.getElementById("name1");
+        if(name.value.length<3||name.value.length>30){
+            name1.innerText="允许输入的字符串在3-30个字符之间";
+        }
+        else{
+            name1.innerText="正确";
+            z1=1;
+        }
+    }
+
+    function fun02(){
+        var idnumber=document.getElementById("idnumber");
+        var idnumber1=document.getElementById("idnumber1");
+        if(idnumber.value.length!=18){
+            idnumber1.innerText="请输入正确的18位身份证号";
+        }
+        else{
+            idnumber1.innerText="正确";
+            z2=1;
+        }
+    }
+
+
+    function fun03(){
+        var phonenumber=document.getElementById("phonenumber");
+        var phonenumber1=document.getElementById("phonenumber1");
+        if(phonenumber.value.length!=11){
+            phonenumber1.innerText="请输入正确的11位电话号码";
+        }
+        else{
+            phonenumber1.innerText="正确";
+            z3=1;
+        }
+    }
+
+
+    function fun04(){
+        var email=document.getElementById("email");
+        var email1=document.getElementById("email1");
+        if(email.value.indexOf("@")==-1){
+            email1.innerText="请输入正确的邮箱格式";
+        }
+        else{
+            email1.innerText="正确";
+            z4=1;
+        }
+    }
+
+
+    function fun05(){
+        var schoolname=document.getElementById("schoolname");
+        var schoolname1=document.getElementById("schoolname1");
+        if(schoolname.value.length<=0){
+            schoolname1.innerText="请输入学校名称";
+        }
+        else{
+            schoolname1.innerText="正确";
+            z5=1;
+        }
+    }
+
+
+    function fun06(){
+        var stunumber=document.getElementById("stunumber");
+        var stunumber1=document.getElementById("stunumber1");
+        if(stunumber.value.length<=0){
+            stunumber1.innerText="请输入学号";
+        }
+        else{
+            stunumber1.innerText="正确";
+            z6=1;
+        }
+    }
+
+
+    function fun07(){
+        var range=document.getElementsByName("range");
+        var range1=document.getElementById("range1");
+        if(range[0].value.length<=0||range[1].value.length<=0){
+            range1.innerText="请输入优惠区间";
+    }
+        else{
+            range1.innerText="正确";
+            z7=1;
+        }
+    }
+
+    function funajax(){
+        var name2=document.getElementById("name").value;
+        var sex1=document.getElementsByName("sex");
+        var sex2;
+        for(var i=0;i<sex1.length;i++){
+            if(sex1[i].checked){
+                sex2=sex1.value;
+            }
+        }
+        var country2=document.getElementById("country").value;
+        var idtype2=document.getElementById("idtype").value;
+        var idnumber2=document.getElementById("idnumber").value;
+        var phonenumber2=document.getElementById("phonenumber").value;
+        var telephone2=document.getElementById("telephone").value;
+        var email2=document.getElementById("email").value;
+        var site2=document.getElementById("site").value;
+        var postcode2=document.getElementById("postcode").value;
+        var type2=document.getElementById("type").value;
+        var provinces2=document.getElementById("provinces").value;
+        var schoolname2=document.getElementById("schoolname").value;
+        var faculty2=document.getElementById("faculty").value;
+        var class2=document.getElementById("class").value;
+        var stunumber2=document.getElementById("stunumber").value;
+        var schooling2=document.getElementById("schooling").value;
+        var edustartdate2=document.getElementById("edustartdate").value;
+        var cardnumber2=document.getElementById("cardnumber").value;
+        var range1=document.getElementsByName("range");
+        var range2=range1[0].value+range1[1].value;
+
+        var XHRequest;
+        if(window.XMLHttpRequest){
+            XHRequest=new XMLHttpRequest();
+        }
+        else if(window.ActiveXObject){
+            try {
+                XHRequest = new ActiveXObject("Msxml12.XMLHTTP");
+            } catch (e) {
+                XHRequest = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        }
+
+        var url="php1.php?name="+name2+"&sex"+sex2+"&country"+country2+"&idtype"+idtype2+
+                "&idnumber"+idnumber2+"&phonenumber"+phonenumber2+"&telephone"+telephone2+
+                   "&email"+email2+"&site"+site2+"&postcode"+postcode2+"&type"+type2+"&provinces"
+                +provinces2+"&schoolname"+schoolname2+"&faculty"+faculty2+"&class"+class2
+                +"&stunumber"+stunumber2+"&schooling"+schooling2+"&edustartdate"+edustartdate2+
+                "&cardnumber"+cardnumber2+"&range"+range2;
+        var quest=document.getElementById("quest");
+        XHRequest.open('GET',url,true);
+        XHRequest.onreadystatechange=function(){
+            alert("1");
+            if(XHRequest.readyState==4&&XHRequest.status==200){
+                var v1=XHRequest.responseText;
+//                quest.innerHTML=v1;
+            }
+        }
+    }
+
+</script>

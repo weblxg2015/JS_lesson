@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+ID<input type="text" id="id"><br><br>
+用户名：<input type="text" id="uname"><br><br>
+密码：<input type="password" id="pwd"><br><br>
+城市<select id="city">
+    <option>gz</option>
+    <option>sz</option>
+    <option>dg</option>
+    <option>fs</option>
+    <option>hz</option>
+</select><br><br>
+备注<textarea id="bz"></textarea><br><br>
+<input type="button" value="注册" onclick="funajax()">
+
+</body>
+</html>
+
+<script>
+    function funajax() {
+        var id = document.getElementById("id").value;
+        var uname = document.getElementById("uname").value;
+        var pwd = document.getElementById("pwd").value;
+        var city = document.getElementById("city").value;
+        var bz = document.getElementById("bz").value;
+        var XHRequest;
+        if (window.XMLHttpRequest) {
+            XHRequest=new XMLHttpRequest();
+        }
+        else if (window.ActiveXObject) {
+            try {
+                XHRequest = new ActiveXObject("Msxml12.XMLHTTP");
+            } catch (e) {
+                XHRequest = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        }
+        var url="zhuce.php";
+        XHRequest.open("POST",url,true);//true--异步提交
+        XHRequest.setRequestHeader('Content-type',"application/x-www-form-urlencoded");
+        XHRequest.onreadystatechange=function(){
+            if(XHRequest.readyState==4 && XHRequest.status==200){
+                var v_str= XHRequest.responseText;
+                alert(v_str)
+
+            }
+        };
+        XHRequest.send("id="+id+"&uname="+uname+"&pwd="+pwd+"&city="+city+"&bz="+bz);
+    }
+
+</script>

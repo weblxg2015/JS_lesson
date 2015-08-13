@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+         html5 canvas应用
+       */
+        window.onload=function() {
+//                1.获取canvas元素
+            var v_canvas = document.getElementById("canvas1");
+//                2.取得上下文-context
+//                 context中封装了很多绘图功能的对象
+            var context = v_canvas.getContext("2d");
+//               3.绘图
+            //设置填充样式
+//            context.fillStyle="#aa1222";
+            //绘制矩图fillRect(起始横坐标，起始纵坐标，矩形宽度，矩形高度)
+//            context.fillRect(50, 50, 100, 150);
+            //设置填充边框的样式
+            context.strokeStyle = 'red';
+            //设置线宽
+            context.lineWidth = 1;
+//            context.strokeRect(50, 50, 100, 150);
+
+//            擦除指定矩形区域的图形
+//            context.clearRect(0, 0, 400, 400);
+
+//            （2）圆形
+            //开始创路径
+//            context.beginPath();
+            //创建圆形路径
+//            context.arc(圆心横坐标.圆心纵坐标，半径，开始角度，结束角度，是否为顺时针)
+            //是否为顺时针：true--顺时针  false--逆时针
+//            context.arc(150,150,50,0,Math.PI*2,true);
+//            //关闭路径
+//            context.closePath();
+//            //设置绘制样式
+//            context.fillStyle='red';
+//            context.fill();//填充
+//            context.strokeStyle='yellow';
+//            context.stroke();//绘制边框
+
+//            3.线--lineTo moveTo
+//            moveTo(起点横坐标，起点纵坐标)
+//            lineTo(终点横坐标，终点纵坐标)--该方法在moveTo方法中指定的起点参数与本身的终点参数
+//                                              之间绘制一条直线
+
+//            context.moveTo(10, 10);
+//            context.lineTo(100, 100);
+//            context.strokeStyle = 'red';
+//            context.lineWidth = 10;
+//            context.stroke();
+//
+//            var i = 0;
+
+//            function fun1() {
+////            for(var i=0;i<20;i++) {
+//                context.beginPath();
+//                context.arc(20 * i, 20 * i, 3 * i, 0, Math.PI * 2, false);
+//                context.closePath();
+//                context.fillStyle = "rgba(20,0,0," + 0.05 * i + ")";
+//                context.fill();
+//                i++;
+//            }
+
+//            var x;
+//            var y;
+//            var z = Math.PI /8 * 10;
+//            context.beginPath();
+//            for (var i = 0; i < 12; i++) {
+//                x = 50*Math.sin(i * z);
+//                y = 50*Math.cos(i * z);
+//                context.lineTo(150 + x, 100 + y)
+//
+//            }
+////            context.closePath()
+//            context.fillStyle = "rgba(20,0,0," + 0.05 * i + ")";
+//            context.strokeStyle = 'red';
+//            context.lineWidth = 1;
+//            context.stroke();
+//        }
+
+
+            //曲线 --beziercurveTo贝济埃曲线
+            //beziercurveTo(第一个控制点的横坐标，第一个控制点的纵坐标，第二个控制点的横坐标，第二个控制点的纵坐标，终点的横坐标，终点的纵坐标，)
+
+//            context.bezierCurveTo(20, 20, 390, 150, 240, 300);
+//            context.strokeStyle = "red";
+//            context.stroke();
+//
+//            context.bezierCurveTo(50, 20, 30, 156, 240, 30);
+//            context.strokeStyle = "red";
+//            context.stroke();
+//
+//            var x;
+//            var y;
+//            var z=Math.PI/15*11;
+//            context.beginPath();
+////            context.moveTo(0,0);
+//            for(var i=0;i<30;i++){
+//                x=Math.sin(i*z);
+//                y=Math.cos(i*z);
+//                context.lineTo(150+x*100,150+y*100);
+//            }
+//            context.closePath();
+//            context.strokeStyle='red';
+//            context.lineWidth=1;
+//            context.stroke();
+
+
+//            var x=Math.sin(0);
+//            var y=Math.cos(0);
+//            var z=Math.PI/15*11;
+//            context.moveTo(150,150);
+//            for(var i=0;i<30;i++){
+//                x=Math.sin(i*z);
+//                y=Math.cos(i*z);
+//                context.bezierCurveTo(150+x*100,150+y*100-100,150+x*100+100,150+y*100,150+x*100,150+y*100)
+//            }
+//            context.strokeStyle="red";
+//            context.stroke()
+
+         //渐变
+            /*
+            1.线性渐变
+             context.createLinearGradient(渐变起始点横坐标，渐变起始点纵坐标，渐变结束点横坐标，渐变结束点纵坐标)
+             context.addcolorStop()追加渐变颜色
+                     arg1：为设定的颜色离开渐变起始点的偏移量，范围0-1
+                     arg2：追加颜色
+            */
+//             var g1=context.createLinearGradient(0,0,0,200);
+//                 g1.addColorStop(0,'red');
+//            g1.addColorStop(0.5,'blue');
+//            g1.addColorStop(1,'green');
+//            context.fillStyle=g1;
+//            context.fillRect(0,0,200,200)
+
+
+//            var g1=context.createLinearGradient(0,0,300,0);
+//            g1.addColorStop(0,'rgba(0,0,255,0.5)');
+//            g1.addColorStop(0.5,'rgba(255,0,0,0.5)');
+//            g1.addColorStop(1,'rgba(0,255,0,0.5)');
+//
+//            for(var i=0;i<10;i++){
+//                context.beginPath();
+//                context.arc(i*25,i*25,i*10,0,Math.PI*2,true);
+//                context.fillStyle=g1;
+//                context.closePath();
+//                context.fill();
+//
+//            }
+
+
+//            2.径向渐变
+            /*
+             context.createRadialGradient(渐变开始的圆心坐标，渐变开始的圆心纵坐标，开始圆的半径，
+                                         渐变结束的圆心坐标，渐变结束的圆心纵坐标，结束圆的半径)
+             原理：从一个圆的圆心向外进行扩散渐变，一直扩散到第二个圆的外轮廓处
+             context.addcolorStop()追加渐变颜色
+             arg1：为设定的颜色离开渐变起始点的偏移量，范围0-1
+             arg2：追加颜色
+           */
+            context.save()//保存当前状态
+            context.restore();//恢复到保存前的状态
+
+//           var g2= context.createRadialGradient(150,150,30,150,150,200);
+//            g2.addColorStop(0,'rgba(0,0,255,0.5)');
+//            g2.addColorStop(0.5,'rgba(255,0,0,0.5)');
+//            g2.addColorStop(1,'rgba(0,255,0,0.5)');
+//            context.fillStyle=g2;
+//            context.fillRect(0,0,300,300)
+
+
+
+        }
+        </script>
+    <style>
+        #canvas1{
+            /*background:url("images/kaka.jpg");*/
+            background: #8cb5cd;
+        }
+    </style>
+</head>
+<body>
+  <canvas width="400" height="400" id="canvas1"></canvas>
+</body>
+</html>

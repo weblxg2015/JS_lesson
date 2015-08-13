@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #can1{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<canvas width="1000" height="600" id="can1"></canvas>
+<input type="button" value="画画" onclick="drew()">
+<input type="button" value="清除" onclick="clear1()">
+</body>
+</html>
+<script>
+    var can1 = document.getElementById('can1');
+    var con = can1.getContext("2d");
+    var x1,y1,x2,y2;
+    function clear1(){
+        con.clearRect(0,0,1000,600);
+    }
+
+    function drew(){
+          can1.onmousedown=function(e){
+              con.beginPath();
+             x1= e.offsetX;
+               y1= e.offsetY;
+              con.moveTo(x1,y1);
+              can1.onmousemove=function(e){
+                   x2= e.offsetX;
+                   y2= e.offsetY;
+                  con.lineTo(x2,y2);
+                  con.strokeStyle = '#2985DA';
+                  con.lineWidth = 5;
+                  con.stroke();
+              };
+              can1.onmouseup=function(){
+                  can1.onmousemove=null;
+                  con.closePath();
+              }
+
+          }
+    }
+
+
+
+</script>

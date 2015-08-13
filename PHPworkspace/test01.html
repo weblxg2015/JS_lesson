@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+        原生ajax
+        ajax: Asynchronous Javascript And XML
+        工作原理：使用XMLHttpRequest 对象获取服务器的数据，再通过DOM将数据插入到页面中
+                  实现“异步交互”，“局部刷新”
+        核心技术：XMLHttpRequest
+        */
+
+
+
+    </script>
+</head>
+<body>
+<!--<form action="phptest01.php">-->
+    <!--用户名：<input type="text" name="uname"><br><br>-->
+    <!--密  码：<input type="text" name="pwd"><br><br>-->
+    <!--<input type="submit" value="登录">-->
+<!--</form>-->
+
+<form action="">
+用户名：<input type="text" name="uname" id="nameid"><br><br>
+密  码：<input type="text" name="pwd" id="pwdid"><br><br>
+<input type="button" value="登录" onclick="funajax()">
+    <div id="result"></div>
+</form>
+</body>
+</html>
+
+<script>
+    function funajax() {
+        var v_name = document.getElementById("nameid").value;
+        var v_id = document.getElementById("pwdid").value;
+        //创建XMLHttpRequest对象
+        var XHRequest;
+        if (window.XMLHttpRequest) {  //目前的高级浏览器，IE高版本（ie8以上）
+            XHRequest=new XMLHttpRequest();
+        }
+        else if (window.ActiveXObject) {
+            try {
+                XHRequest = new ActiveXObject("Msxml12.XMLHTTP"); //ie7+  firefox低版本
+            } catch (e) {
+                XHRequest = new ActiveXObject("Microsoft.XMLHTTP");//ie5 ie6
+            }
+        }
+
+        //传送数据
+        var url="phptest01.php?uname="+v_name+"&pwd="+v_id;
+        //get方式
+        XHRequest.open("GET",url,true);//true--异步提交
+//
+//        //回调--XMLHttpRequest属性readvstate
+//        /*XHRequest.readyState  状态值
+//              0--未初始化，尚未调用open（）方法
+//              1--启动，尚未调用send（）方法
+//              2--已发送，尚未接到响应
+//              3--接受，已经接收到部分响应数据
+//              4--完成，收到全部响应数据
+//        * */
+        XHRequest.onreadystatechange=function(){
+            if(XHRequest.readyState==4 && XHRequest.status==200){
+              var v_str= XHRequest.responseText;
+//                alert(v_str)
+                document.write(v_str)
+            }
+        };
+        XHRequest.send();
+
+
+
+
+        //post方式
+//        var url="phptest01.php";
+//        XHRequest.open("POST",url,true);//true--异步提交
+//        XHRequest.setRequestHeader('Content-type',"application/x-www-form-urlencoded");
+//        XHRequest.onreadystatechange=function(){
+//            if(XHRequest.readyState==4 && XHRequest.status==200){
+//                var v_str= XHRequest.responseText;
+////                alert(v_str)
+//                var d1=document.getElementById("result");
+//                d1.innerText=v_str;
+//            }
+//        };
+//        XHRequest.send("uname="+v_name+"&pwd="+v_id);
+
+
+
+
+    }
+</script>
+
+
+<!--/* XHRequest.readyState  状态值
+//            * 0---未初始化，表示对象已经建立，但是尚未初始化，尚未调用open（）方法
+//            * 1--初始化（启动），表示对象已经建立 但尚未调用send()方法
+//            * 2---发送数据（已发送），表示send方法已经调用，但尚未接到响应以（当前状态及http头未知）
+//            * 3-- 数据传送中（接受），已经收到部分响应数据
+//            * 4--完成，收到全部响应数据
+//
+* get方式
+* 优点：简单 方便，适合传递一些简单的参数信息
+* 缺点：传递信息量有限
+* post 方式
+* 优点：
+* 1.传递的信息是无限的
+* 2.post方式不受字符编码的限制
+* 3.安全性好
+* 适用于传输文件或大容量信息时以及需要安全处理信息采用该方式
+* 缺点：写法复杂
+*/-->
+
+
+<!--//老师代码-->
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head lang="en">-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title></title>-->
+    <!--<script>-->
+        <!--/*-->
+         <!--* 原生ajax-->
+         <!--* ajax :  asynchronous javascript and xml-->
+         <!--* 工作原理：使用XMLHttpRequest 对象获取服务器的数据，再通过DOM将数据插入到页面中-->
+         <!--*          实现“异步交互”，“局部刷新”-->
+         <!--* 核心技术：XMLHttpRequest 对象-->
+         <!--* */-->
+
+        <!--function funajax(){-->
+<!--//                var v_name= document.getElementById("nameid").value;-->
+<!--//                var v_id= document.getElementById("pwdid").value;-->
+            <!--var v_name= document.getElementsByName("uname")[0].value;-->
+            <!--var v_id= document.getElementsByName("pwd")[0].value;-->
+
+            <!--//创建  XMLHttpRequest 对象-->
+            <!--var XHRequst;-->
+            <!--if(window.XMLHttpRequest){ //目前高版本浏览器，ie高版本-->
+                <!--XHRequst =new XMLHttpRequest();-->
+            <!--}else if(window.ActiveXObject){-->
+                <!--try{-->
+                    <!--XHRequst=  new ActiveXObject("Msxml2.XMLHTTP");//ie7+  firefox 低版本-->
+                <!--}catch (e){-->
+                    <!--XHRequst=  new ActiveXObject("Microsoft.XMLHTTP");//ie5 ie6-->
+                <!--}-->
+            <!--}-->
+
+            <!--//get方式-->
+<!--//               //传送数据-->
+<!--//               //http://localhost:81/javascriptproject_33/test57_php.php?uname=zs&pwd=123-->
+<!--//                var url="test57_php.php?uname="+v_name+"&pwd="+v_id;-->
+<!--//               //get方式-->
+<!--//                XHRequst.open("GET",url,true);//true&#45;&#45;异步提交-->
+<!--//-->
+<!--//                //回调&#45;&#45;XMLHttpRequest属性readystate-->
+<!--//                /* XHRequst.readyState  状态值-->
+<!--//                      0  &#45;&#45; 未初始化，尚未调用open（）方法-->
+<!--//                      1  &#45;&#45; 启动，尚未调用send()方法-->
+<!--//                      2  &#45;&#45; 已发送，尚未接到响应-->
+<!--//                      3  &#45;&#45; 接收，已经接到部分响应数据-->
+<!--//                      4  &#45;&#45; 完成，收到全部响应数据-->
+<!--//                */-->
+<!--//                XHRequst.onreadystatechange=function(){-->
+<!--//                  //接收数据-->
+<!--//                  if(XHRequst.readyState ==4 && XHRequst.status==200){-->
+<!--//                      var v_str=XHRequst.responseText;-->
+<!--//                      alert(v_str);-->
+<!--//                  }-->
+<!--//                }-->
+<!--//-->
+<!--//                XHRequst.send();-->
+
+            <!--//post-->
+            <!--var url="test57_php.php";-->
+            <!--XHRequst.open("POST",url,true);-->
+            <!--XHRequst.setRequestHeader('Content-type',"application/x-www-form-urlencoded");-->
+
+            <!--XHRequst.onreadystatechange=function(){-->
+                <!--//接收数据-->
+                <!--if(XHRequst.readyState ==4 && XHRequst.status==200){-->
+                    <!--var v_str=XHRequst.responseText;-->
+                    <!--alert(v_str);-->
+                <!--}-->
+            <!--}-->
+
+            <!--XHRequst.send("uname="+v_name+"&pwd="+v_id);-->
+
+
+
+        <!--}-->
+
+
+
+    <!--</script>-->
+<!--</head>-->
+<!--<body>-->
+
+
+<!--用户名：<input type="text" name="uname" id="nameid"><br><br>-->
+<!--密  码：<input type="password" name="pwd" id="pwdid"><br><br>-->
+<!--<input type="button" value="登陆" onclick="funajax()">-->
+
+
+<!--&lt;!&ndash;<form action="test57_php.php" method="get">&ndash;&gt;-->
+<!--&lt;!&ndash;用户名：<input type="text" name="uname"><br><br>&ndash;&gt;-->
+<!--&lt;!&ndash;密  码：<input type="password" name="pwd"><br><br>&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="submit" value="登陆">&ndash;&gt;-->
+<!--&lt;!&ndash;</form>&ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->
+
+

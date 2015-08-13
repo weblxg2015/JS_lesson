@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="json/json(1).js"></script>
+    <script>
+        //json
+        /*
+        json:javascript object Notation=,是一种简单的数据交换格式
+        语法：{名称：值，名称：值.....}
+        */
+//        function person(v1,v2){
+//            this.name=v1;
+//            this.sex=v2;
+//        }
+//        var p1=new person("张三","男")
+
+        //直接量---基础的json语句
+//       var person={name:"张三",sex:"男"}
+
+        //方式1
+//        var person={name:"张三",sex:"男"}
+//        person.name;
+        //方式2
+//        var person= {
+//            name: "张三",
+//            sex: "男",
+//            tel: ['123','456','789']
+//        };
+//        alert(person.tel[1])//456
+
+//        方式3
+//        var person= {
+//                    name: "张三",
+//                    sex: "男",
+//                    tel: ['123','456','789'],
+//                    friends:[{fname:'hh',fage:12,fsex:'女'},
+//                            {fname:'mm',fage:21,fsex:'男'},
+//                            {fname:'zz',fage:31,fsex:'不详'}]
+//                };
+//        alert(person.friends[1].fname)//mm
+
+        //特殊
+//        var arr=[{fname:'hh',fage:12,fsex:'女'}, {fname:'mm',fage:21,fsex:'男'}, {fname:'zz',fage:31,fsex:'不详'}];
+//      var arr2="";
+//        for(i=0;i<arr.length;i++){
+//            arr2+=arr[i].fname+arr[i].fage+arr[i].fsex;
+//        }
+//        alert(arr2);
+
+
+        //eval()函数可以解析，解释并返回js对象和数组
+        //字符串形式数组（包含json数据）转换输出
+//        var arr1="[{fname:'hh',fage:12,fsex:'女'}, {fname:'mm',fage:21,fsex:'男'}, {fname:'zz',fage:31,fsex:'不详'}]";
+//        var arr=eval(arr1);
+//        var arr2="";
+//        for(i=0;i<arr.length;i++){
+//                    arr2+=arr[i].fname+arr[i].fage+arr[i].fsex;
+//                }
+//                alert(arr2);
+
+
+        //json字符串转换成json对象
+        var person='{name:"张三",sex:"男"}';
+//        var personbj=eval('('+person+')');
+//        alert(personbj.name);
+//        alert(personbj);
+
+//        var per=person.parseJSON();//不可用，要引json.js包
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

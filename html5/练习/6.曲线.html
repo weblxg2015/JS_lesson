@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #canvas1{
+           background: #3475BD;
+
+        }
+    </style>
+</head>
+<body>
+<canvas width="500" height="500" id="canvas1"></canvas>
+</body>
+</html>
+<script>
+    var can1=document.getElementById("canvas1");
+    var context=can1.getContext("2d");
+    var i=0;
+for(var j=0;j<10;j++) {
+    context.beginPath();
+    context.bezierCurveTo(0, (200 + i), 100, (250 + i), 40, (400 + i));
+    context.bezierCurveTo(40, (490 + i), 250, (70 + i), 300, (210 + i));
+    context.bezierCurveTo(300, (490 + i), 250, (70 + i), 300, (210 + i));
+    context.bezierCurveTo(350, (220 + i), 280, (50 + i), 500, (110 + i));
+    context.closePath;
+    i+=7;
+    context.strokeStyle = 'white';
+    context.lineWidth = 1;
+    context.stroke()
+}
+
+</script>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table tr td{
+            width: 100px;
+            height: 30px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body onload="fun03()">
+  <div>
+      员工注册<br><br>
+      姓名：<input type="text" id="name"><br><br>
+      年龄：<input type="text" id="age"><br><br>
+      工资：<input type="text" id="money"><br><br>
+      入职日期：<input type="text" id="date"><br><br>
+      职位：<input type="text" id="position"><br><br>
+      所属部门：<select id="bm"></select><br><br>
+      <input type="button" value="注册" onclick="fun01()">
+      <input type="button" value="查询全部" onclick="fun02()">
+  </div>
+
+    <table cellspacing="0" id="tab" style="position: absolute;top: 20px;left: 300px;border-collapse: collapse">
+        <tr>
+            <td>员工id</td>
+            <td>姓名</td>
+            <td>工资</td>
+            <td>部门名称</td>
+            <td>部门描述</td>
+        </tr>
+        </table>
+
+</body>
+</html>
+
+<script>
+    var name=document.getElementById("name");
+    var age=document.getElementById("age");
+    var money=document.getElementById("money");
+    var date=document.getElementById("date");
+    var position=document.getElementById("position");
+    var bm=document.getElementById("bm");
+
+    function createXHR(){
+        var XHRequst;
+        if(window.XMLHttpRequest){
+            XHRequst =new XMLHttpRequest();
+        }else if(window.ActiveXObject){
+            try{
+                XHRequst=  new ActiveXObject("Msxml2.XMLHTTP");
+            }catch (e){
+                XHRequst=  new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        }
+        return XHRequst;
+    }
+
+    function ajax1(url,arg){
+        var v_str;
+        var XHRequst=  createXHR();
+
+        XHRequst.open("POST",url,false);//false同步，所有页面执行完在输出；true异步
+        XHRequst.setRequestHeader('Content-type',"application/x-www-form-urlencoded");
+
+        XHRequst.onreadystatechange=function(){
+            //接收数据
+            if(XHRequst.readyState ==4 && XHRequst.status==200){
+                v_str=XHRequst.responseText;
+//                alert(v_str);
+            }
+        };
+        XHRequst.send(arg);
+        return v_str;
+    }
+
+    var sum='';
+    function fun03(){
+        var v_url="8.11php1.php";
+        var v_str=ajax1(v_url,null);
+        var v1=eval(v_str);
+        for(var i=0;i<v1.length;i++) {
+            sum+="<option value='"+v1[i].bmid+"'>"+v1[i].bmname+"</option>";
+        }
+        bm.innerHTML =sum;
+    }
+
+    var name1=document.getElementById("name").value;
+    var age1=document.getElementById("age").value;
+    var money1=document.getElementById("money").value;
+    var date1=document.getElementById("date").value;
+    var position1=document.getElementById("position").value;
+    var bm1=document.getElementById("bm").value;
+    function fun01(){
+        var v_url="8.11php2.php";
+        var arg="name="+ name1+"&age="+age1+"&money="+money1+"&date="+date1+"&position="+position1+"&bmid="+bm1;
+        var v_str=ajax1(v_url,arg);
+        var v1=eval(v_str);
+    }
+
+    var tab1=document.getElementById("tab");
+    function fun02(){
+        var v_url="8.11php3.php";
+        var v_str=ajax1(v_url,null);
+        var v1=eval(v_str);
+        for(var i=0;i<v1.length;i++){
+            var tr2=document.createElement("tr");
+             tab1.appendChild(tr2)
+        }
+        for(var j=0;j<v1.length;j++){
+            tab1.rows[j+1].innerHTML="<td>"+v1[j].ygid+"</td><td>"+v1[j].name+"</td><td>"+v1[j].money+"</td><td>"+v1[j].bmname+"</td><td>"+v1[j].bmms+"</td>";
+        }
+    }
+
+</script>

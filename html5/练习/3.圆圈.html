@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #can1{
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="600" id="can1"></canvas>
+<script>
+    var can1=document.getElementById("can1");
+    var context1=can1.getContext("2d");
+//    context.arc(圆心横坐标.圆心纵坐标，半径，开始角度，结束角度，是否为顺时针)
+    function fun01(x,y,r,s,e,f,color1){
+       context1.beginPath();
+        context1.arc(x,y,r,s,e,f);
+        context1.closePath();
+        context1.fillStyle=color1;
+        context1.fill();//填充
+    }
+    function fun02(x,y,r,s,e,f,color2,l){
+        context1.beginPath();
+        context1.arc(x,y,r,s,e,f);
+        context1.closePath();
+        context1.strokeStyle=color2;
+        context1.lineWidth=l;
+        context1.stroke();
+    }
+
+
+
+//    function  ()
+    var i=1;
+    setInterval(fun03,100)
+    function fun03() {
+        switch (i) {
+            case 1:
+                fun01(0, 50, 50, Math.PI / 2, (Math.PI / 2) * 3, true, "red");
+                break;
+            case 2:
+                fun02(-5, 400, 20, Math.PI / 2, (Math.PI / 2) * 3, true, "#C19FD4", 5);
+                break;
+            case 3:
+                fun02(150, 150, 20, 0, Math.PI * 2, true, "red", 3);
+                break;
+            case 4:
+                fun01(300, 130, 80, 0, Math.PI * 2, true, "#D2A0FA");
+                break;
+            case 5:
+                fun02(300, 130, 70, 0, Math.PI * 2, true, "red", 3);
+                break;
+            case 6:
+                fun02(300, 130, 15, 0, Math.PI * 2, true, "red", 3);
+                break;
+            case 7:
+                fun02(300, 130, 60, 0, Math.PI * 2, true, "white", 8);
+                break;
+            case 8:
+                fun02(300, 130, 40, 0, Math.PI * 2, true, "white", 8);
+                break;
+            case 9:
+                fun01(200, 300, 60, 0, Math.PI * 2, true, "#BEC0C1");
+                break;
+            case 10:
+                fun01(400, 250, 15, 0, Math.PI * 2, true, "red");
+                break;
+            case 11:
+                fun02(406, 245, 18, 0, Math.PI * 2, true, "#D2A0FA", 3);
+                break;
+            case 12:
+                fun01(500, 400, 15, 0, Math.PI * 2, true, "#D2A0FA");
+                break;
+            case 13:
+                fun01(170, 500, 50, 0, Math.PI * 2, true, "#D2A0FA");
+                break;
+            case 14:
+                fun02(170, 500, 50, 0, Math.PI * 2, true, "yellow", 6);
+                break;
+            case 15:
+                fun02(300, 500, 20, 0, Math.PI * 2, true, "#A8D4EC", 3);
+                break;
+        }
+        i++
+    }
+//    var arr1=[
+//            'fun01(0,50,50,Math.PI/2,(Math.PI/2)*3,true,"red");',
+//        'fun02(-5,400,20,Math.PI/2,(Math.PI/2)*3,true,"#C19FD4",5);',
+//        'fun02(150,150,20,0,Math.PI*2,true,"red",3);',
+//        'fun01(300,130,80,0,Math.PI*2,true,"#D2A0FA");',
+//        'fun02(300,130,70,0,Math.PI*2,true,"red",3);',
+//        'fun02(300,130,15,0,Math.PI*2,true,"red",3);',
+//        'fun02(300,130,60,0,Math.PI*2,true,"white",8);',
+//        'fun02(300,130,40,0,Math.PI*2,true,"white",8);',
+//        'fun01(200,300,60,0,Math.PI*2,true,"#BEC0C1");',
+//        'fun01(400,250,15,0,Math.PI*2,true,"red");',
+//        'fun02(406,245,18,0,Math.PI*2,true,"#D2A0FA",3);',
+//        'fun01(500,400,15,0,Math.PI*2,true,"#D2A0FA");',
+//        'fun01(170,500,50,0,Math.PI*2,true,"#D2A0FA");',
+//        'fun02(170,500,50,0,Math.PI*2,true,"yellow",6);',
+//        'fun02(300,500,20,0,Math.PI*2,true,"#A8D4EC",3)'
+//        ]
+
+</script>
+</body>
+</html>
