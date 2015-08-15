@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+        <style>
+            #canvas1{
+                background: yellow;
+            }
+            </style>
+    <script>
+        /*
+        绘制图像
+         drawImage(image,x,y)
+         image：images对象
+         x，y图像在画布中的起始坐标
+           drawImage(image,x,y,w,h);
+                w,h设置图像的宽度和高度
+         drawImage(image,sx,sy,sw,sh,dx,dy,dw,dh);
+            将画布中已经绘制好的图像全部或部分区域复制到另一个位置上
+            sx，sy：源图像被复制区域在画布中的起始横纵坐标
+            sw，sh：被复制区域的宽度和高度
+            dx，dy：复制后的目标图像在画布中的其实横纵坐标
+            dw，dh：复制后的目标图像的宽度与高度
+
+
+            //绘制文字
+            /*
+            fillText（要绘制的文字，文字的起始坐标，文字的终点坐标，[显示文字时的最大宽度]）
+            轮廓文字
+            strokeText（参数同上）
+            font：设置字体
+            textAlign：水平对齐方式，start end left right center
+            textBaseline：垂直对齐方式 ，top middle bottom handing
+
+            */
+
+
+
+        window.onload=function() {
+            var v_canvas = document.getElementById("canvas1");
+////                2.取得上下文-context
+////                 context中封装了很多绘图功能的对象
+            var context = v_canvas.getContext("2d");
+//            var img = new Image();
+//            img.src = 'images/kaka.jpg';
+//            var img2 = new Image();
+//            img2.src = 'images/makalong.jpg';
+////            //img.onload 事件：是同步执行绘制图像的函数，可以实现一边加载，一边绘制
+//            var x1,y1;
+//            img.onload = function () {
+////                context.drawImage(img,10,10);
+//                context.drawImage(img,0,0,200,300);
+//               context.drawImage(img,0,0,200,300,100,200,50,50);
+//
+//            };
+//
+////            document.getElementById("canvas1").onclick = function (e) {
+////                var x = e.offsetX;
+////                var y = e.offsetY;
+////                if(x>0&&x<=200&&y>0&&y<=300){
+////                    alert('aaa')
+////                }
+////            }
+//
+//            document.getElementById("canvas1").onmousemove = function (e) {
+//                var x = e.offsetX;
+//                var y = e.offsetY;
+//                if(x>100&&x<=150&&y>200&&y<=250){
+//                    var a1=context.drawImage(img2,0,0,200,200,100,200,50,50);
+////                    a1.onclick=function(){
+////                        alert("1")
+////                    }
+//
+//                }
+//                else{
+//                    context.drawImage(img,0,0,200,200,100,200,50,50);
+//                }
+//            }
+
+
+            //save 与restore
+            context.fillStyle="red";
+
+            context.fillRect(10,10,100,100);
+            context.save();
+
+            context.fillStyle="blue";
+            context.fillRect(120,10,100,100);
+            context.save();
+
+            context.fillStyle="green";
+            context.restore();
+            context.fillRect(230,10,100,100);
+
+
+
+            //图像裁剪
+            //先画裁剪区域，再填充图形或图像
+//            context.arc(200,200,200,0,Math.PI*2,true);
+//            context.clip();
+//
+//            var img=new Image();
+//            img.src = 'images/bg.png';
+//            img.onload=function(){
+//                context.drawImage(img,0,0)
+//            }
+
+
+
+            //绘制文字
+            /*
+             fillText（要绘制的文字，文字的起始坐标，文字的终点坐标，[显示文字时的最大宽度]）
+             轮廓文字
+             strokeText（参数同上）
+             font：设置字体
+             textAlign：水平对齐方式，start end left right center
+             textBaseline：垂直对齐方式 ，top middle bottom handing
+             */
+
+//            context.fillStyle='red';
+//            context.font= 'bolder 40px 黑体 ';
+////            context.textAlign="right";
+////            context.textBaseline='top';
+////            context.fillText("我不知道！",10,10)//实心字体
+//
+//            context.strokeStyle='blue';
+//            context.strokeText('我不知道',10,100)//空心字体
+
+
+        }
+
+    </script>
+</head>
+<body>
+<canvas width="500" height="500" id="canvas1"></canvas>
+</body>
+</html>

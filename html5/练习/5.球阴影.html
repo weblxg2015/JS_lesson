@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #canvas01{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+     <canvas width="500" height="500" id="canvas01"></canvas>
+</body>
+</html>
+<script>
+    var v_canvas=document.getElementById('canvas01');
+    var context=v_canvas.getContext('2d');
+   var c1=context.createLinearGradient(0,0,500,500);
+    c1.addColorStop(0,"white");
+    c1.addColorStop(1,'rgba(231,231,231,0.8)');
+
+
+
+
+    context.fillStyle=c1;
+    context.fillRect(0,0,500,500);
+
+    function yuan(x,y,r) {
+        context.beginPath();
+        context.arc(x, y, r,0, Math.PI * 2, true);
+        var c2=context.createRadialGradient(x,y,r*0.4,x,y,r);
+        c2.addColorStop(0,"rgba(255,2255,255,0.9)");
+        c2.addColorStop(1,'rgba(231,231,231,0.8)');
+        context.fillStyle =c2;
+        context.shadowOffsetX=r*0.4;
+        context.shadowOffsetY=r*0.4;
+        context.shadowColor='rgba(126,126,126,0.8)';
+        context.shadowBlur=50;
+        context.fill();
+        context.closePath();
+    }
+
+
+    function hua(){
+        var a1=Math.random()*500;
+        var a2=Math.random()*500;
+        var a3=Math.random()*100;
+        yuan(a1,a2,a3)
+    }
+    setInterval(hua,500);
+
+</script>
