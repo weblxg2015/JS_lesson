@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //        html5   本地数据库（web sql database）
+        //        将数据库存储在客户端，采用sqllite文件类型sql数据库
+
+        //       1、 将经常用的数据保存到本地数据库中，
+        //        不用去服务器请求，减少向服务器的请求次数，提高效率
+        //        2、离线办公，如写一篇日记，可在下次在线时继续编辑
+
+
+        //        步骤
+        //        1、打开连接并创建数据库
+        //          openDatabase(数据库名称，版本号，对数据的描述，数据库大小，回调（可以省略）);
+
+        //         物理存储路径 C:\Users\Administrator\AppData\Local\Google\Chrome\User Data\Default\databases\http_localhost_63342
+        var mydb=openDatabase("testdb","1.0","测试数据库",1024*1024);
+        //        if(mydb){
+        //            alert("本地数据库创建成功");
+        //        }else{
+        //            alert("本地数据库创建失败");
+        //        }
+        //2、创建表
+        ////        事物   transaction:可以防止在对数据库进行访问及执行有关操作的时候收到外界的打扰
+        //                             即使用事物来达到在操作完成之前，阻止别的用户访问数据库的目的
+        //
+        //sqlite3支持的数据类型：
+        //NULL、INTEGER、REAL、TEXT、BLOB
+        //但是，sqlite3也支持如下的数据类型
+        //smallint           16位整数
+        //integer             32位整数
+        //decimal(p,s)   p是精确值,s是小数位数
+        //float                  32位实数
+        //double             64位实数
+        //char(n)             n长度字符串，不能超过254
+        //varchar(n)        长度不固定最大字符串长度为n，n不超过4000
+        //graphic(n)        和 char(n) 一样，但是单位是两个字符double-bytes，n不超过127(中文字)
+        //vargraphic(n)  可变长度且最大长度为n
+        //
+        //date                  包含了年份、月份、日期
+        //time                  包含了小时、分钟、秒
+        //timestamp       包含了年、月、日、时、分、秒、千分之一秒
+
+
+        //tx.executeSql(arg1,arg2,arg3,arg4);
+        //arg1:要执行的sql语句
+        //arg2:插入到sql语句中问好所在处的字符串数据
+        //arg3:成功回调
+        //arg4:失败回调
+        //arg2/3/4可省略
+
+        mydb.transaction(function(tx){
+            tx.executeSql("create table if not exists users(id unique,uname varchar(10),pwd varchar(8))",[],
+                    function(){alert('表创建成功');},
+                    function(){alert('表创建失败');}
+            );
+        });
+
+        //        3、执行操作
+        mydb.transaction(function(tx){
+            //插入
+//            tx.executeSql("insert into users(id,uname,pwd) values(1,'zs','123')");
+            tx.executeSql("insert into users(id,uname,pwd) values(?,?,?)",[2,'zs','456']);
+        });
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

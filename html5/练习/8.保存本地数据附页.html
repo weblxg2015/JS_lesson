@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="id01"></div>
+</body>
+</html>
+<script>
+    var v1=localStorage.getItem('name');
+    var v2=sessionStorage.getItem('name1');
+    if(v1.length>0){
+        document.getElementById("id01").innerHTML = "欢迎您" + v1 + "光临本站";
+    }
+    else{
+        document.getElementById("id01").innerHTML = "欢迎您" + v2 + "光临本站";
+    }
+
+
+</script>

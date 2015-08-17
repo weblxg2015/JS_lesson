@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+姓名：<input type="text" id="name"><br><br>
+姓名：<input type="radio" name="sex" value="男">男 <input type="radio"name="sex" value="女">女<br><br>
+爱好：<input type="checkbox" name="love" value="stu1">学习 <input type="checkbox" name="love" value="stu2">再学习<input type="checkbox" name="love" value="stu3">再再学习<br><br>
+朋友：<input type="text" id="friend">朋友最多用三个，用“,”分开，如：张三，李四，王五<br><br>
+
+<input type="button" value="新增" id="new">
+
+</body>
+</html>
+
+<script>
+    var newadd=document.getElementById("new");
+    newadd.addEventListener("click",function(){
+        var name=document.getElementById("name");
+        var sex=document.getElementsByName("sex");
+        var love=document.getElementsByName("love");
+        var friend=document.getElementById("friend");
+        var name1,sex1,love1;
+        var frearr2=[];
+         name1=name.value;
+        alert(name1);
+        for(i=0;i<sex.length;i++){
+            if(sex[i].checked){
+                sex1=sex[i].value;
+            }
+        }
+
+        love1= "";
+        for(i=0;i<love.length;i++){
+            if(love[i].checked){
+                love1+=love[i].value;
+            }
+        }
+      var frearr=friend.value;
+        frearr2=frearr.split(",");
+
+        var mydb=openDatabase('testdb','1.0','测试数据库',1024*1024);
+        mydb.transaction(function(tx){
+            tx.executeSql("create table if not exists user3(name varchar(10),sex varchar(8),love varchar(8),fre1 varchar(8),fre2 varchar(8),fre3 varchar(8))"
+            );
+            tx.executeSql("insert into user3(name,sex,love,fre1,fre2,fre3) values(?,?,?,?,?,?)",[name1,sex1,love1,frearr2[0],frearr2[1],frearr2[1]]);
+        });
+
+    });
+
+    </script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+用户名：<input type="text" id="uname"><br><br>
+密 码<input type="text" id="pwd"><br><br>
+<input type="checkbox" id="baocun">记住用户名密码<br><br>
+<input type="button" value="登陆" id="load">
+</body>
+</html>
+<script>
+    var bc= document.getElementById("baocun");
+    if(localStorage.getItem('name').length>0){
+        document.getElementById("uname").value=localStorage.getItem('name');
+        document.getElementById("pwd").value=localStorage.getItem('pwd');
+        bc.checked=true;
+    }
+
+   document.getElementById("load").addEventListener('click',function(){
+       var v1 = document.getElementById("uname").value;
+       var v2 = document.getElementById("pwd").value;
+       var v3='';
+       var v4='';
+       if(bc.checked) {
+           localStorage.setItem('name',v1);
+           localStorage.setItem('pwd',v2);
+           location.href="8.保存本地数据附页.html";
+       }
+       else{
+           localStorage.setItem('name',v3);
+           localStorage.setItem('pwd',v4);
+           sessionStorage.setItem('name1',v1);
+           sessionStorage.setItem('pwd1',v2);
+           location.href="8.保存本地数据附页.html";
+//           alert(sessionStorage.getItem('name1'))
+       }
+
+   },false)
+    </script>

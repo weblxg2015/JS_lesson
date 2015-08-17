@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+/*  本地存储
+    web Storage
+    即在客户端本地保存数据
+    1.html4一般使用cookies在客户端保存用户的一些信息
+      cookies 特点：大小在4KB
+                   应用复杂
+    2.html5本地存储
+          1.sessionStorage  临时保存
+                           将数据保存在session对象中，如果浏览器关闭了，它保存的数据将会丢失
+              sessionStorage.setItem(key,value); //保存数据
+              sessionStorage.getItem(key);读取数据
+
+         2.localStorage ：永久保存
+                           将数据保存在客户端设备上（一般指硬盘）
+                           所以即使浏览器关闭了，数据依然存在
+                localStorage.setItem(key,value); //保存数据
+                localStorage.getItem(key);读取数据
+*/
+        window.onload=function(){
+            document.getElementById('but01').addEventListener("click",function(){ //临时储存
+               var v=document.getElementById("inp01").value;
+                sessionStorage.setItem('aa',v);
+            },false);
+
+            document.getElementById('but02').addEventListener("click",function(){
+               var s= sessionStorage.getItem('aa');
+                alert(s)
+            },false);
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="inp01">
+      <button id="but01">sessionStorage保存数据</button>
+      <button id="but02">sessionStorage读取数据</button>
+</body>
+</html>
