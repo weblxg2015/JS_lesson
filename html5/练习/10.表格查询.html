@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table tr td{
+            border: 1px solid black;
+           width: 50px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+用户名<input type="text" id="uname"><br><br>
+id查询<input type="text" id="id01"><br><br>
+<input type="button" value="查询" onclick="fun01()">
+<table id="tab01"></table>
+<script>
+    function fun01() {
+        var mydb = openDatabase('testdb', '1.0', '测试数据库', 1024 * 1024);
+        var uname1 = document.getElementById("uname").value;
+        var id1 = document.getElementById("id01").value;
+        var tab1 = document.getElementById("tab01");
+        if (uname1.length > 0 && id1.length == 0) {
+            mydb.transaction(function (tx) {
+                tx.executeSql("select * from user1 where uname like?", ['%' + uname1 + '%'],
+                        function (tx, resultset) {
+                            for (var i = 0; i < resultset.rows.length; i++) {
+                        tab1.insertRow(i);
+                        for(var j=0;j<2;j++) {
+                            tab1.rows[i].insertCell(j);
+                            if(j==0){
+                                tab1.rows[i].cells[j].innerHTML=resultset.rows.item(i).uname;
+                            }
+                            else if(j==1){
+                                tab1.rows[i].cells[j].innerHTML=resultset.rows.item(i).pwd
+                            }
+                        }
+                            }
+                        });
+            });
+        }
+
+       else if (uname1.length == 0 && id1.length > 0) {
+            mydb.transaction(function (tx) {
+                tx.executeSql("select * from user1 where id=?",[id1],
+                        function (tx,resultset) {
+                            for (var m = 0; m < resultset.rows.length; m++) {
+                                alert("2")
+                                tab1.insertRow(m);
+                                for(var n=0;n<2;n++){
+                                    tab1.rows[m].insertCell(n);
+                                    if(n==0){
+                                        tab1.rows[m].cells[n].innerHTML=resultset.rows.item(m).uname;
+                                    }
+                                    else if(n==1){
+                                        tab1.rows[m].cells[n].innerHTML=resultset.rows.item(m).pwd
+                                    }
+                                }
+                            }
+                        });
+            });
+        }
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function callchild(){
+            var fatext1=document.getElementById("fathertext").value;
+            son1.document.getElementById('son1').innerText=fatext1;
+        }
+
+
+        </script>
+</head>
+<body>
+<textarea id="fathertext"></textarea><br>
+<input type="button" value="发送" onclick="callchild()">
+<iframe width="300" height="300"
+        style="border: 1px solid red"
+        src="12.子窗口1.html"
+        name="son1"
+        >
+</iframe>
+    <iframe width="300" height="300"
+            style="border: 1px solid red"
+            src="12.子窗口2.html"
+            name="son2"
+            >
+</iframe>
+
+<div id="father2"></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script></script>
+    <script>
+//        iframe同域与跨域
+        function callchild(){
+           var str= document.getElementById("fathertext").value;
+            //父框架向子框架传递
+            iframe01.document.getElementById('childdiv').innerText=str;
+        }
+
+
+    </script>
+</head>
+<body>
+  <!--
+  iframe内联框架
+  scrolling 滚动条 yes no
+  230010151132101
+  230010151213812
+  marginheight：定义iframe顶部和底部的边距
+  marginwidth：定义iframe左部和右部和底部的边距
+  -->
+
+  <iframe width="300" height="300" scrolling="yes" marginheight="10" marginwidth="20"
+          style="border: 1px solid red"
+          src="text10_sub.html"
+          name="iframe01"
+          >
+  </iframe>
+<br><br>
+<input type="text" id="fathertext">
+  <button onclick="callchild()">向子框架传递</button><br>
+
+<div id="fatherdiv">接收子框架内容</div>
+</body>
+</html>

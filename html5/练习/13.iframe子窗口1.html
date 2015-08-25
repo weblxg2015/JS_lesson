@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<img src="" width="300" height="150" id="son1img"><br><br>
+<div id="son1text">这是图片1</div><br>
+<input type="button" value="复制图片与文字" onclick="copy()">
+<script>
+    function copy() {
+        window.parent.document.getElementById("fathertext").innerText = document.getElementById("son1text").innerText;
+        window.parent.iframe2.document.getElementById("son2img").src = document.getElementById("son1img").getAttribute("src");
+    }
+</script>
+</body>
+</html>

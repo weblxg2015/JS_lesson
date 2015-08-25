@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+<style>
+    table{
+        border-collapse:collapse ;
+    }
+    table tr td{
+        border: 1px solid black;
+        width: 100px;
+        height: 30px;
+    }
+</style>
+</head>
+<body>
+姓名：<input type="text" id="uname"><br><br>
+性别：<input type="radio" value="男" name="sex">男 <input type="radio" value="女" name="sex">女<br><br>
+留言：<textarea id="leave"></textarea><br><br>
+<input type="button" value="留言" onclick="fun01()"><br><br>
+<table id="tab1">
+    <!--<tr>-->
+        <!--<td>编号</td>-->
+        <!--<td>姓名</td>-->
+        <!--<td>性别</td>-->
+        <!--<td>留言内容</td>-->
+        <!--<td>时间</td>-->
+        <!--<td>操作</td>-->
+    <!--</tr>-->
+
+</table>
+</body>
+</html>
+<script>
+    var mydb=openDatabase('testdb','1.0','测试数据库',1024*1024);
+    var tab1=document.getElementById("tab1");
+    mydb.transaction(function(tx){
+        tx.executeSql("create table if not exists liuyan5(id unique ,uname varchar(10),sex varchar(8),leave varchar(250),time varchar(50))",[])
+        }
+    );
+
+    if(localStorage.getItem("testtdid2")){
+        var b=localStorage.getItem("testtdid2");
+    }
+    else{
+        localStorage.setItem('testtdid2',1);
+    }
+    function fun01(){
+        tab1.innerHTML="<tr>"+"<td>"+" 编号"+"</td>"
+                          +"<td>"+" 姓名"+"</td>"
+                           +"<td>"+" 性别"+"</td>"
+                            +"<td>"+" 留言内容"+"</td>"
+                            +"<td>"+" 时间"+"</td>"
+                            +"<td>"+" 操作"+"</td>"+"<tr>";
+        var name1=document.getElementById("uname").value;
+        var sex2=document.getElementsByName("sex");
+        for(var i=0;i<sex2.length;i++){
+            if(sex2[i].checked){
+               var sex1=sex2[i].value;
+            }
+        }
+        var leave1=document.getElementById("leave").value;
+        var date1=new Date();
+        var y1=date1.getFullYear();
+        var m1=date1.getMonth()+1;
+        var d1=date1.getDay();
+        var h1=date1.getHours();
+        var m2=date1.getMinutes();
+        var s1=date1.getSeconds();
+
+        var time1=y1+"-"+m1+"-"+d1+" "+h1+":"+m2+":"+s1;
+        mydb.transaction(function(tx) {
+            tx.executeSql("insert into liuyan5(id,uname,sex,leave,time) values(?,?,?,?,?)", [b,name1,sex1,leave1,time1]);
+            b++;
+            localStorage.setItem('testtdid2',b);
+            tx.executeSql("select * from liuyan5",[],
+                    function(tx,resultset){
+                        for(var j=0;j<resultset.rows.length;j++){
+                            tab1.innerHTML+="<tr>"+"<td>"+resultset.rows.item(j).id+"</td>"
+                                    +"<td>"+resultset.rows.item(j).uname+"</td>"
+                                    +"<td>"+resultset.rows.item(j).sex+"</td>"
+                                    +"<td>"+resultset.rows.item(j).leave+"</td>"
+                                    +"<td>"+resultset.rows.item(j).time+"</td>"
+                                    +"<td>"+
+                                    "<a onclick='fundel("+resultset.rows.item(j).id+")'>删除</a>"
+                                    +"</td>"+"<tr>";
+                        }
+                    });
+        });
+
+    }
+    function fundel(v){
+        mydb.transaction(function(tx){
+            tx.executeSql("delete from liuyan5 where id=?",[v],
+                    function(){alert("删除成功"+v)},
+                    function(tx,error){alert("删除失败！原因是"+error.message)})
+            b--;
+            localStorage.setItem('testtdid2',b);
+        }
+        )}
+
+</script>

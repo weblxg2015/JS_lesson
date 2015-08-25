@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function callfather(){
+            var str2= document.getElementById('childtext').value;
+            window.parent.document.getElementById('fatherdiv').innerText=str2;
+        }
+    </script>
+</head>
+<body>
+我是子框架iframe<br>
+接收父框架内容：<div id="childdiv"></div>
+<br>
+<input type="text" id="childtext">
+<button onclick="callfather()">向父框架传递</button>
+</body>
+</html>

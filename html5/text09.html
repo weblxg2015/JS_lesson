@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--html5 Geolocation地理定位-->
+    <!--引入百度地图api-->
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=GR9lbYml5Os4eXpny7Gt57PV"></script>
+    <!--<script src="js/api.js"></script>-->
+    <script>
+        function getLocation(){
+            //取得当前地理位置
+            //navigate.geolocation.getcurrentposition(获取地理信息成功时的回调函数，
+            //                                        获取地理信息失败时的回调函数，
+            //                                        可选属性列表 )
+            //可选属性列表:enableHighAccuracy 是否要求高精度的地理定位
+            //             maximumAge   对地理位置信息进行缓存的有效时间，以毫秒为单位
+            //参数2、参数3可省略
+            if(navigator.geolocation){
+//               alert("当前浏览器支持html5地理定位功能！");
+                navigator.geolocation.getCurrentPosition(showMap,error,{enableHighAccuracy:true,maximumAge:1000} );
+            }else{
+                alert("对不起，当前浏览器不支持html5地理定位功能！");
+            }
+
+        }
+        //获取地理信息成功时的回调函数
+        function showMap(position){
+
+            //position对象
+            /*
+             * position.latitude  纬度
+             * position.longitude 经度
+             * 。。。
+             * */
+            var wd=  position.coords.latitude;
+            var jd=  position.coords.longitude;
+
+            //利用百度地图api
+            var v_map=new BMap.Map("map");  //创建Map实例
+            //创建坐标--经度、纬度
+            var v_point= new BMap.Point(jd,wd);
+            //设置坐标，地图级别
+            v_map.centerAndZoom(v_point,15);
+            //创建标注
+            var v_marker=new BMap.Marker(new BMap.Point(jd,wd));
+            //标注加入地图
+            v_map.addOverlay(v_marker);
+        }
+
+        // 获取地理信息失败时的回调函数
+        function error(v){
+             //v.code;获取错误码
+            var e= v.code;
+            switch (e){
+                case 1:alert('用户拒绝了位置服务');break;
+                case 2:alert('获取不到位置信息');break;
+                case 3:alert('获取信息超时');break;
+                case 4:alert('未知错误');break;
+            }
+        }
+        window.onload=getLocation();
+    </script>
+</head>
+<body>
+<div id="map" style="width: 600px;height:600px;border: 1px solid red"></div>
+</body>
+</html>

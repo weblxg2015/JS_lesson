@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+   ifame01图片设置<br><br>
+<input type="button" value="上一张" onclick="pre()"> <input type="button" value="下一张" onclick="next()"><br><br>
+   文字说明<input type="text" id="img_say" onchange="imgtext()"><br><br>
+
+   <img src="" width="300" height="150" id="son2img" style="position: relative; top:0px;left: 0px">
+<script>
+    var imgs=['../images/1.jpg','../images/2.jpg','../images/3.jpg','../images/4.png','../images/5.png'];
+    var i=1;
+    window.parent.iframe1.document.getElementById("son1img").src=imgs[i];
+    function pre(){
+
+        window.parent.iframe1.document.getElementById("son1img").src=imgs[i];
+        i++;
+        if(i==(imgs.length-1)){
+            i=0;
+        }
+    }
+    function next(){
+        window.parent.iframe1.document.getElementById("son1img").src=imgs[i];
+        i--;
+        if(i==0){
+            i=imgs.length-1;
+        }
+    }
+    function imgtext(){
+        var img_say=document.getElementById("img_say").value;
+        window.parent.iframe1.document.getElementById("son1text").innerText=img_say;
+    }
+
+
+</script>
+</body>
+</html>

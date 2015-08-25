@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div style="width: 800px;height: 600px;border: 1px solid black;position: relative">
+     <div style="width: 200px;height: 80px;margin: 30px">
+         文字说明设置<br>
+         改变背景颜色：<input type="radio" value="red" name="bgcolor" onchange="chabg()">红
+         <input type="radio" value="yellow" name="bgcolor" onchange="chabg()">黄
+         <input type="radio" value="blue" name="bgcolor" onchange="chabg()">蓝<br><br>
+          <input type="button" value="字体放大" onclick="fontbig()"> <input type="button" value="字体缩小" onclick="fontsmall()">
+     </div>
+
+    <iframe name="iframe1" width="350px" height="250px"
+            src="13.iframe子窗口1.html"
+            style="border: 1px solid black;margin-left: 30px;">
+    </iframe>
+
+    <div id="fathertext" style="width:350px;height: 100px;border: 1px solid black;margin: 30px"></div>
+
+    <iframe name="iframe2" width="350px" height="300px"
+            src="13.iframe子窗口2.html"
+            style="border: 1px solid black;position:absolute;top: 30px;left: 430px">
+    </iframe>
+
+    <div style="width: 350px;height:80px;position: absolute;left: 430px;top: 400px">
+        动画控制<br><br>
+        <input type="button" value="左移" onclick="left1()"> <input type="button" value="右移" onclick="right1()">
+        <input type="button" value="上移" onclick="up1()"> <input type="button" value="下移" onclick="down1()">
+    </div>
+</div>
+
+<script>
+
+
+ function chabg(){
+     var bgcolor=document.getElementsByName("bgcolor")
+     for(var i=0;i<bgcolor.length;i++){
+         if(bgcolor[i].checked){
+             iframe1.document.getElementById("son1text").style.backgroundColor=bgcolor[i].value;
+         }
+     }
+ }
+var f1=12;
+    function fontbig(){
+   f1+=5;
+        iframe1.document.getElementById("son1text").style.fontSize=f1+"px";
+    }
+ function fontsmall(){
+     f1-=5;
+     iframe1.document.getElementById("son1text").style.fontSize=f1+"px";
+ }
+
+    var x1=0;
+    var y1=0;
+ function up1(){
+//     alert("1")
+     y1-=5;
+   iframe2.document.getElementById("son2img").style.top=y1+"px";
+ }
+ function down1(){
+     y1+=5;
+    iframe2.document.getElementById("son2img").style.top=y1+"px";
+ }
+ function left1(){
+     x1-=5;
+     iframe2.document.getElementById("son2img").style.left=x1+"px";
+ }
+ function right1(){
+     x1+=5;
+     iframe2.document.getElementById("son2img").style.left=x1+"px";
+ }
+    
+
+
+</script>
+</body>
+</html>

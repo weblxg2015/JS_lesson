@@ -16,13 +16,13 @@
          openDatabase(数据库名称，版本号，对数据库的描述，设置数据大小，回调（可省略）)
          C:\Users\q4156_000\AppData\Local\Google\Chrome\User Data\Default\databases\http_localhost_63342
         */
-       var mydb=openDatabase('testdb','1.0','测试数据库',1024*1024);
-        if(mydb){
-            alert('本地数据库创建成功')
-        }
-        else{
-            alert('本地数据库创建不成功')
-        }
+//       var mydb=openDatabase('testdb','1.0','测试数据库',1024*1024);
+//        if(mydb){
+//            alert('本地数据库创建成功')
+//        }
+//        else{
+//            alert('本地数据库创建不成功')
+//        }
 
         /*
         2.创建表
@@ -57,26 +57,52 @@
  arg2/3/4可省略
  */
 
-mydb.transaction(function(tx){
-    tx.executeSql("create table if not exists user2(id unique,uname varchar(10),pwd varchar(8))",[],
-            function(){alert('表创建成功');},
-            function(){alert('表创建失败');}
-    );
-});
+//mydb.transaction(function(tx){
+//    tx.executeSql("create table if not exists user2(id unique,uname varchar(10),pwd varchar(8))",[],
+//            function(){alert('表创建成功');},
+//            function(){alert('表创建失败');}
+//    );
+//});
 /*
 3.执行操作
    */
-mydb.transaction(function(tx){
-    //插入
-//    tx.executeSql("insert into user2(id,uname,pwd) values(1,'zs','123')");
-    tx.executeSql("insert into user1(id,uname,pwd) values(?,?,?)",[2,'zs','456']);
+//mydb.transaction(function(tx){
+//    //插入
+////    tx.executeSql("insert into user2(id,uname,pwd) values(1,'zs','123')");
+//    tx.executeSql("insert into user1(id,uname,pwd) values(?,?,?)",[2,'zs','456']);
+//});
+        /*批量插入数据
+         [[2,'zs','456'],[2,'zs','456'],[2,'zs','456'],[2,'zs','456'],[2,'zs','456'],[2,'zs','456'],...]
+        */
 
+//        查询
+var mydb=openDatabase('testdb','1.0','测试数据库',1024*1024);
+        mydb.transaction(function(tx){
+            tx.executeSql("select * from user1 where id=?",[1],
+                    function(tx,resultset){
+                        for(var i=0;i<resultset.rows.length;i++){
+//                            alert(resultset.rows.item(i).uname);
+//                            alert(resultset.rows.item(i).pwd);
+//                            var =
+                            document.getElementById("id01").innerHTML=resultset.rows.item(i).uname+" "
+                                                                         +resultset.rows.item(i).pwd +" "
+                                                                          +resultset.rows.item(i).id +" "
+                                                                         +"<a onclick='+delfun("+resultset.rows.item(i).id+")'>删除</a>";
+                        }
+                    });
+        });
 
-});
+        function delfun(iddel){
+            mydb.transaction(function(tx){
+                tx.executeSql("delete from user1 where id=?",[iddel],
+                        function(){alert("删除成功");},
+                        function(tx,error){alert("删除失败！原因"+error.message);})
+                    }
+            )}
     </script>
 </head>
 <body>
-
+<div id="id01"></div>
 </body>
 </html>
 
